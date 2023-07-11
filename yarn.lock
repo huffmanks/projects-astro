@@ -558,6 +558,16 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.18.11.tgz#6526c7e1b40d5b9f0a222c6b767c22f6fb97aa57"
   integrity sha512-rQI4cjLHd2hGsM1LqgDI7oOCYbQ6IBOVsX9ejuRMSze0GqXUG2ekwiKkiBU1pRGSeCqFFHxTrcEydB2Hyoz9CA==
 
+"@fontsource-variable/raleway@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/raleway/-/raleway-5.0.6.tgz#105bfdb1d66614dab2a4921ca1a73e73ea41da68"
+  integrity sha512-EpSTgT0b+RlqZAjz0ExSlrIGWV5Av5L2B9zYK6MDCvNSltJi1fOnsMvbAnXuImv28EzPbSyb0aZ/4kn2fYrnzg==
+
+"@fontsource-variable/roboto-mono@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/roboto-mono/-/roboto-mono-5.0.6.tgz#bc3aa87098ab66a1ebbd97331e4645349dcbba48"
+  integrity sha512-n2TfINPd+mycq6husov36SWO6v1/dKDhxNf6LtB7mKrCtBjWyTAJiC1qjiRmYT4I69/cNQZhlu3Jd+f+JQIR6g==
+
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"

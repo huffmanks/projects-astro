@@ -1,7 +1,8 @@
 ---
-import WeatherOutput from '../../../components/WeatherOutput'
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import WeatherForm from '../../../components/weather/WeatherForm'
 ---
 
-<div>
-    <WeatherOutput client:load />
-</div>
+<BaseLayout title='Weather App' bgColor='bg-zinc-900' textColor='text-zinc-100' isFontMono>
+    <WeatherForm client:load />
+</BaseLayout>

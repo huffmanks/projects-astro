@@ -1,13 +1,18 @@
 import { useState } from 'react'
+import TodayCard from './TodayCard'
+import ForecastCard from './ForecastCard'
+import type { TodayInfo, ForecastInfo } from '../../types'
 
-export default function WeatherOutput() {
+const WeatherForm = () => {
     const [zipCode, setZipCode] = useState('')
     const [error, setError] = useState('')
-    const [data, setData] = useState(undefined)
+    const [today, setToday] = useState<TodayInfo | null>(null)
+    const [forecast, setForecast] = useState<ForecastInfo[] | null>(null)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (data) {
-            setData(undefined)
+        if (today || forecast) {
+            setToday(null)
+            setForecast(null)
         }
         setZipCode(e.target.value)
     }
@@ -32,24 +37,28 @@ export default function WeatherOutput() {
         }
 
         const API_KEY = import.meta.env.PUBLIC_OPEN_WEATHER_API_KEY
-        const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode}&cnt=25&units=imperial&appid=${API_KEY}`
+        const todayUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=imperial&appid=${API_KEY}`
+        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode}&cnt=40&units=imperial&appid=${API_KEY}`
 
-        const response = await fetch(url)
-        const weatherData = await response.json()
+        const todayResponse = await fetch(todayUrl)
+        const todayData = await todayResponse.json()
 
-        setData(weatherData)
-        console.log(weatherData)
+        const forecastResponse = await fetch(forecastUrl)
+        const forecastData = await forecastResponse.json()
+
+        setToday(todayData)
+        setForecast(forecastData.list)
         setZipCode('')
     }
 
     return (
         <>
-            <header className='bg-purple-800 py-6 px-8'>
+            <header className='bg-zinc-800 py-6 px-8'>
                 <div className='flex justify-between gap-4 items-center max-w-xl mx-auto'>
                     <form onSubmit={handleSubmit}>
                         <div className='bg-white rounded-lg'>
-                            <input className='outline-none bg-transparent px-3 py-1 text-sm' type='text' placeholder='Enter zip code' value={zipCode} onChange={handleChange} />
-                            <button className='border-none outline-none bg-purple-600 text-white text-sm px-3 py-1 rounded-r-lg' type='submit'>
+                            <input className='outline-none bg-transparent px-3 py-1 text-sm text-black' type='text' placeholder='Enter zip code' value={zipCode} onChange={handleChange} />
+                            <button className='border-none outline-none bg-zinc-600 text-white text-sm px-3 py-1 rounded-r-lg' type='submit'>
                                 Search
                             </button>
                         </div>
@@ -58,7 +67,21 @@ export default function WeatherOutput() {
                 </div>
             </header>
 
-            <div className='max-w-4xl mx-auto p-5'>{data && <section>output</section>}</div>
+            <div className='max-w-4xl mx-auto p-5'>
+                {today && forecast && (
+                    <>
+                        <h2 className='text-2xl text-center mb-8'>{today.name}</h2>
+                        <section className='grid grid-cols-[repeat(auto-fill,_minmax(min(160px,_100%),_1fr))] gap-8'>
+                            <div className='col-span-2'>
+                                <TodayCard today={today} />
+                            </div>
+                            {forecast.map((item) => (
+                                <ForecastCard key={item.dt} item={item} />
+                            ))}
+                        </section>
+                    </>
+                )}
+            </div>
 
             {error && (
                 <>
@@ -88,3 +111,5 @@ export default function WeatherOutput() {
         </>
     )
 }
+
+export default WeatherForm
