@@ -36,9 +36,14 @@ const WeatherForm = () => {
             return
         }
 
-        const API_KEY = import.meta.env.PUBLIC_OPEN_WEATHER_API_KEY
-        const todayUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=imperial&appid=${API_KEY}`
-        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode}&cnt=40&units=imperial&appid=${API_KEY}`
+        // ### TRY THIS API INSTEAD
+        // https://www.weather.gov/documentation/services-web-api
+        // https://api.weather.gov/gridpoints/TOP/31,80/forecast
+        // ###
+
+        // const API_KEY = import.meta.env.PUBLIC_OPEN_WEATHER_API_KEY
+        // const todayUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=imperial&appid=${API_KEY}`
+        // const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode}&cnt=40&units=imperial&appid=${API_KEY}`
 
         const todayResponse = await fetch(todayUrl)
         const todayData = await todayResponse.json()
