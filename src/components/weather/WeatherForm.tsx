@@ -1,19 +1,69 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TodayCard from './TodayCard'
 import ForecastCard from './ForecastCard'
 import type { TodayInfo, ForecastInfo } from '../../types'
 
 const WeatherForm = () => {
-    const [zipCode, setZipCode] = useState('')
+    const [zipCode, setZipCode] = useState('10001')
     const [error, setError] = useState('')
     const [today, setToday] = useState<TodayInfo | null>(null)
     const [forecast, setForecast] = useState<ForecastInfo[] | null>(null)
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (today || forecast) {
+    const handleError = (err: string) => {
+        setZipCode('')
+        setError(err)
+
+        setTimeout(() => {
+            setError('')
+        }, 5000)
+    }
+
+    const getWeatherData = async () => {
+        try {
+            // ### TRY THIS API
+            // https://www.weather.gov/documentation/services-web-api
+            // https://api.weather.gov/gridpoints/TOP/31,80/forecast
+
+            const API_KEY = import.meta.env.PUBLIC_OPEN_WEATHER_API_KEY
+            const todayUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=imperial&appid=${API_KEY}`
+            const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode}&cnt=40&units=imperial&appid=${API_KEY}`
+
+            const todayResponse = await fetch(todayUrl)
+            const todayData = await todayResponse.json()
+            if (!todayResponse.ok) {
+                handleError(todayData.message)
+            }
+
+            const forecastResponse = await fetch(forecastUrl)
+            const forecastData = await forecastResponse.json()
+            if (!forecastResponse.ok) {
+                handleError(forecastData.message)
+            }
+
+            setToday(todayData)
+            setForecast(forecastData.list)
+            setZipCode('')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        getWeatherData()
+
+        return () => {
+            setZipCode('')
+            setError('')
             setToday(null)
             setForecast(null)
         }
+    }, [])
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // if (today || forecast) {
+        //     setToday(null)
+        //     setForecast(null)
+        // }
         setZipCode(e.target.value)
     }
 
@@ -21,39 +71,17 @@ const WeatherForm = () => {
         setError('')
     }
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         const zipCodePattern = /^\d{5}$/
         if (!zipCodePattern.test(zipCode)) {
-            setZipCode('')
-            setError('Not a valid zip code.')
-
-            setTimeout(() => {
-                setError('')
-            }, 5000)
+            handleError('Not a valid zip code.')
 
             return
         }
 
-        // ### TRY THIS API INSTEAD
-        // https://www.weather.gov/documentation/services-web-api
-        // https://api.weather.gov/gridpoints/TOP/31,80/forecast
-        // ###
-
-        // const API_KEY = import.meta.env.PUBLIC_OPEN_WEATHER_API_KEY
-        // const todayUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=imperial&appid=${API_KEY}`
-        // const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode}&cnt=40&units=imperial&appid=${API_KEY}`
-
-        const todayResponse = await fetch(todayUrl)
-        const todayData = await todayResponse.json()
-
-        const forecastResponse = await fetch(forecastUrl)
-        const forecastData = await forecastResponse.json()
-
-        setToday(todayData)
-        setForecast(forecastData.list)
-        setZipCode('')
+        getWeatherData()
     }
 
     return (
@@ -61,14 +89,16 @@ const WeatherForm = () => {
             <header className='bg-zinc-800 py-6 px-8'>
                 <div className='flex justify-between gap-4 items-center max-w-xl mx-auto'>
                     <form onSubmit={handleSubmit}>
-                        <div className='bg-white rounded-lg'>
+                        <div className='bg-zinc-100 rounded-md'>
                             <input className='outline-none bg-transparent px-3 py-1 text-sm text-black' type='text' placeholder='Enter zip code' value={zipCode} onChange={handleChange} />
-                            <button className='border-none outline-none bg-zinc-600 text-white text-sm px-3 py-1 rounded-r-lg' type='submit'>
+                            <button className='border-none outline-none bg-orange-600 text-white text-sm px-3 py-1 rounded-r-md' type='submit'>
                                 Search
                             </button>
                         </div>
                     </form>
-                    <h1 className='text-lg text-white'>Weather App</h1>
+                    <h1 className='text-lg font-medium'>
+                        <span className='text-orange-600'>Weather</span> App
+                    </h1>
                 </div>
             </header>
 
@@ -98,7 +128,7 @@ const WeatherForm = () => {
                                 </svg>
                                 <span className='sr-only'>Warning icon</span>
                             </div>
-                            <div className='text-sm font-normal'>{error}</div>
+                            <div className='text-sm font-normal break-all'>{error}</div>
                             <button
                                 type='button'
                                 className='bg-red-200 text-red-500 hover:text-white rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-red-500 inline-flex items-center justify-center h-8 w-8'

@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import QuizWrapper from '../../../components/quiz/QuizWrapper'
+---
+
+<BaseLayout title='Quiz App' bgColor='bg-zinc-900' textColor='text-zinc-100'>
+    <QuizWrapper client:load />
+</BaseLayout>
