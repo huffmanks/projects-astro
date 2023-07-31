@@ -1,0 +1,254 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title='FAQ Accordion' bgColor='bg-gradient-to-b from-[rgba(175_103_233/1)] to-[rgba(101_101_231/1)]' textColor='text-gray-500'>
+    <main>
+        <div class='container'>
+            <section class='image-section'>
+                <div class='graphic-desktop'>
+                    <img src='/faq-accordion/online-graphic-desktop.png' />
+                    <img class='box-graphic' src='/faq-accordion/box-desktop.png' />
+                </div>
+                <div class='graphic-mobile'>
+                    <img src='/faq-accordion/online-graphic-mobile.png' />
+                </div>
+            </section>
+            <section class='faq-section'>
+                <h1>FAQ</h1>
+                <div class='accordion'>
+                    <div class='accordion-panel'>
+                        <div class='accordion-header'>
+                            <span class='question'>How many team members can I invite?</span>
+                            <img class='arrow' src='/faq-accordion/icon-arrow-down.svg' alt='arrow icon' />
+                        </div>
+                        <div class='accordion-body'>You can invite up to 10 members. The PRO plan offers unlimited.</div>
+                    </div>
+                    <div class='accordion-panel'>
+                        <div class='accordion-header'>
+                            <span class='question'>What is the maximum file upload size?</span>
+                            <img class='arrow' src='/faq-accordion/icon-arrow-down.svg' alt='arrow icon' />
+                        </div>
+                        <div class='accordion-body'>No more than 2GB. All files in your account must fit your allotted storage space.</div>
+                    </div>
+                    <div class='accordion-panel'>
+                        <div class='accordion-header'>
+                            <span class='question'>How do I reset my password?</span>
+                            <img class='arrow' src='/faq-accordion/icon-arrow-down.svg' alt='arrow icon' />
+                        </div>
+                        <div class='accordion-body'>Click the account settings icon and then fill out the information to reset your password.</div>
+                    </div>
+                    <div class='accordion-panel'>
+                        <div class='accordion-header'>
+                            <span class='question'>Can I cancel my subscription?</span>
+                            <img class='arrow' src='/faq-accordion/icon-arrow-down.svg' alt='arrow icon' />
+                        </div>
+                        <div class='accordion-body'>Yes, if you are unhappy with the service you can canel anytime.</div>
+                    </div>
+                    <div class='accordion-panel'>
+                        <div class='accordion-header'>
+                            <span class='question'>Do you provide additional support?</span>
+                            <img class='arrow' src='/faq-accordion/icon-arrow-down.svg' alt='arrow icon' />
+                        </div>
+                        <div class='accordion-body'>Yes, fill out the contact form and we will reach out to you.</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</BaseLayout>
+
+<script>
+    const panels = [...document.querySelectorAll('.accordion-panel')]
+
+    panels.map((panel) => {
+        const panelHeader = panel.querySelector('.accordion-header')
+        panelHeader?.addEventListener('click', () => {
+            if (panel.classList.contains('active')) {
+                panel.classList.remove('active')
+            } else {
+                panels.forEach((otherPanels) => otherPanels.classList.remove('active'))
+                panel.classList.add('active')
+            }
+        })
+    })
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+    :root {
+        --graphic-height: 200px;
+    }
+
+    body {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+        /* background: linear-gradient(180deg, rgba(175, 103, 233, 1) 0%, rgba(101, 101, 231, 1) 50%);
+    color: hsl(240, 6%, 50%); */
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+    }
+
+    h1 {
+        color: hsl(237, 12%, 33%);
+        font-size: 32px;
+        font-weight: 500;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    main {
+        width: min(1200px, 100%);
+        margin: var(--graphic-height) 30px 0;
+        background-color: #fff;
+        border-radius: 20px;
+    }
+
+    .container {
+        position: relative;
+        display: block;
+        width: 100%;
+        gap: 30px;
+    }
+
+    .image-section {
+        flex-basis: 45%;
+    }
+
+    .graphic-desktop {
+        display: none;
+    }
+
+    .graphic-mobile {
+        width: 100%;
+    }
+
+    .graphic-mobile img {
+        position: absolute;
+        top: calc(var(--graphic-height) * -1);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .box-graphic {
+        position: absolute;
+        top: 63%;
+        left: -35px;
+        width: 70px;
+        transform: translateY(-55%);
+    }
+
+    .faq-section {
+        flex-basis: 55%;
+        align-self: center;
+        padding: 30px;
+    }
+
+    .accordion {
+        margin-top: 30px;
+    }
+
+    .accordion-panel {
+        position: relative;
+        padding: 20px 0;
+        border-bottom: 1px solid hsl(240, 5%, 91%);
+    }
+
+    .accordion-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        cursor: pointer;
+    }
+
+    .accordion-header .arrow {
+        width: 16px;
+    }
+
+    .accordion-body {
+        display: none;
+        margin-top: 15px;
+        padding-right: 20px;
+    }
+
+    .accordion-panel.active .question {
+        color: hsl(237, 12%, 33%);
+        font-weight: bold;
+    }
+
+    .accordion-panel.active .arrow {
+        rotate: 180deg;
+        transition: all 300ms ease-out;
+    }
+
+    .accordion-panel:not(.active) .arrow {
+        transition: all 100ms ease-in-out;
+    }
+
+    .accordion-panel.active .accordion-body {
+        display: block;
+    }
+
+    @media (min-width: 375px) {
+        main {
+            --graphic-height: 250px;
+        }
+
+        .graphic-mobile img {
+            --graphic-height: 250px;
+        }
+    }
+
+    @media (min-width: 450px) {
+        main {
+            --graphic-height: 300px;
+        }
+
+        .graphic-mobile img {
+            --graphic-height: 300px;
+        }
+    }
+
+    @media (min-width: 500px) {
+        main {
+            --graphic-height: 350px;
+        }
+
+        .graphic-mobile img {
+            --graphic-height: 350px;
+        }
+    }
+
+    @media (min-width: 1100px) {
+        main {
+            margin: 0 30px;
+        }
+        .container {
+            display: flex;
+            height: 600px;
+        }
+
+        .graphic-desktop {
+            display: block;
+        }
+
+        .graphic-mobile {
+            display: none;
+        }
+
+        .faq-section {
+            padding: 50px;
+        }
+    }
+</style>

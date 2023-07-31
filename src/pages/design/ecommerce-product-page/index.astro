@@ -1,0 +1,890 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title='E-commerce product page' bgColor='bg-white' textColor='text-black'>
+    <div class='container'>
+        <header>
+            <nav>
+                <div class='logo'>
+                    <img class='menu-icon' src='/ecommerce-product-page/icon-menu.svg' alt='Menu icon' />
+                    <img class='logo-img' src='/ecommerce-product-page/logo.svg' alt='Logo' />
+                </div>
+                <div class='nav-menu'>
+                    <div class='mobile-close'>
+                        <img src='/ecommerce-product-page/icon-close.svg' alt='Close icon' class='close-icon' />
+                    </div>
+                    <div class='nav-item'>Collections</div>
+                    <div class='nav-item'>Men</div>
+                    <div class='nav-item'>Women</div>
+                    <div class='nav-item'>About</div>
+                    <div class='nav-item'>Contact</div>
+                </div>
+                <div class='nav-menu-backdrop'></div>
+                <div class='nav-cart'>
+                    <img class='cart-icon' src='/ecommerce-product-page/icon-cart.svg' alt='Cart icon' />
+                    <img class='img-avatar' src='/ecommerce-product-page/image-avatar.png' alt='Avatar image' />
+                </div>
+                <div class='basket-modal'>
+                    <div class='basket-title'>Cart</div>
+                    <div class='basket-body'>
+                        <p id='cart-empty'>Your cart is empty.</p>
+                        <button id='btn-checkout' class='btn btn-primary btn-full-width'>Checkout</button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class='slider'>
+                <div class='slider-main'>
+                    <img id='slider-main-image' src='/ecommerce-product-page/image-product-1.jpg' alt='Product 1' />
+                </div>
+                <div id='slider-main' class='slider-thumbs'>
+                    <div class='slider-thumb'>
+                        <img id='main-thumb-1' class='active' src='/ecommerce-product-page/image-product-1-thumbnail.jpg' alt='Product 1 thumb' />
+                    </div>
+                    <div class='slider-thumb'>
+                        <img id='main-thumb-2' src='/ecommerce-product-page/image-product-2-thumbnail.jpg' alt='Product 2 thumb' />
+                    </div>
+                    <div class='slider-thumb'>
+                        <img id='main-thumb-3' src='/ecommerce-product-page/image-product-3-thumbnail.jpg' alt='Product 3 thumb' />
+                    </div>
+                    <div class='slider-thumb'>
+                        <img id='main-thumb-4' src='/ecommerce-product-page/image-product-4-thumbnail.jpg' alt='Product 4 thumb' />
+                    </div>
+                </div>
+                <div id='slider-modal' class='slider-modal'>
+                    <div class='close'>
+                        <img src='/ecommerce-product-page/icon-close.svg' alt='Close icon' />
+                    </div>
+                    <div class='slider-main'>
+                        <img class='prev-icon' src='/ecommerce-product-page/icon-previous.svg' alt='Previous icon' />
+                        <img id='modal-main-image' src='/ecommerce-product-page/image-product-1.jpg' alt='Product 1' />
+                        <img class='next-icon' src='/ecommerce-product-page/icon-next.svg' alt='Next icon' />
+                    </div>
+                    <div class='slider-thumbs'>
+                        <div class='slider-thumb'>
+                            <img id='modal-thumb-1' class='active' src='/ecommerce-product-page/image-product-1-thumbnail.jpg' alt='Product 1 thumb' />
+                        </div>
+                        <div class='slider-thumb'>
+                            <img id='modal-thumb-2' src='/ecommerce-product-page/image-product-2-thumbnail.jpg' alt='Product 2 thumb' />
+                        </div>
+                        <div class='slider-thumb'>
+                            <img id='modal-thumb-3' src='/ecommerce-product-page/image-product-3-thumbnail.jpg' alt='Product 3 thumb' />
+                        </div>
+                        <div class='slider-thumb'>
+                            <img id='modal-thumb-4' src='/ecommerce-product-page/image-product-4-thumbnail.jpg' alt='Product 4 thumb' />
+                        </div>
+                    </div>
+                </div>
+                <div class='slider-modal-backdrop'></div>
+            </section>
+            <section class='product-info'>
+                <div class='subtitle'>SNEAKER COMPANY</div>
+                <h2>Fall Limited Edition Sneakers</h2>
+                <div class='product-description'>
+                    <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+                    <div class='price'>
+                        <h3>$125.00</h3>
+                        <span class='discount'>50%</span>
+                    </div>
+                    <div class='original-price'>$250.00</div>
+                </div>
+                <div class='btn-group'>
+                    <div class='quantity'>
+                        <button class='btn btn-minus btn-icon'>
+                            <img src='/ecommerce-product-page/icon-minus.svg' alt='Minus icon' />
+                        </button>
+                        <button class='btn btn-quantity'> 0</button>
+                        <button class='btn btn-plus btn-icon'>
+                            <img src='/ecommerce-product-page/icon-plus.svg' alt='Plus icon' />
+                        </button>
+                    </div>
+                    <button type='button' id='btn-add-to-cart' class='btn btn-primary'>
+                        <img class='product-cart-icon' src='/ecommerce-product-page/icon-cart.svg' alt='Cart icon' />
+                        <span>Add to cart</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+        <div class='attribution'>Challenge by <a href='https://www.frontendmentor.io?ref=challenge' target='_blank'>Frontend Mentor</a>. Coded by Kevin Huffman</div>.
+    </div>
+</BaseLayout>
+
+<script>
+    // Mobile Menu
+    const menuIcon = document.querySelector('.menu-icon') as HTMLElement
+    const navMenu = document.querySelector('.nav-menu') as HTMLElement
+    const navMenuBackdrop = document.querySelector('.nav-menu-backdrop') as HTMLElement
+    const closeIcon = document.querySelector('.close-icon') as HTMLElement
+
+    // Navcart
+    const navCart = document.querySelector('.nav-cart .cart-icon') as HTMLElement
+    const basketModal = document.querySelector('.basket-modal') as HTMLElement
+    const cartEmpty = document.querySelector('#cart-empty') as HTMLElement
+    const checkoutButton = document.querySelector('#btn-checkout') as HTMLElement
+
+    // Slider Modal
+    const sliderModal = document.querySelector('#slider-modal') as HTMLElement
+    const sliderModalClose = document.querySelector('.slider-modal .close') as HTMLElement
+    const sliderModalBackdrop = document.querySelector('.slider-modal-backdrop') as HTMLElement
+
+    // Slider images
+    const sliderMainImage = document.querySelector('#slider-main-image') as HTMLImageElement
+    const sliderMainThumbs = document.querySelectorAll('#slider-main .slider-thumb img') as NodeListOf<Element>
+    const mainThumb1 = document.querySelector('#main-thumb-1') as HTMLElement
+    const mainThumb2 = document.querySelector('#main-thumb-2') as HTMLElement
+    const mainThumb3 = document.querySelector('#main-thumb-3') as HTMLElement
+    const mainThumb4 = document.querySelector('#main-thumb-4') as HTMLElement
+
+    // Modal images
+    const modalMainImage = document.querySelector('#modal-main-image') as HTMLImageElement
+    const sliderModalThumbs = document.querySelectorAll('#slider-modal .slider-thumb img') as NodeListOf<Element>
+    const modalThumb1 = document.querySelector('#modal-thumb-1') as HTMLElement
+    const modalThumb2 = document.querySelector('#modal-thumb-2') as HTMLElement
+    const modalThumb3 = document.querySelector('#modal-thumb-3') as HTMLElement
+    const modalThumb4 = document.querySelector('#modal-thumb-4') as HTMLElement
+
+    // Prev Next
+    const prevButton = document.querySelector('.prev-icon') as HTMLElement
+    const nextButton = document.querySelector('.next-icon') as HTMLElement
+
+    // Add to cart
+    const minusButton = document.querySelector('.btn-minus') as HTMLElement
+    const quantityButton = document.querySelector('.btn-quantity') as HTMLElement
+    const plusButton = document.querySelector('.btn-plus') as HTMLElement
+    const addToCartButton = document.querySelector('#btn-add-to-cart') as HTMLElement
+
+    // Menu
+    menuIcon.addEventListener('click', () => {
+        navMenu.style.display = 'block'
+        navMenuBackdrop.style.display = 'block'
+        closeIcon.style.display = 'block'
+        basketModal.style.display = 'none'
+        sliderModal.style.display = 'none'
+        document.body.style.overflow = 'visible'
+    })
+
+    closeIcon.addEventListener('click', () => {
+        navMenu.style.display = 'none'
+        navMenuBackdrop.style.display = 'none'
+        closeIcon.style.display = 'none'
+    })
+
+    navMenuBackdrop.addEventListener('click', () => {
+        navMenu.style.display = 'none'
+        navMenuBackdrop.style.display = 'none'
+        closeIcon.style.display = 'none'
+    })
+
+    // Cart
+    navCart.addEventListener('click', () => {
+        if (basketModal.style.display === 'block') {
+            basketModal.style.display = 'none'
+        } else {
+            basketModal.style.display = 'block'
+        }
+    })
+
+    checkoutButton.addEventListener('click', (e) => {
+        basketModal.style.display = 'none'
+    })
+
+    // Slider main
+    sliderMainThumbs.forEach((sliderMainThumb) => {
+        sliderMainThumb.addEventListener('click', (e) => {
+            if (e.target === mainThumb1) {
+                sliderMainImage.src = '/ecommerce-product-page/image-product-1.jpg'
+                mainThumb1.classList.add('active')
+                mainThumb2.classList.remove('active')
+                mainThumb3.classList.remove('active')
+                mainThumb4.classList.remove('active')
+            }
+            if (e.target === mainThumb2) {
+                sliderMainImage.src = '/ecommerce-product-page/image-product-2.jpg'
+                mainThumb1.classList.remove('active')
+                mainThumb2.classList.add('active')
+                mainThumb3.classList.remove('active')
+                mainThumb4.classList.remove('active')
+            }
+            if (e.target === mainThumb3) {
+                sliderMainImage.src = '/ecommerce-product-page/image-product-3.jpg'
+                mainThumb1.classList.remove('active')
+                mainThumb2.classList.remove('active')
+                mainThumb3.classList.add('active')
+                mainThumb4.classList.remove('active')
+            }
+            if (e.target === mainThumb4) {
+                sliderMainImage.src = '/ecommerce-product-page/image-product-4.jpg'
+                mainThumb1.classList.remove('active')
+                mainThumb2.classList.remove('active')
+                mainThumb3.classList.remove('active')
+                mainThumb4.classList.add('active')
+            }
+        })
+    })
+
+    // Slider modal
+    sliderMainImage.addEventListener('click', () => {
+        if (sliderModal.style.display !== 'block') {
+            navMenu.style.display = 'none'
+            navMenuBackdrop.style.display = 'none'
+            closeIcon.style.display = 'none'
+            basketModal.style.display = 'none'
+            sliderModal.style.display = 'block'
+            sliderModalBackdrop.style.display = 'block'
+            modalMainImage.src = sliderMainImage.src
+            document.body.style.overflow = 'hidden'
+        }
+        if (sliderMainImage.src.includes('/ecommerce-product-page/image-product-1.jpg')) {
+            modalThumb1.classList.add('active')
+            modalThumb2.classList.remove('active')
+            modalThumb3.classList.remove('active')
+            modalThumb4.classList.remove('active')
+        }
+        if (sliderMainImage.src.includes('/ecommerce-product-page/image-product-2.jpg')) {
+            modalThumb1.classList.remove('active')
+            modalThumb2.classList.add('active')
+            modalThumb3.classList.remove('active')
+            modalThumb4.classList.remove('active')
+        }
+        if (sliderMainImage.src.includes('/ecommerce-product-page/image-product-3.jpg')) {
+            modalThumb1.classList.remove('active')
+            modalThumb2.classList.remove('active')
+            modalThumb3.classList.add('active')
+            modalThumb4.classList.remove('active')
+        }
+        if (sliderMainImage.src.includes('/ecommerce-product-page/image-product-4.jpg')) {
+            modalThumb1.classList.remove('active')
+            modalThumb2.classList.remove('active')
+            modalThumb3.classList.remove('active')
+            modalThumb4.classList.add('active')
+        }
+    })
+
+    sliderModalThumbs.forEach((sliderModalThumb) => {
+        sliderModalThumb.addEventListener('click', (e) => {
+            if (e.target === modalThumb1) {
+                modalMainImage.src = '/ecommerce-product-page/image-product-1.jpg'
+                modalThumb1.classList.add('active')
+                modalThumb2.classList.remove('active')
+                modalThumb3.classList.remove('active')
+                modalThumb4.classList.remove('active')
+            }
+            if (e.target === modalThumb2) {
+                modalMainImage.src = '/ecommerce-product-page/image-product-2.jpg'
+                modalThumb1.classList.remove('active')
+                modalThumb2.classList.add('active')
+                modalThumb3.classList.remove('active')
+                modalThumb4.classList.remove('active')
+            }
+            if (e.target === modalThumb3) {
+                modalMainImage.src = '/ecommerce-product-page/image-product-3.jpg'
+                modalThumb1.classList.remove('active')
+                modalThumb2.classList.remove('active')
+                modalThumb3.classList.add('active')
+                modalThumb4.classList.remove('active')
+            }
+            if (e.target === modalThumb4) {
+                modalMainImage.src = '/ecommerce-product-page/image-product-4.jpg'
+                modalThumb1.classList.remove('active')
+                modalThumb2.classList.remove('active')
+                modalThumb3.classList.remove('active')
+                modalThumb4.classList.add('active')
+            }
+        })
+    })
+
+    sliderModalBackdrop.addEventListener('click', () => {
+        sliderModal.style.display = 'none'
+        sliderModalBackdrop.style.display = 'none'
+        document.body.style.overflow = 'visible'
+    })
+
+    sliderModalClose.addEventListener('click', () => {
+        sliderModal.style.display = 'none'
+        sliderModalBackdrop.style.display = 'none'
+        document.body.style.overflow = 'visible'
+    })
+
+    prevButton.addEventListener('click', () => {
+        if (modalMainImage.src.includes('/ecommerce-product-page/image-product-1.jpg')) {
+            modalMainImage.src = '/ecommerce-product-page/image-product-4.jpg'
+            modalThumb1.classList.remove('active')
+            modalThumb4.classList.add('active')
+        } else if (modalMainImage.src.includes('/ecommerce-product-page/image-product-2.jpg')) {
+            modalMainImage.src = '/ecommerce-product-page/image-product-1.jpg'
+            modalThumb2.classList.remove('active')
+            modalThumb1.classList.add('active')
+        } else if (modalMainImage.src.includes('/ecommerce-product-page/image-product-3.jpg')) {
+            modalMainImage.src = '/ecommerce-product-page/image-product-2.jpg'
+            modalThumb3.classList.remove('active')
+            modalThumb2.classList.add('active')
+        } else {
+            modalMainImage.src = '/ecommerce-product-page/image-product-3.jpg'
+            modalThumb4.classList.remove('active')
+            modalThumb3.classList.add('active')
+        }
+    })
+
+    nextButton.addEventListener('click', () => {
+        if (modalMainImage.src.includes('/ecommerce-product-page/image-product-1.jpg')) {
+            modalMainImage.src = '/ecommerce-product-page/image-product-2.jpg'
+            modalThumb1.classList.remove('active')
+            modalThumb2.classList.add('active')
+        } else if (modalMainImage.src.includes('/ecommerce-product-page/image-product-2.jpg')) {
+            modalMainImage.src = '/ecommerce-product-page/image-product-3.jpg'
+            modalThumb2.classList.remove('active')
+            modalThumb3.classList.add('active')
+        } else if (modalMainImage.src.includes('/ecommerce-product-page/image-product-3.jpg')) {
+            modalMainImage.src = '/ecommerce-product-page/image-product-4.jpg'
+            modalThumb3.classList.remove('active')
+            modalThumb4.classList.add('active')
+        } else {
+            modalMainImage.src = '/ecommerce-product-page/image-product-1.jpg'
+            modalThumb4.classList.remove('active')
+            modalThumb1.classList.add('active')
+        }
+    })
+
+    minusButton.addEventListener('click', () => {
+        if (parseInt(quantityButton.innerHTML) === 0) {
+            return
+        } else {
+            quantityButton.innerHTML = String(parseInt(quantityButton.innerText) - 1)
+        }
+    })
+
+    plusButton.addEventListener('click', () => {
+        quantityButton.innerHTML = String(parseInt(quantityButton.innerText) + 1)
+    })
+
+    addToCartButton.addEventListener('click', () => {
+        const quantity = parseInt(quantityButton.innerHTML)
+        if (quantity === 0) {
+            return
+        }
+        const newItem = document.createElement('div')
+        newItem.classList.add('basket-item')
+        newItem.innerHTML = `
+        <img class="basket-thumb" src="/ecommerce-product-page/image-product-1-thumbnail.jpg" alt="Product 1 thumb">
+        <div class="item-description">
+        <div>Fall Limited Edition Sneakers</div>
+        <div>
+            <span>$125.00</span>
+            <span>x${quantity}</span>
+            <span>$${quantity * 125}.00</span>
+        </div>
+        </div>
+        <img class="delete-icon" src="/ecommerce-product-page/icon-delete.svg" alt="Delete icon">
+    `
+        const checkoutButtonParent = checkoutButton.parentNode as HTMLElement
+        checkoutButtonParent.insertBefore(newItem, checkoutButton)
+        cartEmpty.style.display = 'none'
+
+        navMenu.style.display = 'none'
+        navMenuBackdrop.style.display = 'none'
+        closeIcon.style.display = 'none'
+        sliderModal.style.display = 'none'
+        document.body.style.overflow = 'visible'
+
+        checkoutButton.style.display = 'block'
+        basketModal.style.display = 'block'
+        const deleteIcon = newItem.querySelector('.delete-icon') as HTMLElement
+
+        deleteIcon.addEventListener('click', () => {
+            newItem.remove()
+            cartEmpty.style.display = 'block'
+        })
+    })
+
+    window.addEventListener('resize', () => {
+        if (document.body.clientWidth > 875) {
+            navMenu.style.display = 'flex'
+        }
+        if (document.body.clientWidth <= 875) {
+            navMenu.style.display = 'none'
+        }
+    })
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+    :root {
+        --primary-orange: hsl(26, 100%, 55%);
+        --primary-orange-pale: hsl(25, 100%, 94%);
+
+        --blue-very-dark: hsl(220, 13%, 13%);
+        --blue-dark: hsl(219, 9%, 45%);
+        --blue-gray: hsl(220, 14%, 75%);
+        --blue-light-gray: hsl(223, 64%, 98%);
+        --white: hsl(0, 0%, 100%);
+        --black: hsl(0, 0%, 0%);
+    }
+
+    * {
+        font-family: 'Kumbh Sans', sans-serif;
+    }
+
+    body {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    p {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .container {
+        width: 80%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Navbar */
+    header {
+        width: 100%;
+        height: 102px;
+        margin-bottom: 4rem;
+    }
+
+    nav {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        border-bottom: 2px solid var(--blue-light-gray);
+    }
+
+    .menu-icon {
+        display: none;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        color: var(--blue-dark);
+    }
+
+    .nav-menu-backdrop {
+        display: none;
+    }
+
+    .close-icon {
+        display: none;
+    }
+
+    .nav-item {
+        height: 100%;
+        padding: 40px 0;
+        cursor: pointer;
+        animation: fade-in ease-in-out 0.25s;
+    }
+
+    .nav-item:not(:first-of-type) {
+        margin-left: 30px;
+    }
+
+    .nav-item:hover {
+        border-bottom: 3px solid var(--primary-orange);
+    }
+
+    .nav-cart {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-cart img {
+        cursor: pointer;
+    }
+
+    .img-avatar {
+        width: 40px;
+        margin-left: 20px;
+        border: 3px solid transparent;
+        animation: fade-in ease-in-out 0.25s;
+    }
+
+    .img-avatar:hover {
+        border-radius: 50%;
+        border: 3px solid var(--primary-orange);
+    }
+
+    /* Basket */
+    .basket-modal {
+        display: none;
+        position: absolute;
+        top: 90px;
+        right: 0;
+        width: 300px;
+        /* height: 200px; */
+        background-color: var(--white);
+        border-radius: 10px;
+        box-shadow: 3px 3px 5px #9e9e9e;
+        z-index: 99;
+    }
+
+    .basket-title {
+        padding: 15px;
+        font-weight: 700;
+        border-bottom: 2px solid var(--blue-light-gray);
+    }
+
+    .basket-body {
+        margin-top: 5px;
+        padding: 15px;
+    }
+
+    .basket-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .basket-thumb {
+        width: 40px;
+        border-radius: 10px;
+    }
+
+    .item-description {
+        margin: 0 15px 0 10px;
+        font-size: 14px;
+    }
+
+    .delete-icon {
+        width: 10px;
+        height: 15px;
+        cursor: pointer;
+    }
+
+    main {
+        display: flex;
+        align-items: center;
+        gap: 0 50px;
+        margin: 0 40px;
+    }
+
+    /* Slider */
+    .slider {
+        position: relative;
+    }
+
+    .slider img {
+        border-radius: 15px;
+    }
+
+    .slider-main {
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+
+    .slider-thumbs {
+        display: flex;
+    }
+
+    .slider-thumb:not(:last-of-type) {
+        margin-right: 30px;
+    }
+
+    .slider-thumb img {
+        border: 3px solid transparent;
+        cursor: pointer;
+    }
+
+    .slider-thumb img.active {
+        opacity: 0.5;
+        border: 3px solid var(--primary-orange);
+    }
+
+    /* Slider Modal */
+    .slider-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: min(400px, 90%);
+        margin: 3.75rem auto;
+        background-color: transparent;
+        z-index: 99;
+    }
+
+    .slider-modal-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.75);
+    }
+
+    .slider-modal .close {
+        display: flow-root;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+    .slider-modal .close img {
+        float: right;
+        filter: invert(100%) sepia(0%) saturate(100%) hue-rotate(221deg) brightness(175%) contrast(100%);
+    }
+
+    .slider-modal .slider-main {
+        position: relative;
+    }
+
+    .slider-modal .prev-icon {
+        position: absolute;
+        top: calc(50% - 30px);
+        left: -15px;
+        width: 30px;
+        height: 30px;
+        padding: 10px;
+        background-color: var(--blue-light-gray);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .slider-modal .next-icon {
+        position: absolute;
+        top: calc(50% - 30px);
+        right: -15px;
+        width: 30px;
+        height: 30px;
+        padding: 10px;
+        background-color: var(--blue-light-gray);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    /* Product info */
+    .product-info {
+        padding: 20px;
+    }
+
+    .subtitle {
+        margin-bottom: 20px;
+        color: var(--primary-orange);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .product-info h2 {
+        font-size: 38px;
+        margin-bottom: 35px;
+    }
+
+    .product-description {
+        margin-bottom: 30px;
+    }
+
+    .price {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    .price h3 {
+        font-size: 22px;
+    }
+
+    .discount {
+        height: 100%;
+        margin-left: 15px;
+        padding: 5px 10px;
+        background-color: var(--primary-orange-pale);
+        color: var(--primary-orange);
+        font-weight: 700;
+        font-size: 12px;
+        border-radius: 5px;
+    }
+
+    .original-price {
+        color: var(--blue-gray);
+        font-size: 12px;
+        text-decoration: line-through;
+    }
+
+    .quantity {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+        background-color: var(--blue-light-gray);
+        border-radius: 10px;
+    }
+
+    .quantity .btn {
+        background-color: transparent;
+    }
+
+    #btn-add-to-cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .product-cart-icon {
+        height: 13px;
+        filter: brightness(0) invert(1);
+    }
+
+    /* Utilities */
+    .btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    button.btn-primary {
+        background-color: var(--primary-orange);
+        color: var(--white);
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    button.btn-primary:hover {
+        opacity: 0.75;
+    }
+
+    #btn-checkout {
+        display: none;
+    }
+
+    .btn-full-width {
+        width: 100%;
+    }
+
+    .btn-group {
+        display: flex;
+    }
+
+    .btn-group .btn-primary {
+        flex: 1;
+    }
+
+    .btn-minus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 1050px) {
+        .btn-group {
+            flex-direction: column;
+        }
+
+        .quantity {
+            width: 100%;
+            justify-content: space-evenly;
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (max-width: 875px) {
+        .container {
+            width: 100%;
+        }
+
+        header {
+            width: 100%;
+            margin-bottom: 0;
+            padding: 0 30px;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
+        .nav-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 67vw;
+            height: 100vh;
+            padding: 30px;
+            background-color: var(--white);
+            opacity: 1;
+            z-index: 100;
+        }
+
+        .nav-menu-backdrop {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .close-icon {
+            margin-bottom: 3rem;
+            cursor: pointer;
+        }
+
+        .nav-item:not(:first-of-type) {
+            width: max-content;
+            height: 25px;
+            margin: 0 0 30px;
+            padding: 0 0 5px;
+            color: var(--black);
+            font-weight: 700;
+        }
+    }
+
+    @media (max-width: 680px) {
+        main {
+            flex-direction: column;
+        }
+    }
+
+    /* Frontend Mentor */
+    .attribution {
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .attribution a {
+        color: var(--primary-orange);
+        text-decoration: none;
+    }
+</style>
