@@ -46,9 +46,11 @@ const QuestionCard = ({ questions, currentQuestion, handleNext }: Props) => {
                         key={answer}
                         className={`flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700 cursor-pointer ${selectedAnswer === answer && 'bg-gray-700 border-transparent'}`}>
                         <input id={answer} type='radio' value={answer} checked={selectedAnswer === answer} onChange={handleChange} className='w-4 h-4 outline-none cursor-pointer' />
-                        <label htmlFor={answer} className='w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer'>
-                            {answer}
-                        </label>
+                        <label
+                            htmlFor={answer}
+                            className='w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer'
+                            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(answer) }}
+                        />
                     </div>
                 ))}
             </div>

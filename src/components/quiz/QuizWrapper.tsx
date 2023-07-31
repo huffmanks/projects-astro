@@ -4,6 +4,7 @@ import Form from './Form'
 import QuestionCard from './QuestionCard'
 import Score from './Score'
 import type { Question } from '../../types'
+import { getLabelByValue } from '../../utils'
 
 const initialOptions = {
     category: '',
@@ -16,6 +17,7 @@ const QuizWrapper = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0)
     const [score, setScore] = useState(0)
     const [isQuizOver, setIsQuizOver] = useState(false)
+    const [isError, setIsError] = useState(false)
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target
@@ -35,9 +37,20 @@ const QuizWrapper = () => {
             const res = await fetch(apiUrl)
             const data = await res.json()
 
+            if (!data?.results || data?.results?.length < 1) {
+                setIsError(true)
+
+                setTimeout(() => {
+                    setQuizOptions(initialOptions)
+                    setIsError(false)
+                }, 5000)
+
+                return
+            }
+
             setQuestions(data.results)
-        } catch (error) {
-            console.log(error)
+        } catch (err) {
+            console.log(err)
         }
     }
 
@@ -66,6 +79,7 @@ const QuizWrapper = () => {
         setCurrentQuestion(0)
         setScore(0)
         setIsQuizOver(false)
+        setIsError(false)
     }
 
     return (
@@ -76,6 +90,14 @@ const QuizWrapper = () => {
                     {!questions.length && <Form handleChange={handleChange} handleSubmit={handleSubmit} />}
                     {questions.length > 0 && !isQuizOver && <QuestionCard questions={questions} currentQuestion={currentQuestion} handleNext={handleNext} />}
                     {isQuizOver && <Score total={questions.length} score={score} handleReset={handleReset} />}
+                    {isError && (
+                        <div className='text-center px-2 text-balance max-w-xs mx-auto'>
+                            <span className='text-red-600'>There are no </span>
+                            {quizOptions?.difficulty && <span className='text-black dark:text-white capitalize'>{quizOptions.difficulty} </span>}
+                            {quizOptions?.category && <span className='text-black dark:text-white'>{getLabelByValue(quizOptions.category)} </span>}
+                            <span className='text-red-600'>quizzes yet! Please try another configuration.</span>
+                        </div>
+                    )}
                 </div>
             </main>
         </>
