@@ -1,0 +1,22 @@
+---
+export interface Props {
+    media: string
+    title?: string
+}
+
+const { media, title } = Astro.props
+---
+
+<div class='home-media-container'>
+    {
+        title && (
+            <div class='home-media-title'>
+                <h1>{title}</h1>
+            </div>
+        )
+    }
+    <!-- <img class='home-media-item' src={media} role='presentation' /> -->
+    <video class='home-media-item' autoplay muted loop playsinline>
+        <source src={media} type='video/webm' /> Your browser does not support the video tag.
+    </video>
+</div>

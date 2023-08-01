@@ -1,0 +1,461 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title='Tip Calculator'>
+    <header>
+        <div>SPLI</div>
+        <div>TTER</div>
+    </header>
+    <div class='container-tip-calc'>
+        <main>
+            <section>
+                <form id='form'>
+                    <div class='form-item'>
+                        <label for='bill'>Bill <span class='error-message'>Can't be zero</span></label>
+                        <div class='input-item'>
+                            <img src='/tip-calculator/images/icon-dollar.svg' alt='dollar icon' />
+                            <input id='bill' type='number' name='bill' placeholder='0' />
+                        </div>
+                    </div>
+                    <div class='form-item'>
+                        <div class='btn-group-label'>Select Tip %</div>
+                        <div class='btn-group'>
+                            <input id='tip1' type='radio' name='percent' value='5' />
+                            <label class='btn btn-primary' for='tip1'>5%</label>
+                            <input id='tip2' type='radio' name='percent' value='10' />
+                            <label class='btn btn-primary' for='tip2'>10%</label>
+                            <input id='tip3' type='radio' name='percent' value='15' />
+                            <label class='btn btn-primary' for='tip3'>15%</label>
+                            <input id='tip4' type='radio' name='percent' value='25' />
+                            <label class='btn btn-primary' for='tip4'>25%</label>
+                            <input id='tip5' type='radio' name='percent' value='50' />
+                            <label class='btn btn-primary' for='tip5'>50%</label>
+                            <input id='custom-tip' class='custom-tip' type='radio' name='percent' autocomplete='off' />
+                            <label class='btn btn-light' for='custom-tip'>Custom</label>
+                        </div>
+                    </div>
+                    <div class='form-item'>
+                        <label for='people'>Number of People <span class='error-message'>Can't be zero</span></label>
+                        <div class='input-item'>
+                            <img src='/tip-calculator/images/icon-person.svg' alt='people icon' />
+                            <input id='people' type='number' name='people' placeholder='0' />
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <section>
+                <div class='calculator'>
+                    <div class='calc-item'>
+                        <div>
+                            <div class='title'>Tip Amount</div>
+                            <div class='subtitle'>/ person</div>
+                        </div>
+                        <div class='dollar'>
+                            <img class='dollar-icon' src='/tip-calculator/images/icon-dollar.svg' alt='dollar icon' />
+                            <span id='tip-per' class='dollar-number'>0.00</span>
+                        </div>
+                    </div>
+                    <div class='calc-item'>
+                        <div>
+                            <div class='title'>Total Tip</div>
+                        </div>
+                        <div class='dollar'>
+                            <img class='dollar-icon' src='/tip-calculator/images/icon-dollar.svg' alt='dollar icon' />
+                            <span id='tip-total' class='dollar-number'>0.00</span>
+                        </div>
+                    </div>
+                    <div class='calc-item'>
+                        <div>
+                            <div class='title'>Bill Amount</div>
+                            <div class='subtitle'>/ person</div>
+                        </div>
+                        <div class='dollar'>
+                            <img class='dollar-icon' src='/tip-calculator/images/icon-dollar.svg' alt='dollar icon' />
+                            <span id='bill-per' class='dollar-number'>0.00</span>
+                        </div>
+                    </div>
+                    <div class='calc-item'>
+                        <div>
+                            <div class='title'>Total Bill</div>
+                        </div>
+                        <div class='dollar'>
+                            <img class='dollar-icon' src='/tip-calculator/images/icon-dollar.svg' alt='dollar icon' />
+                            <span id='bill-total' class='dollar-number'>0.00</span>
+                        </div>
+                    </div>
+                    <div class='calc-button'>
+                        <button id='reset' class='btn btn-secondary' type='reset'>RESET</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div class='attribution'>Challenge by <a href='https://www.frontendmentor.io?ref=challenge' target='_blank'>Frontend Mentor</a>. Coded by Kevin Huffman.</div>
+    </div>
+</BaseLayout>
+
+<script is:inline>
+const formEl = document.querySelector('#form')
+const billEl = document.querySelector('#bill')
+const peopleEl = document.querySelector('#people')
+const percentsEl = document.querySelectorAll('input[name="percent"]')
+const customTipEl = document.querySelector('#custom-tip')
+const customLabelEl = document.querySelector('label[for="custom-tip"]')
+
+const tipPerEl = document.querySelector('#tip-per')
+const tipTotalEl = document.querySelector('#tip-total')
+const billPerEl = document.querySelector('#bill-per')
+const billTotalEl = document.querySelector('#bill-total')
+
+const resetEl = document.querySelector('#reset')
+
+// Reset
+resetEl.addEventListener('click', () => {
+    billEl.value = null
+    peopleEl.value = null
+
+    customTipEl.setAttribute('type', 'radio')
+    customTipEl.checked = false
+    customLabelEl.style.display = 'block'
+
+    tipPerEl.innerHTML = '0.00'
+    tipTotalEl.innerHTML = '0.00'
+    billPerEl.innerHTML = '0.00'
+    billTotalEl.innerHTML = '0.00'
+})
+
+// Update results
+const getUpdate = (e) => {
+    const selectedPercentEl = document.querySelector('input[name="percent"]:checked')
+
+    if (e.target !== customTipEl && selectedPercentEl) {
+        customTipEl.setAttribute('type', 'radio')
+        customTipEl.checked = false
+        customLabelEl.style.display = 'block'
+        e.target.checked = true
+    } else {
+        customTipEl.setAttribute('type', 'text')
+        customLabelEl.style.display = 'none'
+    }
+
+    const customTipAttr = customTipEl.getAttribute('type')
+
+    if (selectedPercentEl) {
+        let percentage = selectedPercentEl.value
+        getCalc(percentage)
+    } else if (customTipAttr === 'text') {
+        let percentage = customTipEl.value
+        getCalc(percentage)
+    } else {
+        let percentage = 0
+        getCalc(percentage)
+    }
+}
+
+// Calculate numbers
+const getCalc = (percentage) => {
+    const tipPer = (billEl.value * (percentage / 100)) / (!peopleEl.value ? (peopleEl.value = 1) : peopleEl.value)
+    tipPerEl.innerHTML = tipPer.toFixed(2)
+
+    const tipTotal = billEl.value * (percentage / 100)
+    tipTotalEl.innerHTML = tipTotal.toFixed(2)
+
+    const billTotal = (+billEl.value + tipTotal).toFixed(2)
+    billTotalEl.innerHTML = billTotal
+
+    const billPer = billTotal / (!peopleEl.value ? (peopleEl.value = 1) : peopleEl.value)
+    billPerEl.innerHTML = billPer.toFixed(2)
+}
+
+formEl.addEventListener('change', getUpdate)
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+    :root {
+        --primary-color: hsl(172, 67%, 45%);
+
+        --primary-very-dark: hsl(183, 100%, 15%);
+        --primary-dark-1: hsl(186, 14%, 43%);
+        --primary-dark-2: hsl(184, 14%, 56%);
+        --primary-light-1: hsl(185, 41%, 84%);
+        --primary-light-2: hsl(189, 41%, 97%);
+
+        --color-white: hsl(0, 0%, 100%);
+        --color-red: hsl(4, 89.6%, 58.4%);
+    }
+
+    * {
+        font-family: 'Space Mono', monospace;
+        font-weight: 700;
+    }
+
+    body {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primary-light-1);
+    }
+
+    .container-tip-calc {
+        width: 100%;
+        max-width: 1000px;
+        margin: 2rem 1rem;
+    }
+
+    header {
+        margin-top: 2rem;
+        padding: 2rem;
+        color: var(--primary-very-dark);
+        font-size: 20px;
+        letter-spacing: 10px;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: var(--color-white);
+        padding: 2rem;
+        border-radius: 10px;
+    }
+
+    form {
+        margin-right: 2rem;
+    }
+
+    .form-item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
+
+    label:not(.btn-group label),
+    .btn-group-label {
+        margin-bottom: 5px;
+        color: var(--primary-very-dark);
+        font-size: 14px;
+    }
+
+    .btn-group-label {
+        margin-bottom: 15px;
+    }
+
+    .error-message {
+        display: none;
+        /* add this in js */
+        /* display: inline-block; */
+        margin-left: 2rem;
+        color: var(--color-red);
+    }
+
+    .input-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        background-color: var(--primary-light-2);
+        border-radius: 4px;
+    }
+
+    .input-item:focus-within {
+        outline: 3px solid var(--primary-color);
+        animation: fade-in ease-in-out 0.15s;
+    }
+
+    .input-item.error:focus-within {
+        outline: 3px solid var(--color-red);
+    }
+
+    .input-item > img {
+        padding-left: 10px;
+    }
+
+    .input-item input {
+        width: 100%;
+        padding: 0 10px;
+        background-color: var(--primary-light-2);
+        color: var(--primary-very-dark);
+        font-size: 24px;
+        text-align: right;
+        border: none;
+        outline: none;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    input[type='number'] {
+        -moz-appearance: textfield;
+    }
+
+    .btn-group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        text-align: center;
+    }
+
+    .btn-group input[type='radio']:checked + .btn {
+        background-color: var(--primary-color);
+        color: var(--primary-very-dark);
+    }
+
+    .custom-tip {
+        width: calc(100% - 6px);
+        height: calc(100% - 6px);
+        margin: auto;
+        padding: 0 10px;
+        background-color: var(--primary-light-2);
+        color: var(--primary-very-dark);
+        font-size: 16px;
+        text-align: right;
+        border: none;
+        outline: 3px solid var(--primary-color);
+        animation: fade-in ease-in-out 0.15s;
+    }
+
+    input[type='radio'] {
+        display: none;
+    }
+
+    .calculator {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 2.5rem;
+        background-color: var(--primary-very-dark);
+        border-radius: 10px;
+    }
+
+    .calc-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.25rem;
+    }
+
+    .title {
+        color: var(--color-white);
+        font-size: 12px;
+    }
+
+    .subtitle {
+        color: var(--primary-dark-2);
+        font-size: 10px;
+    }
+
+    .dollar {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .dollar > img {
+        width: 15px;
+    }
+
+    .dollar-icon {
+        filter: invert(60%) sepia(12%) saturate(2161%) hue-rotate(148deg) brightness(100%) contrast(150%);
+    }
+
+    .dollar-number {
+        color: var(--primary-color);
+        font-size: 30px;
+    }
+
+    .calc-button {
+        margin-top: auto;
+    }
+
+    .calc-button > button.btn {
+        width: 100%;
+    }
+
+    button.btn,
+    label.btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    button.btn-primary,
+    label.btn-primary {
+        background-color: var(--primary-very-dark);
+        color: var(--color-white);
+        transition: color 0.15s ease-in-out, background-color 0.3s ease-in-out;
+    }
+
+    button.btn-secondary {
+        background-color: var(--primary-dark-1);
+        color: var(--primary-light-1);
+    }
+
+    button.btn-primary:hover,
+    label.btn-primary:hover,
+    button.btn-secondary:hover {
+        background-color: var(--primary-color);
+        color: var(--primary-very-dark);
+    }
+
+    button.btn-light {
+        background-color: var(--primary-light-2);
+        color: var(--primary-very-dark);
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 750px) {
+        main {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 400px) {
+        main {
+            padding: 2rem 1rem;
+        }
+        form {
+            margin-right: 0;
+        }
+        .btn-group {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .calculator {
+            padding: 1.5rem;
+        }
+        .dollar img {
+            width: 12px;
+        }
+        .dollar-number {
+            font-size: 26px;
+        }
+    }
+
+    /* Frontend Mentor */
+    .attribution {
+        margin-top: 2rem;
+        font-size: 11px;
+        text-align: center;
+    }
+    .attribution a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+</style>
