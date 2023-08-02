@@ -15,24 +15,24 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro'
                         <label for='bill'>Bill <span class='error-message'>Can't be zero</span></label>
                         <div class='input-item'>
                             <img src='/tip-calculator/images/icon-dollar.svg' alt='dollar icon' />
-                            <input id='bill' type='number' name='bill' placeholder='0' />
+                            <input id='bill' type='number' name='bill' placeholder='0' autofocus />
                         </div>
                     </div>
                     <div class='form-item'>
                         <div class='btn-group-label'>Select Tip %</div>
                         <div class='btn-group'>
-                            <input id='tip1' type='radio' name='percent' value='5' />
-                            <label class='btn btn-primary' for='tip1'>5%</label>
-                            <input id='tip2' type='radio' name='percent' value='10' />
-                            <label class='btn btn-primary' for='tip2'>10%</label>
-                            <input id='tip3' type='radio' name='percent' value='15' />
-                            <label class='btn btn-primary' for='tip3'>15%</label>
-                            <input id='tip4' type='radio' name='percent' value='25' />
-                            <label class='btn btn-primary' for='tip4'>25%</label>
-                            <input id='tip5' type='radio' name='percent' value='50' />
-                            <label class='btn btn-primary' for='tip5'>50%</label>
-                            <input id='custom-tip' class='custom-tip' type='radio' name='percent' autocomplete='off' />
-                            <label class='btn btn-light' for='custom-tip'>Custom</label>
+                            <button class='btn btn-primary' data-value='5' type='button'>5%</button>
+
+                            <button class='btn btn-primary' data-value='10' type='button'>10%</button>
+
+                            <button class='btn btn-primary' data-value='15' type='button'>15%</button>
+
+                            <button class='btn btn-primary' data-value='25' type='button'>25%</button>
+
+                            <button class='btn btn-primary' data-value='50' type='button'>50%</button>
+
+                            <button id='custom-tip-btn' class='btn btn-light' type='button'>Custom</button>
+                            <input id='custom-tip-input' class='custom-tip-input' type='text' autocomplete='off' />
                         </div>
                     </div>
                     <div class='form-item'>
@@ -98,9 +98,9 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro'
 const formEl = document.querySelector('#form')
 const billEl = document.querySelector('#bill')
 const peopleEl = document.querySelector('#people')
-const percentsEl = document.querySelectorAll('input[name="percent"]')
-const customTipEl = document.querySelector('#custom-tip')
-const customLabelEl = document.querySelector('label[for="custom-tip"]')
+const percentsEl = document.querySelectorAll('.btn-group button')
+const customTipBtn = document.querySelector('#custom-tip-btn')
+const customTipInput = document.querySelector('#custom-tip-input')
 
 const tipPerEl = document.querySelector('#tip-per')
 const tipTotalEl = document.querySelector('#tip-total')
@@ -109,46 +109,63 @@ const billTotalEl = document.querySelector('#bill-total')
 
 const resetEl = document.querySelector('#reset')
 
+let percentValue = ''
+
 // Reset
 resetEl.addEventListener('click', () => {
-    billEl.value = null
-    peopleEl.value = null
-
-    customTipEl.setAttribute('type', 'radio')
-    customTipEl.checked = false
-    customLabelEl.style.display = 'block'
+    billEl.value = ''
+    peopleEl.value = ''
+    percentsEl.forEach((btn) => {
+        btn.classList.remove('is-selected')
+    })
+    customTipBtn.style.display = 'block'
+    customTipInput.style.display = 'none'
 
     tipPerEl.innerHTML = '0.00'
     tipTotalEl.innerHTML = '0.00'
     billPerEl.innerHTML = '0.00'
     billTotalEl.innerHTML = '0.00'
+
+    billEl.focus()
+})
+
+percentsEl.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        if (btn.classList.contains('is-selected')) {
+            btn.classList.remove('is-selected')
+            percentValue = ''
+            return
+        }
+
+        percentsEl.forEach((btn) => {
+            btn.classList.remove('is-selected')
+        })
+
+        if (e.target.id === 'custom-tip-btn') {
+            customTipBtn.style.display = 'none'
+            customTipInput.style.display = 'block'
+            customTipInput.focus()
+        } else {
+            percentValue = btn.dataset.value
+            btn.classList.add('is-selected')
+            peopleEl.focus()
+        }
+    })
+})
+
+customTipInput.addEventListener('input', (e) => {
+    percentsEl.forEach((btn) => {
+        btn.classList.remove('is-selected')
+    })
+    percentValue = e.target.value
 })
 
 // Update results
 const getUpdate = (e) => {
-    const selectedPercentEl = document.querySelector('input[name="percent"]:checked')
+    e.preventDefault()
 
-    if (e.target !== customTipEl && selectedPercentEl) {
-        customTipEl.setAttribute('type', 'radio')
-        customTipEl.checked = false
-        customLabelEl.style.display = 'block'
-        e.target.checked = true
-    } else {
-        customTipEl.setAttribute('type', 'text')
-        customLabelEl.style.display = 'none'
-    }
-
-    const customTipAttr = customTipEl.getAttribute('type')
-
-    if (selectedPercentEl) {
-        let percentage = selectedPercentEl.value
-        getCalc(percentage)
-    } else if (customTipAttr === 'text') {
-        let percentage = customTipEl.value
-        getCalc(percentage)
-    } else {
-        let percentage = 0
-        getCalc(percentage)
+    if (percentValue && billEl.value && peopleEl.value) {
+        getCalc(percentValue)
     }
 }
 
@@ -167,7 +184,7 @@ const getCalc = (percentage) => {
     billPerEl.innerHTML = billPer.toFixed(2)
 }
 
-formEl.addEventListener('change', getUpdate)
+formEl.addEventListener('input', getUpdate)
 </script>
 
 <style>
@@ -233,21 +250,18 @@ formEl.addEventListener('change', getUpdate)
         margin-bottom: 2rem;
     }
 
-    label:not(.btn-group label),
-    .btn-group-label {
+    .form-item label {
         margin-bottom: 5px;
-        color: var(--primary-very-dark);
-        font-size: 14px;
     }
 
     .btn-group-label {
         margin-bottom: 15px;
+        color: var(--primary-very-dark);
+        font-size: 14px;
     }
 
     .error-message {
         display: none;
-        /* add this in js */
-        /* display: inline-block; */
         margin-left: 2rem;
         color: var(--color-red);
     }
@@ -286,6 +300,10 @@ formEl.addEventListener('change', getUpdate)
         outline: none;
     }
 
+    .input-item input::placeholder {
+        color: var(--primary-dark-1);
+    }
+
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -302,12 +320,8 @@ formEl.addEventListener('change', getUpdate)
         text-align: center;
     }
 
-    .btn-group input[type='radio']:checked + .btn {
-        background-color: var(--primary-color);
-        color: var(--primary-very-dark);
-    }
-
-    .custom-tip {
+    .custom-tip-input {
+        display: none;
         width: calc(100% - 6px);
         height: calc(100% - 6px);
         margin: auto;
@@ -319,10 +333,6 @@ formEl.addEventListener('change', getUpdate)
         border: none;
         outline: 3px solid var(--primary-color);
         animation: fade-in ease-in-out 0.15s;
-    }
-
-    input[type='radio'] {
-        display: none;
     }
 
     .calculator {
@@ -378,8 +388,7 @@ formEl.addEventListener('change', getUpdate)
         width: 100%;
     }
 
-    button.btn,
-    label.btn {
+    button.btn {
         padding: 0.5rem 1.5rem;
         font-size: 16px;
         border: none;
@@ -388,8 +397,7 @@ formEl.addEventListener('change', getUpdate)
         cursor: pointer;
     }
 
-    button.btn-primary,
-    label.btn-primary {
+    button.btn-primary {
         background-color: var(--primary-very-dark);
         color: var(--color-white);
         transition: color 0.15s ease-in-out, background-color 0.3s ease-in-out;
@@ -400,16 +408,30 @@ formEl.addEventListener('change', getUpdate)
         color: var(--primary-light-1);
     }
 
-    button.btn-primary:hover,
-    label.btn-primary:hover,
-    button.btn-secondary:hover {
-        background-color: var(--primary-color);
-        color: var(--primary-very-dark);
-    }
-
     button.btn-light {
         background-color: var(--primary-light-2);
         color: var(--primary-very-dark);
+    }
+
+    .btn-group .btn.is-selected,
+    button.btn-primary:hover,
+    button.btn-primary:focus,
+    button.btn-secondary:hover,
+    button.btn-secondary:focus,
+    button.btn-light:hover,
+    button.btn-light:focus {
+        background-color: var(--primary-color);
+    }
+
+    .btn-group .btn.is-selected,
+    button.btn-primary:hover,
+    button.btn-primary:focus {
+        color: var(--primary-very-dark);
+    }
+
+    button.btn-secondary:hover,
+    button.btn-secondary:focus {
+        color: var(--color-white);
     }
 
     @keyframes fade-in {
