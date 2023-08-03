@@ -10,8 +10,4 @@ export default defineConfig({
         }),
         react(),
     ],
-    redirects: {
-        '/': 'https://huffmanks.com',
-        '/projects': 'https://huffmanks.com/projects',
-    },
 })
