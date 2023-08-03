@@ -1,13 +1,8 @@
-# Vanilla projects for portfolio
+# Astro projects for portfolio
 
 -   [Calculator](https://huffmanks.com/projects/apps/calculator)
-
--   [Ecommerce product page](https://huffmanks.com/projects/design/ecommerce-product-page)
-
--   [FAQ accordion](https://huffmanks.com/projects/design/faq-accordion)
-
--   [Time tracking Dashboard](https://huffmanks.com/projects/design/time-tracking-dashboard)
-
+-   [Ecommerce page](https://huffmanks.com/projects/design/ecommerce-page)
+-   [Quiz](https://huffmanks.com/projects/apps/quiz)
 -   [Tip calculator](https://huffmanks.com/projects/apps/tip-calculator)
-
+-   [Weather](https://huffmanks.com/projects/apps/weather)
 -   [Wofford homepage](https://huffmanks.com/projects/design/wofford-homepage)

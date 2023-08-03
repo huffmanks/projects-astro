@@ -1,7 +1,339 @@
 ---
-import BaseLayout from '../../../../layouts/BaseLayout.astro'
+import CalculatorLayout from '../../../../layouts/CalculatorLayout.astro'
 ---
 
-<BaseLayout title='Calculator' bgColor='bg-white' textColor='text-black'>
-    <div></div>
-</BaseLayout>
+<CalculatorLayout title='Calculator'>
+    <div class='container-calc'>
+        <section class='header'>
+            <h1>calc</h1>
+            <div class='toggle'>
+                <div class='theme'>THEME</div>
+                <div class='toggle-options'>
+                    <span class='theme-1'>1</span>
+                    <span class='theme-2'>2</span>
+                    <span class='theme-3'>3</span>
+                    <input type='checkbox' name='toggler' id='toggler' class='toggler' />
+                    <label id='toggle-switch' class='toggle-switch' for='toggler'>
+                        <div class='toggle-switch-after'></div>
+                    </label>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class='output'>
+                <div data-previous-operand class='previous-operand'></div>
+                <div data-current-operand class='current-operand muted'>0</div>
+            </div>
+        </section>
+        <section class='keypad'>
+            <button data-number class='key'>7</button>
+            <button data-number class='key'>8</button>
+            <button data-number class='key'>9</button>
+            <button data-delete class='key key-secondary'>DEL</button>
+            <button data-number class='key'>4</button>
+            <button data-number class='key'>5</button>
+            <button data-number class='key'>6</button>
+            <button data-operation class='key'>+</button>
+            <button data-number class='key'>1</button>
+            <button data-number class='key'>2</button>
+            <button data-number class='key'>3</button>
+            <button data-operation class='key key-no-padding'>-</button>
+            <button data-number class='key'>.</button>
+            <button data-number class='key'>0</button>
+            <button data-operation class='key'>/</button>
+            <button data-operation class='key key-no-padding'>x</button>
+            <button data-all-clear class='key key-secondary span-2'>RESET</button>
+            <button data-equals class='key key-equals span-2'>=</button>
+        </section>
+    </div>
+    <div id='modal-shortcuts' class='modal-shortcuts'>
+        <div class='modal-body'>
+            <div class='close'><a role='button' href='#'>&times;</a></div>
+            <h2>SHORTCUTS</h2>
+            <div class='shortcut'>
+                <div class='shortcut-result'>Next tab</div>
+                <div class='shortcut-key'><kbd>TAB</kbd></div>
+            </div>
+            <div class='shortcut'>
+                <div class='shortcut-result'>Previous tab</div>
+                <div class='shortcut-key'><kbd>SHIFT</kbd>+<kbd>TAB</kbd></div>
+            </div>
+            <div class='shortcut'>
+                <div class='shortcut-result'>Enters selected</div>
+                <div class='shortcut-key'><kbd>TAB</kbd>+<kbd>ENTER</kbd></div>
+            </div>
+            <div class='shortcut'>
+                <div class='shortcut-result'>Delete</div>
+                <div class='shortcut-key'><kbd>DELETE</kbd></div>
+            </div>
+            <div class='shortcut'>
+                <div class='shortcut-result'>Reset</div>
+                <div class='shortcut-key'><kbd>SHIFT</kbd>+<kbd>DELETE</kbd></div>
+            </div>
+        </div>
+    </div>
+    <div class='shortcuts-link'>
+        <a role='button' href='#modal-shortcuts'>SHORTCUTS</a>
+    </div>
+    <div class='attribution'>Challenge by <a href='https://www.frontendmentor.io?ref=challenge' target='_blank'>Frontend Mentor</a>. Coded by Kevin Huffman.</div>
+</CalculatorLayout>
+
+<script is:inline>
+const toggleSwitch = document.querySelector('#toggle-switch')
+const toggleSwitchBall = document.querySelector('.toggle-switch-after')
+const toggleOptions = document.querySelectorAll('.toggle-options span')
+
+// Change Theme
+toggleSwitch.addEventListener('click', (e) => {
+    if (e.clientX - toggleSwitch.offsetLeft < 16) {
+        updateTheme1()
+    }
+    if (e.clientX - toggleSwitch.offsetLeft > 15 && e.clientX - toggleSwitch.offsetLeft < 32) {
+        updateTheme2()
+    }
+    if (e.clientX - toggleSwitch.offsetLeft > 31) {
+        updateTheme3()
+    }
+})
+
+toggleOptions.forEach((toggleOption) => {
+    toggleOption.addEventListener('click', () => {
+        if (toggleOption.innerText === '1') {
+            updateTheme1()
+        }
+        if (toggleOption.innerText === '2') {
+            updateTheme2()
+        }
+        if (toggleOption.innerText === '3') {
+            updateTheme3()
+        }
+    })
+})
+
+// Update Theme
+const updateTheme1 = () => {
+    toggleSwitchBall.style.left = '2px'
+    toggleSwitchBall.style.transform = 'translateX(0%)'
+    const cls = [ 'theme-2', 'theme-3' ]
+    document.body.classList.add('theme-1')
+    document.body.classList.remove(...cls)
+}
+
+const updateTheme2 = () => {
+    toggleSwitchBall.style.left = 'calc(61% - 3px)'
+    toggleSwitchBall.style.transform = 'translateX(-61%)'
+    const cls = [ 'theme-1', 'theme-3' ]
+    document.body.classList.add('theme-2')
+    document.body.classList.remove(...cls)
+}
+
+const updateTheme3 = () => {
+    toggleSwitchBall.style.left = 'calc(100% - 3px)'
+    toggleSwitchBall.style.transform = 'translateX(-100%)'
+    const cls = [ 'theme-1', 'theme-2' ]
+    document.body.classList.add('theme-3')
+    document.body.classList.remove(...cls)
+}
+
+// Calculator
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandTextElement) {
+        this.previousOperandTextElement = previousOperandTextElement
+        this.currentOperandTextElement = currentOperandTextElement
+        this.clear()
+    }
+
+    clear() {
+        this.currentOperand = '0'
+        this.previousOperand = ''
+        this.operation = undefined
+        this.currentOperandTextElement.classList.add('muted')
+    }
+
+    delete() {
+        this.currentOperand = this.currentOperand.toString().slice(0, -1)
+
+        if (this.currentOperand === '') {
+            this.currentOperand = '0'
+            this.currentOperandTextElement.classList.add('muted')
+        }
+    }
+
+    appendNumber(number) {
+        if (number === '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = this.currentOperand.toString() + number.toString()
+    }
+
+    chooseOperation(operation) {
+        if (this.currentOperand === '') return
+        if (this.previousOperand !== '') {
+            this.compute()
+        }
+        this.operation = operation
+        this.previousOperand = this.currentOperand
+        this.currentOperand = ''
+    }
+
+    compute() {
+        let computation
+        const prev = parseFloat(this.previousOperand)
+        const current = parseFloat(this.currentOperand)
+        if (isNaN(prev) || isNaN(current)) return
+        switch (this.operation) {
+            case '+':
+                computation = prev + current
+                break
+            case '-':
+                computation = prev - current
+                break
+            case 'x':
+                computation = prev * current
+                break
+            case '/':
+                computation = prev / current
+                break
+            default:
+                return
+        }
+        this.currentOperand = computation
+        this.operation = undefined
+        this.previousOperand = ''
+    }
+
+    getDisplayNumber(number) {
+        const stringNumber = number.toString()
+        const integerDigits = parseFloat(stringNumber.split('.')[ 0 ])
+        const decimalDigits = stringNumber.split('.')[ 1 ]
+        let integerDisplay
+        if (isNaN(integerDigits)) {
+            integerDisplay = ''
+        } else {
+            integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
+        }
+        if (decimalDigits != null) {
+            return `${integerDisplay}.${decimalDigits}`
+        } else {
+            return integerDisplay
+        }
+    }
+
+    updateDisplay() {
+        this.currentOperandTextElement.innerText = this.getDisplayNumber(this.currentOperand)
+
+        if (this.currentOperandTextElement.innerText !== '0') {
+            this.currentOperandTextElement.classList.remove('muted')
+        } else {
+            this.currentOperandTextElement.classList.add('muted')
+        }
+
+        const errorMessage = document.createElement('div')
+        errorMessage.innerHTML = 'You broke it!! Too many digits'
+        errorMessage.classList.add('error-message')
+
+        if (this.currentOperandTextElement.textContent.length >= 21) {
+            this.currentOperandTextElement.appendChild(errorMessage)
+            this.delete()
+        }
+
+        if (this.operation != null) {
+            this.previousOperandTextElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+        } else {
+            this.previousOperandTextElement.innerText = ''
+        }
+    }
+}
+
+const keysEl = document.querySelectorAll('.key')
+const numberButtons = document.querySelectorAll('[data-number]')
+const operationButtons = document.querySelectorAll('[data-operation]')
+const equalsButton = document.querySelector('[data-equals]')
+const deleteButton = document.querySelector('[data-delete]')
+const allClearButton = document.querySelector('[data-all-clear]')
+const previousOperandTextElement = document.querySelector('[data-previous-operand]')
+const currentOperandTextElement = document.querySelector('[data-current-operand]')
+
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+
+const onMutation = function (mutations) {
+    for (const { addedNodes } of mutations) {
+        for (const node of addedNodes) {
+            if (!node.tagName) continue
+            if (node.classList.contains('error-message')) {
+                keysEl.forEach((keyEl) => {
+                    keyEl.classList.add('falling-keys')
+                    setTimeout(() => {
+                        keyEl.classList.remove('falling-keys')
+                    }, 3100)
+                })
+
+                setTimeout(() => {
+                    calculator.clear()
+                    calculator.updateDisplay()
+                }, 3200)
+            }
+        }
+    }
+}
+
+const observer = new MutationObserver(onMutation)
+
+observer.observe(currentOperandTextElement, { childList: true, subtree: true })
+
+// Calc with keys
+document.addEventListener('keydown', ({ key, shiftKey }) => {
+    if (!isNaN(key) || key === '.') {
+        calculator.appendNumber(key)
+        calculator.updateDisplay()
+    }
+    if (key === '/' || key === '-' || key === '+') {
+        calculator.chooseOperation(key)
+        calculator.updateDisplay()
+    }
+    if (key === '*') {
+        calculator.chooseOperation('x')
+        calculator.updateDisplay()
+    }
+    if (key === 'Enter') {
+        calculator.compute()
+        calculator.updateDisplay()
+    }
+    if (key === 'Delete' || key === 'Backspace') {
+        calculator.delete()
+        calculator.updateDisplay()
+    }
+    if ((key === 'Delete' && shiftKey) || (key === 'Backspace' && shiftKey)) {
+        calculator.clear()
+        calculator.updateDisplay()
+    }
+})
+
+// Calc with click
+numberButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
+    })
+})
+
+operationButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText)
+        calculator.updateDisplay()
+    })
+})
+
+equalsButton.addEventListener('click', () => {
+    calculator.compute()
+    calculator.updateDisplay()
+})
+
+allClearButton.addEventListener('click', () => {
+    calculator.clear()
+    calculator.updateDisplay()
+})
+
+deleteButton.addEventListener('click', () => {
+    calculator.delete()
+    calculator.updateDisplay()
+})
+</script>
