@@ -3,9 +3,6 @@ import { createContext, useContext, useRef, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { useWindowSize } from 'usehooks-ts'
 
-import Layout from '../components/saas-dashboard/layout'
-import Buckets from '../components/saas-dashboard/Buckets'
-
 const SAASContext = createContext({})
 
 const SAASContextProvider = ({ children }: { children: React.ReactNode }) => {
@@ -15,7 +12,7 @@ const SAASContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     const [sideBarExpanded, setSideBarExpanded] = useState(width > 600 ? true : false)
 
-    useHotkeys('ctrl+k, cmd+k', (e) => {
+    useHotkeys('mod+k', (e) => {
         e.preventDefault()
         if (!searchInputRef?.current) return
 
