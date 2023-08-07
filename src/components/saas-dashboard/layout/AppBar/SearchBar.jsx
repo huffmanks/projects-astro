@@ -5,7 +5,6 @@ import IconButton from '../../common/IconButton'
 
 const SearchBar = () => {
     const { searchInputRef } = useSAAS()
-    console.log(searchInputRef.current)
 
     return (
         <div className='w-full max-w-xl flex items-center bg-gray-600/30 rounded-full focus-within:ring-2 focus-within:ring-sky-500'>
