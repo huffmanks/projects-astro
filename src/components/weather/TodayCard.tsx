@@ -12,7 +12,7 @@ const TodayCard = ({ today }: { today: TodayInfo }) => {
 
     return (
         <div className='rounded-2xl bg-slate-800'>
-            <div className='flex justify-between items-center bg-slate-900 p-4 rounded-t-lg text-lg'>
+            <div className='block xs:flex justify-between items-center bg-slate-900 p-4 rounded-t-lg text-lg'>
                 <div>{dayOfWeek}</div>
                 <div>{todayTime}</div>
             </div>

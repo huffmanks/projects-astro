@@ -14,14 +14,10 @@ import '@fontsource/poppins/900.css'
 
 interface Props {
     title: string
-    bgColor?: string
-    textColor?: string
-    isFontMono?: boolean
-    isFontSpace?: boolean
-    isFontPoppins?: boolean
+    bodyClass?: string
 }
 
-const { title, bgColor, textColor, isFontMono, isFontSpace, isFontPoppins } = Astro.props
+const { title, bodyClass } = Astro.props
 ---
 
 <html lang='en'>
@@ -32,16 +28,7 @@ const { title, bgColor, textColor, isFontMono, isFontSpace, isFontPoppins } = As
         <meta name='generator' content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body
-        class={`${bgColor} ${textColor} ${
-            isFontMono
-                ? 'font-["Roboto_Mono_Variable",_sans-serif]'
-                : isFontSpace
-                ? 'font-["Space_Grotesk_Variable",_sans-serif]'
-                : isFontPoppins
-                ? 'font-["Poppins",_sans-serif]'
-                : 'font-["Raleway_Variable",_sans-serif]'
-        }`}>
+    <body class={bodyClass ? bodyClass : ''}>
         <slot />
     </body>
 </html>

@@ -6,9 +6,10 @@
 -   SAAS dashboard demo
 -   Funflow landing demo
 
-## Replace portfolio landing page
+## Remove
 
--   With links page
+-   Portfolio links page and create it here.
+-   Take down solo SAAS dashboard and archive repo
 
 ## Fixes
 
