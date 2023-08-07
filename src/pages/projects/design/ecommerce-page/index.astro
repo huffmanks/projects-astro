@@ -1,7 +1,21 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro'
+
+import Navbar from '../../../../components/ecommerce-page/NavBar.astro'
+import Alert from '../../../../components/ecommerce-page/Alert.astro'
+import Hero from '../../../../components/ecommerce-page/Hero.astro'
+import Brand from '../../../../components/ecommerce-page/Brand.astro'
 ---
 
-<BaseLayout title='E-commerce page' bgColor='bg-white' textColor='text-black'>
-    <div>hello</div>
+<BaseLayout title='E-commerce page' bgColor='bg-white' textColor='text-black' isFontSpace>
+    <Alert />
+    <div class='max-w-5xl mx-auto'>
+        <Navbar />
+
+        <Hero />
+        <main class='px-6 lg:px-2'>
+            <Brand />
+            <!-- everything else -->
+        </main>
+    </div>
 </BaseLayout>

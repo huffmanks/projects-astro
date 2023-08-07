@@ -1,0 +1,57 @@
+---
+import { Search, X } from 'lucide-astro'
+---
+
+<div id='mobile-menu' class='fixed lg:hidden inset-0 bg-black/40 -translate-x-[1024px] opacity-0 transition-opacity ease-in z-10'>
+    <div class='absolute inset-y-0 w-full max-w-sm px-4 py-8 bg-white z-20'>
+        <div class='flex items-center justify-between gap-4 mb-4 md:mb-6 px-1'>
+            <a class='rounded-lg py-2 pl-2 pr-1.5 outline-none hover:invert focus:invert hover:bg-white focus:bg-white transition-all' href='/projects/design/ecommerce-page'>
+                <img class='w-24 md:w-36' src='/ecommerce-page/nostra-logo.png' alt='Nostra logo' />
+            </a>
+            <button id='mobile-menu-close' class='group rounded-full outline-none focus:bg-black hover:bg-black p-1 transition-all'>
+                <X class='w-5 h-5 md:w-6 md:h-6 group-focus:stroke-white group-hover:stroke-white transition-all' />
+            </button>
+        </div>
+        <div class='group flex items-center gap-2 mb-6 px-3 py-1.5 bg-gray-50 border-2 border-gray-100 rounded-md text-sm hover:border-zinc-900 focus-within:border-zinc-900 transition-all'>
+            <Search class='w-4 h-4 stroke-gray-400' />
+            <input class='w-full bg-transparent outline-none border-none' type='text' placeholder='Search' />
+        </div>
+        <nav class='px-2'>
+            <ul class='flex flex-col justify-center gap-3'>
+                <li><a class='outline-none transition-all hover:underline focus:underline underline-offset-8 decoration-2' href='#'>Shop</a></li>
+                <li><a class='outline-none transition-all hover:underline focus:underline underline-offset-8 decoration-2' href='#'>Most wanted</a></li>
+                <li><a class='outline-none transition-all hover:underline focus:underline underline-offset-8 decoration-2' href='#'>New arrival</a></li>
+                <li><a class='outline-none transition-all hover:underline focus:underline underline-offset-8 decoration-2' href='#'>Brands</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<script>
+    import { menuIsOpen } from '../../store'
+    const mobileMenu = document.querySelector('#mobile-menu') as HTMLDivElement
+    const mobileMenuCloseBtn = document.querySelector('#mobile-menu-close') as HTMLButtonElement
+
+    menuIsOpen.subscribe((open) => {
+        if (open) {
+            mobileMenu.classList.add('left-0')
+            mobileMenu.classList.remove('opacity-0')
+            mobileMenu.classList.remove('-translate-x-[1024px]')
+        } else {
+            mobileMenu.classList.add('-translate-x-[1024px]')
+            mobileMenu.classList.add('opacity-0')
+            mobileMenu.classList.remove('left-0')
+        }
+    })
+
+    const closeMenu = (e: MouseEvent) => {
+        const target = e.target as HTMLButtonElement
+
+        if (target.id === 'mobile-menu' || mobileMenuCloseBtn.contains(target)) {
+            menuIsOpen.set(false)
+        }
+    }
+
+    mobileMenu.addEventListener('click', closeMenu)
+    mobileMenuCloseBtn.addEventListener('click', closeMenu)
+</script>

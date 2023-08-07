@@ -1,0 +1,28 @@
+---
+import { X } from 'lucide-astro'
+---
+
+<div id='alert' class='bg-zinc-800 text-white p-1.5'>
+    <div class='max-w-5xl mx-auto pl-3 pr-8 xs:pr-14 lg:pr-8 relative'>
+        <div class='xs:text-center text-sm' style='text-wrap: balance;'>
+            Sign up and <strong>GET 20% OFF</strong> for your first order. <a href='#' class='outline-none underline transition-all focus:opacity-70 hover:opacity-70'>Sign up now</a>
+        </div>
+        <button id='alert-close' class='group absolute right-2 xs:right-6 lg:right-1.5 top-1/2 -translate-y-1/2 outline-none'>
+            <X class='w-5 h-5 transition-all group-hover:stroke-gray-400 group-focus:stroke-gray-400' />
+        </button>
+    </div>
+</div>
+
+<script>
+    import { alertIsOpen } from '../../store'
+
+    const alertEl = document.querySelector('#alert') as HTMLDivElement
+    const alertCloseBtn = document.querySelector('#alert-close') as HTMLButtonElement
+
+    const closeAlert = () => {
+        alertIsOpen.set(false)
+        alertEl.classList.add('hidden')
+    }
+
+    alertCloseBtn.addEventListener('click', closeAlert)
+</script>

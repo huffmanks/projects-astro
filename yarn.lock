@@ -565,6 +565,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource-variable/roboto-mono/-/roboto-mono-5.0.7.tgz#7ee51d967a6606034ac41e0f426a04ba38fd53a6"
   integrity sha512-pwz1g6BBhUoSZgTUc+WkR6JQ833UqyChuz0bk4wWnkfTMXVL3UGIQ9M6ookR9Zulk5TU030jUYHlf/As3qaVHQ==
 
+"@fontsource-variable/space-grotesk@^5.0.8":
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/space-grotesk/-/space-grotesk-5.0.8.tgz#b3c459db7e74f91c6c4db7ea80bcddb6b0d29fa2"
+  integrity sha512-vrj5WdSqVpQGqOug8hEWvgvnXq2Hsc63LKXHGYRA9lGJhYbru0WQKH3EEei97DkAUdgBOn/NKQpfbUS0V35Kgw==
+
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"
@@ -1986,6 +1991,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+lucide-astro@^0.263.0:
+  version "0.263.0"
+  resolved "https://registry.yarnpkg.com/lucide-astro/-/lucide-astro-0.263.0.tgz#834db8e2fb74e78906ab47df036b615cb682eb9b"
+  integrity sha512-2c5Y4l7AQpx/1eo7dcCXq2cIoFRu2CgvR0/jBqQG8dbOLmPxlAXp096TSsac/4xXKiVjXYrtccD20gS2YwE43Q==
+
 magic-string@^0.27.0:
   version "0.27.0"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.27.0.tgz#e4a3413b4bab6d98d2becffd48b4a257effdbbf3"
@@ -2472,6 +2482,11 @@ nanoid@^3.3.6:
   version "3.3.6"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.6.tgz#443380c856d6e9f9824267d960b4236ad583ea4c"
   integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
+
+nanostores@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/nanostores/-/nanostores-0.9.3.tgz#a095de5cb695e027b84657d5e31cabd6c5bb269c"
+  integrity sha512-KobZjcVyNndNrb5DAjfs0WG0lRcZu5Q1BOrfTOxokFLi25zFrWPjg+joXC6kuDqNfSt9fQwppyjUBkRPtsL+8w==
 
 network-information-types@^0.1.1:
   version "0.1.1"
