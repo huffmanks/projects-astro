@@ -8,7 +8,7 @@ interface Props {
 const Form = ({ handleChange, handleSubmit }: Props) => {
     return (
         <>
-            <form onSubmit={handleSubmit} className='max-w-xs mx-auto'>
+            <form onSubmit={handleSubmit} className='max-w-xs mx-auto px-3'>
                 <div className='mb-4'>
                     <label htmlFor='categories' className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
                         Select a category

@@ -40,7 +40,7 @@ const QuestionCard = ({ questions, currentQuestion, handleNext }: Props) => {
                 <span className='text-purple-600 text-lg font-bold mr-2'>#{currentQuestion + 1}</span>
                 <span dangerouslySetInnerHTML={{ __html: parsedQuestion }} />
             </div>
-            <div className='grid md:grid-cols-2 gap-6 mb-4'>
+            <div className='grid md:grid-cols-2 gap-6 mb-4 px-3'>
                 {answers.map((answer) => (
                     <div
                         key={answer}
@@ -54,7 +54,7 @@ const QuestionCard = ({ questions, currentQuestion, handleNext }: Props) => {
                     </div>
                 ))}
             </div>
-            <div className='w-full flex items-end justify-between gap-6'>
+            <div className='w-full flex items-end justify-between gap-6 px-3'>
                 {/* {currentQuestion > 0 && (
                     <>
                         <button

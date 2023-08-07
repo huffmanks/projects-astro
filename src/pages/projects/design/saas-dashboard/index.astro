@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro'
+
+import SAASDashboard from '../../../../components/saas-dashboard/index.jsx'
+---
+
+<BaseLayout title='Project Board' isFontPoppins>
+    <SAASDashboard client:only />
+</BaseLayout>
+
+<style>
+    body {
+        background-color: #020712;
+        color: #f9ffff;
+    }
+</style>

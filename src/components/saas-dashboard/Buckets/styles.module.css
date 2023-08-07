@@ -1,0 +1,21 @@
+.scrollbar {
+    padding-bottom: 32px;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 9999px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: #0284c7;
+    background-clip: padding-box;
+    border: 8px solid transparent;
+    border-radius: 9999px;
+}

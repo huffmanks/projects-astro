@@ -84,7 +84,7 @@ const QuizWrapper = () => {
 
     return (
         <>
-            <main className='grid place-items-center h-full'>
+            <main className='grid place-items-center min-h-screen'>
                 <div className='max-w-xl w-full'>
                     <h1 className='text-3xl font-bold mb-8 text-center underline-offset-4 underline decoration-purple-600'>Quiz App</h1>
                     {!questions.length && <Form handleChange={handleChange} handleSubmit={handleSubmit} />}

@@ -2,6 +2,15 @@
 import '@fontsource-variable/roboto-mono'
 import '@fontsource-variable/raleway'
 import '@fontsource-variable/space-grotesk'
+import '@fontsource/poppins/100.css'
+import '@fontsource/poppins/200.css'
+import '@fontsource/poppins/300.css'
+import '@fontsource/poppins/400.css'
+import '@fontsource/poppins/500.css'
+import '@fontsource/poppins/600.css'
+import '@fontsource/poppins/700.css'
+import '@fontsource/poppins/800.css'
+import '@fontsource/poppins/900.css'
 
 interface Props {
     title: string
@@ -9,12 +18,13 @@ interface Props {
     textColor?: string
     isFontMono?: boolean
     isFontSpace?: boolean
+    isFontPoppins?: boolean
 }
 
-const { title, bgColor, textColor, isFontMono, isFontSpace } = Astro.props
+const { title, bgColor, textColor, isFontMono, isFontSpace, isFontPoppins } = Astro.props
 ---
 
-<html lang='en' class='h-full'>
+<html lang='en'>
     <head>
         <meta charset='utf-8' />
         <link rel='icon' type='image/svg+xml' href='/favicon.ico' />
@@ -23,8 +33,14 @@ const { title, bgColor, textColor, isFontMono, isFontSpace } = Astro.props
         <title>{title}</title>
     </head>
     <body
-        class={`h-full ${bgColor} ${textColor} ${
-            isFontMono ? 'font-["Roboto_Mono_Variable",_sans-serif]' : isFontSpace ? 'font-["Space_Grotesk_Variable",_sans-serif]' : 'font-["Raleway_Variable",_sans-serif]'
+        class={`${bgColor ? bgColor + ' ' : ''}${textColor ? textColor + '' : ''}${
+            isFontMono
+                ? 'font-["Roboto_Mono_Variable",_sans-serif]'
+                : isFontSpace
+                ? 'font-["Space_Grotesk_Variable",_sans-serif]'
+                : isFontPoppins
+                ? 'font-["Poppins",_sans-serif]'
+                : 'font-["Raleway_Variable",_sans-serif]'
         }`}>
         <slot />
     </body>

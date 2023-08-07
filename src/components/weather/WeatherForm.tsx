@@ -3,6 +3,9 @@ import TodayCard from './TodayCard'
 import ForecastCard from './ForecastCard'
 import type { TodayInfo, ForecastInfo } from '../../types'
 
+// sample data
+// import { todayData, forecastData } from './data'
+
 const WeatherForm = () => {
     const [zipCode, setZipCode] = useState('10001')
     const [error, setError] = useState('')
@@ -87,18 +90,18 @@ const WeatherForm = () => {
     return (
         <>
             <header className='bg-zinc-800 py-6 px-8'>
-                <div className='flex justify-between gap-4 items-center max-w-xl mx-auto'>
+                <div className='sm:flex justify-between gap-4 items-center max-w-xl mx-auto'>
+                    <h1 className='text-lg xs:text-2xl font-medium text-center mb-4 sm:mb-0'>
+                        <span className='text-orange-600'>Weather</span> App
+                    </h1>
                     <form onSubmit={handleSubmit}>
-                        <div className='bg-zinc-100 rounded-md'>
-                            <input className='outline-none bg-transparent px-3 py-1 text-sm text-black' type='text' placeholder='Enter zip code' value={zipCode} onChange={handleChange} />
+                        <div className='max-w-[275px] mx-auto flex items-center bg-zinc-100 rounded-md'>
+                            <input className='w-full px-3 py-1 outline-none bg-transparent text-sm text-black' type='text' placeholder='Enter zip code' value={zipCode} onChange={handleChange} />
                             <button className='border-none outline-none bg-orange-600 text-white text-sm px-3 py-1 rounded-r-md' type='submit'>
                                 Search
                             </button>
                         </div>
                     </form>
-                    <h1 className='text-lg font-medium'>
-                        <span className='text-orange-600'>Weather</span> App
-                    </h1>
                 </div>
             </header>
 
@@ -106,8 +109,8 @@ const WeatherForm = () => {
                 {today && forecast && (
                     <>
                         <h2 className='text-2xl text-center mb-8'>{today.name}</h2>
-                        <section className='grid grid-cols-[repeat(auto-fill,_minmax(min(160px,_100%),_1fr))] gap-8'>
-                            <div className='col-span-2'>
+                        <section className='grid xms:grid-cols-[repeat(auto-fill,_minmax(min(160px,_100%),_1fr))] gap-8'>
+                            <div className='xms:col-span-2'>
                                 <TodayCard today={today} />
                             </div>
                             {forecast.map((item) => (
@@ -123,7 +126,7 @@ const WeatherForm = () => {
                     <div className='fixed bottom-6 right-6'>
                         <div className='flex items-center gap-3 w-full max-w-xs p-4 text-red-500 bg-red-100 rounded-lg shadow' role='alert'>
                             <div className='inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-200 rounded-lg'>
-                                <svg className='w-5 h-5' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 20 20'>
+                                <svg className='w-5 h-5' aria-hidden='true' xmlnsXlink='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 20 20'>
                                     <path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z' />
                                 </svg>
                                 <span className='sr-only'>Warning icon</span>
@@ -135,7 +138,7 @@ const WeatherForm = () => {
                                 aria-label='Close'
                                 onClick={handleCloseError}>
                                 <span className='sr-only'>Close</span>
-                                <svg className='w-3 h-3' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 14 14'>
+                                <svg className='w-3 h-3' aria-hidden='true' xmlnsXlink='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 14 14'>
                                     <path stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6' />
                                 </svg>
                             </button>

@@ -17,9 +17,9 @@ const TodayCard = ({ today }: { today: TodayInfo }) => {
                 <div>{todayTime}</div>
             </div>
 
-            <div className='p-8'>
-                <div className='flex justify-between items-center'>
-                    <div className='text-6xl font-bold'>{Math.round(today.main.temp)}&deg;</div>
+            <div className='p-4 xs:p-8'>
+                <div className='flex flex-col-reverse xs:flex-row justify-between items-center'>
+                    <div className='mb-6 text-6xl font-bold'>{Math.round(today.main.temp)}&deg;</div>
                     <div className='relative'>
                         <div className='flex justify-center'>
                             <div className='absolute text-sm'>{today.weather[0].description}</div>
@@ -27,8 +27,8 @@ const TodayCard = ({ today }: { today: TodayInfo }) => {
                         <img className='object-cover h-32 w-32' src={`https://openweathermap.org/img/wn/${today.weather[0].icon}@4x.png`} alt='clouds' />
                     </div>
                 </div>
-                <div className='flex justify-between items-center text-sm'>
-                    <div>
+                <div className='flex flex-col xms:flex-row justify-between items-center gap-x-2 text-sm'>
+                    <div className='flex-1 w-full'>
                         <div>
                             <span className='text-gray-400 mr-2'>Real feel:</span>
                             <span className='font-bold'>{Math.round(today.main.feels_like)}&deg;</span>
@@ -42,7 +42,7 @@ const TodayCard = ({ today }: { today: TodayInfo }) => {
                             <span className='font-bold'>{sunsetTime}</span>
                         </div>
                     </div>
-                    <div>
+                    <div className='flex-1 w-full'>
                         <div>
                             <span className='text-gray-400 mr-2'>Wind:</span>
                             <span className='font-bold'>{Math.round(today.wind.speed)} MPH</span>
