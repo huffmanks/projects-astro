@@ -33,7 +33,7 @@ const { title, bgColor, textColor, isFontMono, isFontSpace, isFontPoppins } = As
         <title>{title}</title>
     </head>
     <body
-        class={`${bgColor ? bgColor + ' ' : ''}${textColor ? textColor + '' : ''}${
+        class={`${bgColor} ${textColor} ${
             isFontMono
                 ? 'font-["Roboto_Mono_Variable",_sans-serif]'
                 : isFontSpace
