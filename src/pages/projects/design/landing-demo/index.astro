@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro'
+
+import LandingDemo from '../../../../components/landing-demo'
+---
+
+<BaseLayout title='Funflow' bodyClass='font-["Poppins",_sans-serif]'>
+    <LandingDemo client:only />
+</BaseLayout>
+
+<style>
+    body {
+        background-color: #222;
+        color: #fefefe;
+    }
+</style>

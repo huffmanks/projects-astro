@@ -3,13 +3,10 @@
 -   Leaflet map
 -   Podcast rss feed
 -   Interactive comments
--   SAAS dashboard demo
--   Funflow landing demo
 
 ## Remove
 
 -   Portfolio links page and create it here.
--   Take down solo SAAS dashboard and archive repo
 
 ## Fixes
 
