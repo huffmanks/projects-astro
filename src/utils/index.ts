@@ -13,3 +13,13 @@ export const getLabelByValue = (value: string) => {
 
     return category ? category.label : null
 }
+
+export const getPreviousMonth = () => {
+    const now = new Date()
+    now.setMonth(now.getMonth() - 1)
+
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const previousMonth = months[now.getMonth()]
+
+    return previousMonth
+}

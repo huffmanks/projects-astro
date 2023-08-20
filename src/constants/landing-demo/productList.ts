@@ -1,6 +1,10 @@
 import { products } from './images'
+import { getPreviousMonth } from '../../utils'
 
 const { one, two, three } = products
+
+const currentYear = new Date().getFullYear()
+const previousMonth = getPreviousMonth()
 
 export const productList = [
     {
@@ -8,7 +12,7 @@ export const productList = [
         title: 'E-commerce Website',
         image: one,
         category: 'Redesign',
-        date: 'June 1, 2022',
+        date: `${previousMonth}. 1, ${currentYear}`,
         link: '#',
     },
     {
@@ -16,7 +20,7 @@ export const productList = [
         title: 'Game Streaming App',
         image: two,
         category: 'Gaming',
-        date: 'June 2, 2022',
+        date: `${previousMonth}. 2, ${currentYear}`,
         link: '#',
     },
     {
@@ -24,7 +28,7 @@ export const productList = [
         title: 'Logos and Branding',
         image: three,
         category: 'Marketing',
-        date: 'June 3, 2022',
+        date: `${previousMonth}. 3, ${currentYear}`,
         link: '#',
     },
 ]

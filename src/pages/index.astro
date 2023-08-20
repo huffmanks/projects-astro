@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <title>Portfolio | huffmanks.com</title>
+    </head>
+
+    <body>
+        <div class='link-bio'>
+            <div class='link-bio--header'>
+                <div class='link-bio--header-logo'>
+                    <a class='link-bio--header-link' href='https://huffmanks.com'>
+                        <img src='/strata-logo.png' alt='strata logo' />
+                    </a>
+                </div>
+            </div>
+            <div class='link-bio--links'>
+                <div class='link-bio--category'>Apps</div>
+                <a class='link-bio--link' href='/projects/apps/quiz'>Quiz</a>
+                <!-- <a class="link-bio--link" href="">Slack clone</a> -->
+                <a class='link-bio--link' href='/projects/apps/tip-calculator'>Tip calculator</a>
+                <a class='link-bio--link' href='https://tools.huffmanks.com' target='_blank' rel='noopener'>Tools</a>
+                <a class='link-bio--link' href='/projects/apps/weather'>Weather</a>
+            </div>
+            <div class='link-bio--links'>
+                <div class='link-bio--category'>Design</div>
+                <a class='link-bio--link' href='/projects/design/ecommerce-page'>Ecommerce page</a>
+                <a class='link-bio--link' href='/projects/design/landing-demo'>Funflow landing</a>
+                <a class='link-bio--link' href='https://interactive-comments.pages.dev/'>Interactive comments</a>
+                <!-- <a class="link-bio--link" href="/projects/design/interactive-comments">Interactive comments</a> -->
+                <a class='link-bio--link' href='/projects/design/saas-dashboard'>SAAS dashboard</a>
+                <a class='link-bio--link' href='/projects/design/wofford-homepage'>Wofford homepage</a>
+            </div>
+            <div class='link-bio--footer'>
+                <a class='link-bio--footer-logo' href='https://huffmanks.com'>
+                    <img src='/website.png' alt='huffmanks logo' />
+                </a>
+                <a class='link-bio--footer-logo' href='https://github.com/huffmanks' target='_blank' rel='noopener'>
+                    <img src='/github.png' alt='github logo' />
+                </a>
+                <a class='link-bio--footer-logo' href='https://www.linkedin.com/in/huffmanks' target='_blank' rel='noopener'>
+                    <img src='/linkedin.png' alt='linkedin logo' />
+                </a>
+                <a class='link-bio--footer-logo' href='https://twitter.com/huffmanks2' target='_blank' rel='noopener'>
+                    <img src='/twitter.png' alt='twitter logo' />
+                </a>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    *,
+    ::before,
+    ::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #1e1e1e;
+        font-family: 'Lato', sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    :focus-visible {
+        outline: none;
+    }
+
+    .link-bio {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 50px 0;
+    }
+
+    .link-bio--header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .link-bio--header-link {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.25s ease-in-out;
+    }
+
+    .link-bio--header-link:hover,
+    .link-bio--header-link:focus {
+        box-shadow: 0 0 5px 1px rgb(255 255 255);
+    }
+
+    .link-bio--header-logo img {
+        display: block;
+        width: 150px;
+        margin: 0;
+    }
+
+    .link-bio--links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: min(350px, 100%);
+        margin-bottom: 2rem;
+    }
+
+    .link-bio--category {
+        color: #fff;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 15px;
+        border-left: 3px solid white;
+        padding-left: 10px;
+    }
+
+    .link-bio--link {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #5b21b6;
+        color: #fff;
+        font-weight: normal;
+        text-align: center;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.25s ease-in-out;
+    }
+
+    .link-bio--link:hover,
+    .link-bio--link:focus {
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .link-bio--footer {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .link-bio--footer-logo {
+        border: 2px solid transparent;
+        border-radius: 50%;
+        transition: all 0.25s ease-in-out;
+    }
+
+    .link-bio--footer-logo:hover,
+    .link-bio--footer-logo:focus {
+        background-color: #fff;
+        border-color: #fff;
+        transform: scale(1.08);
+    }
+
+    .link-bio--footer-logo img {
+        display: block;
+        width: 32px;
+        margin: 0;
+    }
+</style>
