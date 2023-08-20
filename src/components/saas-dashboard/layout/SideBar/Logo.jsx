@@ -1,4 +1,4 @@
-import { useSAAS } from '../../../../context/SAASContext'
+import { useSAAS } from '../../SAASContext'
 
 const Logo = () => {
     const { sideBarExpanded } = useSAAS()

@@ -1,4 +1,4 @@
-import { blogStories } from '../../constants/landing-demo/blogStories'
+import { blogStories } from './constants/blogStories'
 
 import Button from './common/Button'
 

@@ -1,4 +1,4 @@
-import type { IFooterLink, IFooterCol } from '../../../../constants/landing-demo/footerLinks'
+import type { IFooterLink, IFooterCol } from '../../constants/footerLinks'
 
 import FooterLink from './FooterLink'
 

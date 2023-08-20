@@ -1,4 +1,4 @@
-import { productList } from '../../constants/landing-demo/productList'
+import { productList } from './constants/productList'
 import Button from './common/Button'
 
 const ProductSection = () => {

@@ -1,6 +1,6 @@
 import { Star, AlertCircle, Sliders, Plus, Filter, ArrowUpFromLine } from 'lucide-react'
 
-import { useSAAS } from '../../../../context/SAASContext'
+import { useSAAS } from '../../SAASContext'
 import { profiles } from '../../constants'
 
 import Button from '../../common/Button'

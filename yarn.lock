@@ -565,6 +565,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource-variable/roboto-mono/-/roboto-mono-5.0.7.tgz#7ee51d967a6606034ac41e0f426a04ba38fd53a6"
   integrity sha512-pwz1g6BBhUoSZgTUc+WkR6JQ833UqyChuz0bk4wWnkfTMXVL3UGIQ9M6ookR9Zulk5TU030jUYHlf/As3qaVHQ==
 
+"@fontsource-variable/rubik@^5.0.10":
+  version "5.0.10"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/rubik/-/rubik-5.0.10.tgz#7ece7b4f0b4268b1486d5b2f4e209937246cfd0c"
+  integrity sha512-R0LkqHa5VCO3YgLaTRqy/J/H1/Q6CgIfu+uFCb8a6qFdui0iLxbFh2BQv5lshrKBpZP8IUbNMAb/A1P2r/tq5Q==
+
 "@fontsource-variable/space-grotesk@^5.0.8":
   version "5.0.8"
   resolved "https://registry.yarnpkg.com/@fontsource-variable/space-grotesk/-/space-grotesk-5.0.8.tgz#b3c459db7e74f91c6c4db7ea80bcddb6b0d29fa2"

@@ -1,4 +1,4 @@
-import { footerLinks } from '../../../../constants/landing-demo/footerLinks'
+import { footerLinks } from '../../constants/footerLinks'
 
 import FooterCol from './FooterCol'
 

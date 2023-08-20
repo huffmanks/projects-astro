@@ -1,5 +1,5 @@
 import { Search, Mic } from 'lucide-react'
-import { useSAAS } from '../../../../context/SAASContext'
+import { useSAAS } from '../../SAASContext'
 
 import IconButton from '../../common/IconButton'
 

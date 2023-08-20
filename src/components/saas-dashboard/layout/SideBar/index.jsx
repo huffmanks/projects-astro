@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useSAAS } from '../../../../context/SAASContext'
+import { useSAAS } from '../../SAASContext'
 
 import Expand from './Expand'
 import Footer from './Footer'

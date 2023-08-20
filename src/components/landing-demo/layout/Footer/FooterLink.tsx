@@ -1,4 +1,4 @@
-import type { IFooterLink } from '../../../../constants/landing-demo/footerLinks'
+import type { IFooterLink } from '../../constants/footerLinks'
 
 const FooterLink = (link: IFooterLink) => {
     return (

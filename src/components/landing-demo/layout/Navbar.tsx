@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { Dribbble, Facebook, Instagram } from 'lucide-react'
 
 import IconButton from '../common/IconButton'
-import { menuLinks } from '../../../constants/landing-demo/menuLinks'
+import { menuLinks } from '../constants/menuLinks'
 
 const Navbar = () => {
     const backdropRef = useRef<HTMLDivElement>(null)

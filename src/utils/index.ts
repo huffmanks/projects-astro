@@ -14,12 +14,26 @@ export const getLabelByValue = (value: string) => {
     return category ? category.label : null
 }
 
-export const getPreviousMonth = () => {
-    const now = new Date()
-    now.setMonth(now.getMonth() - 1)
+const formatDate = (date: Date) => {
+    const months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.']
 
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    const previousMonth = months[now.getMonth()]
+    const day = date.getDate()
+    const month = months[date.getMonth()]
+    const year = date.getFullYear()
 
-    return previousMonth
+    return `${month} ${day}, ${year}`
+}
+
+export const getDates = () => {
+    const today = new Date()
+    const yesterday = new Date(today)
+    yesterday.setDate(yesterday.getDate() - 1)
+    const twoDaysAgo = new Date(today)
+    twoDaysAgo.setDate(twoDaysAgo.getDate() - 2)
+
+    const formattedToday = formatDate(today)
+    const formattedYesterday = formatDate(yesterday)
+    const formattedTwoDaysAgo = formatDate(twoDaysAgo)
+
+    return [formattedTwoDaysAgo, formattedYesterday, formattedToday]
 }

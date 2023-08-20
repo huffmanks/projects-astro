@@ -1,4 +1,4 @@
-import { aboutUs } from '../../constants/landing-demo/images'
+import { aboutUs } from './constants/images'
 
 const AboutSection = () => {
     return (

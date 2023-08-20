@@ -1,12 +1,8 @@
+import type { INestedStyles } from '../../../types'
+
 interface IProps {
     color: string
     text: string
-}
-
-interface INestedStyles {
-    [key: string]: {
-        [key: string]: string
-    }
 }
 
 const Button = ({ color, text }: IProps) => {

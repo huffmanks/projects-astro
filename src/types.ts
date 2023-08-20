@@ -1,3 +1,9 @@
+export interface INestedStyles {
+    [key: string]: {
+        [key: string]: string
+    }
+}
+
 // Quiz
 
 export interface Question {
@@ -79,4 +85,22 @@ export interface Wind {
     speed: number
     deg: number
     gust?: number
+}
+
+// Interactive comments
+export interface IComment {
+    id: number
+    content: string
+    createdAt: string
+    score: number
+    user: string
+    replies?: IReply[]
+}
+
+export interface IReply extends IComment {
+    replyingTo: string
+}
+
+export interface IStyles {
+    [key: string]: string
 }

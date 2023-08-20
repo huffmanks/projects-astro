@@ -1,5 +1,5 @@
 import { LayoutDashboard, Timer, MessageSquare, Users, Settings, FileBarChart2 } from 'lucide-react'
-import { useSAAS } from '../../../../context/SAASContext'
+import { useSAAS } from '../../SAASContext'
 import { routes } from '../../constants'
 
 import Link from './Link'

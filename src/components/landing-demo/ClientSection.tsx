@@ -1,4 +1,4 @@
-import { clientLogos } from '../../constants/landing-demo/clientLogos'
+import { clientLogos } from './constants/clientLogos'
 
 const ClientSection = () => {
     return (

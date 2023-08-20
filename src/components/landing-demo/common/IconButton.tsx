@@ -1,13 +1,9 @@
+import type { INestedStyles } from '../../../types'
+
 interface IProps {
     path: string
     color: string
     children: React.ReactNode
-}
-
-interface INestedStyles {
-    [key: string]: {
-        [key: string]: string
-    }
 }
 
 const IconButton = ({ path, color, children }: IProps) => {

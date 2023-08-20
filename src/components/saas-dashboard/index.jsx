@@ -1,4 +1,4 @@
-import SAASContextProvider from '../../context/SAASContext'
+import SAASContextProvider from './SAASContext'
 import Buckets from './Buckets'
 import Layout from './layout'
 

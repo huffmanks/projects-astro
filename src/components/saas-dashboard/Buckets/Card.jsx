@@ -1,6 +1,6 @@
 import { Calendar, Minus, MoreHorizontal } from 'lucide-react'
 
-import { useSAAS } from '../../../context/SAASContext'
+import { useSAAS } from '../SAASContext'
 import { profiles } from '../constants'
 
 import Chip from '../common/Chip'

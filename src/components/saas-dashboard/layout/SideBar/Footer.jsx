@@ -1,6 +1,6 @@
 import { MoreHorizontal } from 'lucide-react'
 
-import { useSAAS } from '../../../../context/SAASContext'
+import { useSAAS } from '../../SAASContext'
 
 import IconButton from '../../common/IconButton'
 import Chip from '../../common/Chip'

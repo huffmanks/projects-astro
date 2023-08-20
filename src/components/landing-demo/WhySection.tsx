@@ -1,5 +1,5 @@
-import { whyStats } from '../../constants/landing-demo/whyStats'
-import { whyUs } from '../../constants/landing-demo/images'
+import { whyStats } from './constants/whyStats'
+import { whyUs } from './constants/images'
 
 const WhySection = () => {
     return (

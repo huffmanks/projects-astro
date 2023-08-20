@@ -1,6 +1,6 @@
 import Button from './common/Button'
 
-import { headshots, hero } from '../../constants/landing-demo/images'
+import { headshots, hero } from './constants/images'
 
 const HeroSection = () => {
     return (

@@ -1,4 +1,4 @@
-import { useSAAS } from '../../../../context/SAASContext'
+import { useSAAS } from '../../SAASContext'
 import { workspaces } from '../../constants'
 
 import Workspace from './Workspace'
