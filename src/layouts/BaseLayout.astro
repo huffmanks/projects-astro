@@ -44,14 +44,6 @@ const isProd = import.meta.env.PROD
     </head>
     <body class={bodyClass ? bodyClass : ''}>
         <slot />
-        {
-            isProd && (
-                <>
-                    // Cloudflare Web Analytics
-                    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "99173bbfd34e46c6a06faefcd4401d61"}' />
-                    // End Cloudflare Web Analytics
-                </>
-            )
-        }
+        {isProd && <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "99173bbfd34e46c6a06faefcd4401d61"}' />}
     </body>
 </html>
