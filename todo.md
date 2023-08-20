@@ -2,13 +2,13 @@
 
 -   Leaflet map
 -   Podcast rss feed
--   Interactive comments
 
-## Remove
+## Not completed
 
--   Portfolio links page and create it here.
+-   Ecommerce page
+-   Slack clone
 
-## Fixes
+## Issues
 
 -   SAAS dashboard
     -   On mobile, profile meatball menu (3 dots), sometimes moves on scroll

@@ -1,0 +1,64 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #282829;
+    color: #fff;
+}
+
+a {
+    background-color: transparent;
+    color: #8a6e4b;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.6s ease;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 0.375rem 1.5rem;
+    background-color: #8a6e4b;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+    transition: color 0.15s ease-in-out, background-color 0.3s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+button,
+button:hover {
+    border: none;
+    background: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}

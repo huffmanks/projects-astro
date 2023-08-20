@@ -1,8 +1,14 @@
 ---
-import WoffordLayout from '../../../../layouts/WoffordLayout.astro'
+import BaseLayout from '../../../../layouts/BaseLayout.astro'
+
+import Navbar from '../../../../components/wofford-homepage/Navbar.astro'
+import MediaContainer from '../../../../components/wofford-homepage/MediaContainer.astro'
+import Footer from '../../../../components/wofford-homepage/Footer.astro'
 ---
 
-<WoffordLayout title='Wofford College'>
+<BaseLayout title='Wofford College' isWoffordPage>
+    <Navbar />
+    <MediaContainer media='/wofford-homepage/video/wofford-campus.webm' />
     <main>
         <!-- CTA section -->
         <section class='home-section-cta'>
@@ -150,7 +156,8 @@ import WoffordLayout from '../../../../layouts/WoffordLayout.astro'
             </div>
         </section>
     </main>
-</WoffordLayout>
+    <Footer />
+</BaseLayout>
 
 <script is:inline>
 document.addEventListener('DOMContentLoaded', () => {

@@ -16,9 +16,12 @@ import '@fontsource/poppins/900.css'
 interface Props {
     title: string
     bodyClass?: string
+    isWoffordPage?: boolean
 }
 
-const { title, bodyClass } = Astro.props
+const { title, bodyClass, isWoffordPage } = Astro.props
+
+const isProd = import.meta.env.PROD
 ---
 
 <html lang='en'>
@@ -27,9 +30,28 @@ const { title, bodyClass } = Astro.props
         <link rel='icon' type='image/svg+xml' href='/favicon.ico' />
         <meta name='viewport' content='width=device-width' />
         <meta name='generator' content={Astro.generator} />
+        {
+            isWoffordPage && (
+                <>
+                    <link rel='stylesheet preload' href='/wofford-homepage/typekit.css' as='style' />
+                    <link rel='stylesheet' href='/wofford-homepage/bundle.css' />
+                    <link rel='stylesheet' href='/wofford-homepage/base.css' />
+                    <link rel='stylesheet' href='/wofford-homepage/styles.css' />
+                </>
+            )
+        }
         <title>{title}</title>
     </head>
     <body class={bodyClass ? bodyClass : ''}>
         <slot />
+        {
+            isProd && (
+                <>
+                    // Cloudflare Web Analytics
+                    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "99173bbfd34e46c6a06faefcd4401d61"}' />
+                    // End Cloudflare Web Analytics
+                </>
+            )
+        }
     </body>
 </html>
