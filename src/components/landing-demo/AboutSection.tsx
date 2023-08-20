@@ -3,10 +3,10 @@ import { aboutUs } from './constants/images'
 const AboutSection = () => {
     return (
         <section className='pt-16'>
-            <div className='max-w-screen-xl flex flex-col gap-4 mx-auto mb-24 pl-10 lg:pr-10 text-2xl md:text-4xl lg:text-5xl xl:text-6xl'>
-                <div className='hidden sm:block'>We are a team of great designers,</div>
-                <div className='hidden sm:block sm:self-end'>problem solvers, and passionate.</div>
-                <div className='sm:hidden text-center'>We are a team of great designers, problem solvers, and passionate.</div>
+            <div className='max-w-screen-xl flex flex-col gap-4 mx-auto mb-24 pl-3 pr-3 md:pl-10 md:pr-10 text-2xl md:text-4xl lg:text-5xl xl:text-6xl'>
+                <div className='hidden md:block'>We are a team of great designers,</div>
+                <div className='hidden md:block sm:self-end'>problem solvers, and passionate.</div>
+                <div className='md:hidden text-center max-w-[450px] mx-auto'>We are a team of great designers, problem solvers, and passionate.</div>
             </div>
 
             <div className='lg:pt-24 lg:pb-24 bg-orange-400'>

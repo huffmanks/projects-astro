@@ -6,18 +6,12 @@ const BlogSection = () => {
     return (
         <section className='max-w-screen-xl mx-auto px-10 pb-24'>
             <div className='flex flex-col lg:flex-row items-center lg:items-end justify-between gap-16 mb-24'>
-                <div className='hidden xs:block text-5xl font-bold'>
-                    <div>Always keep up</div>
-                    <div>to date with our</div>
-                    <div>daily news</div>
+                <div className='max-w-[400px] text-3xl xms:text-5xl font-bold text-center xms:text-left'>
+                    <div className='text-balance'>Always keep up to date with our daily news</div>
                 </div>
 
-                <div className='xs:hidden text-3xl font-bold text-center'>
-                    <div>Always keep up to date with our daily news</div>
-                </div>
-
-                <div className='flex flex-col xs:flex-row xs:items-end gap-x-16 gap-y-8'>
-                    <div className='max-w-[250px]'>
+                <div className='flex flex-col xms:flex-row xms:items-end gap-x-16 gap-y-8'>
+                    <div className='max-w-[275px]'>
                         <div className='flex items-center gap-3 mb-4'>
                             <div className='w-6 h-0.5 bg-orange-400'></div>
                             <div className='text-orange-400'>Latest blogs</div>
