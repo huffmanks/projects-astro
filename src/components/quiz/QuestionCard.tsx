@@ -31,7 +31,7 @@ const QuestionCard = ({ questions, currentQuestion, readyForNext, handleNext }: 
     }
 
     return (
-        <>
+        <div className='px-3'>
             <div id='radio-group-label' className='text-balance px-3 mb-4'>
                 <span className='text-purple-600 text-lg font-bold mr-2'>#{currentQuestion + 1}</span>
                 <span dangerouslySetInnerHTML={{ __html: parsedQuestion }} />
@@ -67,7 +67,7 @@ const QuestionCard = ({ questions, currentQuestion, readyForNext, handleNext }: 
                     {isLastQuestion ? 'FINISH' : 'NEXT'}
                 </button>
             </div>
-        </>
+        </div>
     )
 }
 

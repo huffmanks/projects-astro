@@ -1,3 +1,5 @@
+import { Play, RotateCcw } from 'lucide-react'
+
 import { domPurify } from '../../utils'
 import type { SanitizedQuestion } from '../../types'
 
@@ -16,7 +18,7 @@ const Score = ({ questions, score, handleRetry, handleNewQuiz }: Props) => {
 
     return (
         <>
-            <div className='grid gap-8 items-center justify-center'>
+            <div className='grid gap-8 items-center justify-center px-4'>
                 <div className='text-center'>
                     <div className='text-2xl sm:text-4xl mb-3'>{scorePercentage > 65 ? 'Congrats! 🎉' : 'You suck! 🤪'}</div>
                     <div className='text-4xl sm:text-7xl font-bold mb-6'>
@@ -33,7 +35,7 @@ const Score = ({ questions, score, handleRetry, handleNewQuiz }: Props) => {
                                 <span dangerouslySetInnerHTML={{ __html: domPurify.sanitize(item.question) }} />
                             </div>
 
-                            <div className='px-4'>
+                            <div className='px-3'>
                                 <div className='flex items-center gap-3'>
                                     <span>Selected:</span>
                                     <span className='font-bold text-red-600' dangerouslySetInnerHTML={{ __html: domPurify.sanitize(item.answers[item.selectedAnswer]) }} />
@@ -46,18 +48,20 @@ const Score = ({ questions, score, handleRetry, handleNewQuiz }: Props) => {
                         </div>
                     ))}
 
-                <div className='flex items-center justify-end gap-2'>
+                <div className='flex flex-col sm:flex-row items-center justify-end gap-x-4 gap-y-7'>
                     <button
                         type='button'
-                        className='focus:outline-none text-white border border-purple-700 enabled:hover:bg-gray-800 enabled:hover:border-transparent focus:ring-4 enabled:focus:ring-purple-300 font-bold rounded-lg tracking-wider px-5 py-2.5 dark:border-purple-600 dark:enabled:hover:bg-gray-700 dark:enabled:hover:border-transparent dark:enabled:focus:ring-purple-900 disabled:opacity-60 enabled:cursor-pointer'
+                        className='flex items-center gap-2 focus:outline-none text-white border border-purple-700 enabled:hover:bg-gray-800 enabled:hover:border-transparent focus:ring-4 enabled:focus:ring-purple-300 font-bold rounded-lg tracking-wider px-5 py-2.5 dark:border-purple-600 dark:enabled:hover:bg-gray-700 dark:enabled:hover:border-transparent dark:enabled:focus:ring-purple-900 disabled:opacity-60 enabled:cursor-pointer'
                         onClick={handleRetry}>
-                        RETRY
+                        <RotateCcw className='w-5 h-5' />
+                        <span>RETRY</span>
                     </button>
                     <button
                         type='button'
-                        className='focus:outline-none text-white border border-transparent bg-purple-700 enabled:hover:bg-purple-800 focus:ring-4 enabled:focus:ring-purple-300 font-bold rounded-lg tracking-wider px-5 py-2.5 dark:bg-purple-600 dark:enabled:hover:bg-purple-700 dark:enabled:focus:ring-purple-900 disabled:opacity-60 enabled:cursor-pointer'
+                        className='flex items-center gap-2 focus:outline-none text-white border border-transparent bg-purple-700 enabled:hover:bg-purple-800 focus:ring-4 enabled:focus:ring-purple-300 font-bold rounded-lg tracking-wider px-5 py-2.5 dark:bg-purple-600 dark:enabled:hover:bg-purple-700 dark:enabled:focus:ring-purple-900 disabled:opacity-60 enabled:cursor-pointer'
                         onClick={handleNewQuiz}>
-                        NEW QUIZ
+                        <Play className='w-5 h-5' />
+                        <span>NEW QUIZ</span>
                     </button>
                 </div>
             </div>
