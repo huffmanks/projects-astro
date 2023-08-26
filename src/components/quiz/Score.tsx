@@ -1,11 +1,18 @@
+import { domPurify } from '../../utils'
+import type { SanitizedQuestion } from '../../types'
+
 interface Props {
-    total: number
+    questions: SanitizedQuestion[]
     score: number
-    handleReset: (e: React.MouseEvent<HTMLButtonElement>) => void
+    handleRetry: (e: React.MouseEvent<HTMLButtonElement>) => void
+    handleNewQuiz: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const Score = ({ total, score, handleReset }: Props) => {
+const Score = ({ questions, score, handleRetry, handleNewQuiz }: Props) => {
+    const total = questions.length
     const scorePercentage = Number(((score / total) * 100).toFixed(1))
+
+    const incorrectQuestions = questions.filter((question) => question.correctAnswer !== question.selectedAnswer)
 
     return (
         <>
@@ -18,12 +25,39 @@ const Score = ({ total, score, handleReset }: Props) => {
                     <div>You missed {total - score} questions.</div>
                 </div>
 
-                <div className='mx-auto'>
+                {incorrectQuestions &&
+                    incorrectQuestions.map((item) => (
+                        <div key={item.question}>
+                            <div className='text-balance px-3 mb-2'>
+                                <span className='text-purple-600 text-lg font-bold mr-2'>#{item.number}</span>
+                                <span dangerouslySetInnerHTML={{ __html: domPurify.sanitize(item.question) }} />
+                            </div>
+
+                            <div className='px-4'>
+                                <div className='flex items-center gap-3'>
+                                    <span>Selected:</span>
+                                    <span className='font-bold text-red-600' dangerouslySetInnerHTML={{ __html: domPurify.sanitize(item.answers[item.selectedAnswer]) }} />
+                                </div>
+                                <div className='flex items-center gap-3'>
+                                    <span>Correct:</span>
+                                    <span className='font-bold text-green-600' dangerouslySetInnerHTML={{ __html: domPurify.sanitize(item.answers[item.correctAnswer]) }} />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+
+                <div className='flex items-center justify-end gap-2'>
                     <button
                         type='button'
-                        className='focus:outline-none text-white bg-purple-700 enabled:hover:bg-purple-800 focus:ring-4 enabled:focus:ring-purple-300 font-bold rounded-lg tracking-wider px-5 py-2.5 dark:bg-purple-600 dark:enabled:hover:bg-purple-700 dark:enabled:focus:ring-purple-900 disabled:opacity-60 enabled:cursor-pointer'
-                        onClick={handleReset}>
-                        PLAY AGAIN
+                        className='focus:outline-none text-white border border-purple-700 enabled:hover:bg-gray-800 enabled:hover:border-transparent focus:ring-4 enabled:focus:ring-purple-300 font-bold rounded-lg tracking-wider px-5 py-2.5 dark:border-purple-600 dark:enabled:hover:bg-gray-700 dark:enabled:hover:border-transparent dark:enabled:focus:ring-purple-900 disabled:opacity-60 enabled:cursor-pointer'
+                        onClick={handleRetry}>
+                        RETRY
+                    </button>
+                    <button
+                        type='button'
+                        className='focus:outline-none text-white border border-transparent bg-purple-700 enabled:hover:bg-purple-800 focus:ring-4 enabled:focus:ring-purple-300 font-bold rounded-lg tracking-wider px-5 py-2.5 dark:bg-purple-600 dark:enabled:hover:bg-purple-700 dark:enabled:focus:ring-purple-900 disabled:opacity-60 enabled:cursor-pointer'
+                        onClick={handleNewQuiz}>
+                        NEW QUIZ
                     </button>
                 </div>
             </div>

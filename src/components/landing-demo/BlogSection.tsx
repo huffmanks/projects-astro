@@ -10,7 +10,7 @@ const BlogSection = () => {
                     <div className='text-balance'>Always keep up to date with our daily news</div>
                 </div>
 
-                <div className='flex flex-col xms:flex-row xms:items-end gap-x-16 gap-y-8'>
+                <div className='flex flex-col sm:flex-row sm:items-end gap-x-16 gap-y-8'>
                     <div className='max-w-[275px]'>
                         <div className='flex items-center gap-3 mb-4'>
                             <div className='w-6 h-0.5 bg-orange-400'></div>

@@ -3,7 +3,7 @@ import { whyUs } from './constants/images'
 
 const WhySection = () => {
     return (
-        <section className='max-w-screen-xl mx-auto px-10 py-24'>
+        <section className='max-w-screen-xl mx-auto px-5 sm:px-10 py-24'>
             <div className='grid grid-col-1 md:grid-cols-[1fr_2fr] sm:gap-16 lg:gap-24 justify-between items-center md:pb-24 md:border-b-2'>
                 <div>
                     <div className='flex items-center gap-3 mb-8'>
@@ -22,8 +22,8 @@ const WhySection = () => {
 
                 <div>
                     {whyStats.map((stat) => (
-                        <div key={stat.id} className='px-8 py-12 sm:first:border-t-2 border-b border-gray-400'>
-                            <div className='flex flex-col sm:flex-row items-center justify-between gap-12'>
+                        <div key={stat.id} className='sm:px-8 py-12 sm:first:border-t-2 border-b border-gray-400'>
+                            <div className='flex flex-col sm:flex-row items-center justify-between gap-y-6 gap-x-12'>
                                 <div className='w-full flex flex-col items-center justify-center px-5 py-10 bg-orange-40 text-zinc-900 bg-gradient-to-l from-gray-100 to-gray-400'>
                                     <div className='text-4xl font-bold'>{stat.number}</div>
                                     <div className='text-sm text-center'>{stat.name}</div>

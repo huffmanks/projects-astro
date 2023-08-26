@@ -6,13 +6,26 @@ export interface INestedStyles {
 
 // Quiz
 
-export interface Question {
+export interface QuizResults {
+    results: OriginalQuestion[]
+}
+
+export interface OriginalQuestion {
     category: string
     type: string
     difficulty: string
     question: string
     correct_answer: string
     incorrect_answers: string[]
+}
+
+export interface SanitizedQuestion {
+    number: number
+    question: string
+    answers: string[]
+    correctAnswer: number
+    selectedAnswer: number
+    isCorrect?: boolean
 }
 
 // Weather

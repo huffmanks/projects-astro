@@ -1,4 +1,8 @@
+import DOMPurify from 'dompurify'
 import { categories } from '../components/quiz/constants'
+import type { QuizResults, SanitizedQuestion } from '../types'
+
+export const domPurify = DOMPurify(window)
 
 export const shuffleArray = (array: any) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -36,4 +40,23 @@ export const getDates = () => {
     const formattedTwoDaysAgo = formatDate(twoDaysAgo)
 
     return [formattedTwoDaysAgo, formattedYesterday, formattedToday]
+}
+
+// Quiz
+export const sanitizeQuizData = (data: QuizResults) => {
+    const transformedData: SanitizedQuestion[] = data.results.map((item, index) => {
+        const transformedAnswers = shuffleArray([...item.incorrect_answers, item.correct_answer])
+
+        const correctAnswer = transformedAnswers.indexOf(item.correct_answer)
+
+        return {
+            number: index + 1,
+            question: item.question,
+            answers: transformedAnswers,
+            correctAnswer,
+            selectedAnswer: 0,
+        }
+    })
+
+    return transformedData
 }
