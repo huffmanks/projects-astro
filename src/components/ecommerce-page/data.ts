@@ -1,0 +1,83 @@
+export const categories = [
+    {
+        id: 'uqp4lpKCr8ASTSe4dGwF8oQv6IbG5SDi',
+        title: 'Best Seller',
+        slug: 'best-seller',
+        image: '/ecommerce-page/categories/best-seller.jpg',
+    },
+    {
+        id: 'uqp4lpKCr8ASTSe4dGwF8oQv6IbG5SDj',
+        title: 'Shop Men',
+        slug: 'shop-men',
+        image: '/ecommerce-page/categories/shop-men.jpg',
+    },
+    {
+        id: 'uqp4lpKCr8ASTSe4dGwF8oQv6IbG5SDk',
+        title: 'Shop Women',
+        slug: 'shop-women',
+        image: '/ecommerce-page/categories/shop-women.jpg',
+    },
+    {
+        id: 'uqp4lpKCr8ASTSe4dGwF8oQv6IbG5SDl',
+        title: 'Shop Casual',
+        slug: 'shop-casual',
+        image: '/ecommerce-page/categories/shop-casual.jpg',
+    },
+]
+
+export const products = [
+    {
+        id: 'uqp4lpKCr8ASTSe4dGwF8oQv6IbG5SDc',
+        title: 'Autumn Dress',
+        slug: 'autumn-dress',
+        originalPrice: 85,
+        salePrice: 58,
+        isDiscounted: true,
+        image: '/ecommerce-page/products/autumn-dress.jpg',
+    },
+    {
+        id: 'uqp4lpKCr8ASTSe4dGwF8oQv6IbG5SDd',
+        title: 'Gray Shirt',
+        slug: 'gray-shirt',
+        originalPrice: 40,
+        salePrice: 40,
+        isDiscounted: false,
+        image: '/ecommerce-page/products/gray-shirt.jpg',
+    },
+    {
+        id: 'uqp4lpKCr8ASTSe4dGwF8oQv6IbG5SDe',
+        title: 'Leather Coat',
+        slug: 'leather-coat',
+        originalPrice: 99,
+        salePrice: 87,
+        isDiscounted: true,
+        image: '/ecommerce-page/products/leather-coat.jpg',
+    },
+    {
+        id: 'uqp4lpKCr8ASTSe4dGwF8oQv6IbG5SDf',
+        title: 'Brown Pants',
+        slug: 'brown-pants',
+        originalPrice: 75,
+        salePrice: 59,
+        isDiscounted: true,
+        image: '/ecommerce-page/products/brown-pants.jpg',
+    },
+    {
+        id: 'uqp4lpKCr8ASTSe4dGwF8oQv6IbG5SDg',
+        title: 'Red Hat',
+        slug: 'red-hat',
+        originalPrice: 55,
+        salePrice: 55,
+        isDiscounted: false,
+        image: '/ecommerce-page/products/red-hat.jpg',
+    },
+    {
+        id: 'uqp4lpKCr8ASTSe4dGwF8oQv6IbG5SDh',
+        title: 'Black Shoes',
+        slug: 'black-shoes',
+        originalPrice: 130,
+        salePrice: 130,
+        isDiscounted: false,
+        image: '/ecommerce-page/products/black-shoes.jpg',
+    },
+]

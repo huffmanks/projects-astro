@@ -1,0 +1,26 @@
+---
+import { MoveRight } from 'lucide-astro'
+import { categories } from './data'
+
+const basePath = '/ecommerce-page'
+---
+
+<section class='mb-10'>
+    <h2 class='text-3xl font-bold mb-6 text-center md:text-left'>Curated picks</h2>
+
+    <div class='grid md:grid-cols-2 lg:grid-cols-4 items-center justify-center gap-4 mb-24'>
+        {
+            categories.map((category) => (
+                <div class='relative rounded-lg overflow-hidden'>
+                    <img src={category.image} alt={category.title} class='w-full object-cover' />
+                    <a
+                        href={`${basePath}/categories/${category.slug}`}
+                        class='group absolute bottom-8 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-8 lg:right-8 flex items-center justify-between gap-4 bg-white outline-none rounded-lg p-3 transition hover:bg-black focus:bg-black'>
+                        <span class='group-hover:text-white group-focus:text-white'>{category.title}</span>
+                        <MoveRight class='group-hover:stroke-white group-focus:stroke-white' />
+                    </a>
+                </div>
+            ))
+        }
+    </div>
+</section>

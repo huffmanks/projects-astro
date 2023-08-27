@@ -6,6 +6,8 @@ import Alert from '../../../../components/ecommerce-page/Alert.astro'
 import Hero from '../../../../components/ecommerce-page/Hero.astro'
 import Brand from '../../../../components/ecommerce-page/Brand.astro'
 import CustomerExperiences from '../../../../components/ecommerce-page/CustomerExperiences.astro'
+import Categories from '../../../../components/ecommerce-page/Categories.astro'
+import Products from '../../../../components/ecommerce-page/Products'
 ---
 
 <BaseLayout title='E-commerce page' bodyClass='bg-white text-black font-["Space_Grotesk_Variable",_sans-serif]'>
@@ -17,6 +19,8 @@ import CustomerExperiences from '../../../../components/ecommerce-page/CustomerE
         <main class='px-6 lg:px-2'>
             <Brand />
             <CustomerExperiences />
+            <Categories />
+            <Products client:load />
             <!-- everything else -->
         </main>
     </div>
