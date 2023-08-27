@@ -1,0 +1,52 @@
+---
+import { Banknote, Package, PersonStanding, Truck } from 'lucide-astro'
+---
+
+<section class='mb-16 px-6 lg:px-2'>
+    <div class='flex flex-col lg:flex-row items-center justify-between gap-x-8 gap-y-12 mb-16 md:mb-24'>
+        <h2 class='max-w-sm text-3xl text-balance text-center lg:text-left'>We provide best customer experiences</h2>
+        <div
+            class='relative flex lg:ml-auto sm:pl-4 text-gray-500 text-balance text-center before:hidden sm:before:block before:absolute before:-top-6 before:-left-4 before:w-[2px] before:h-[72px] before:bg-black'>
+            We ensure our customers have the best shopping experience
+        </div>
+    </div>
+
+    <div class='grid md:grid-cols-2 lg:grid-cols-4 items-center justify-center gap-12'>
+        <div class='text-center lg:text-left'>
+            <div class='mb-4'>
+                <div class='w-12 h-12 mx-auto lg:mx-0 flex items-center justify-center bg-zinc-200 rounded-md'>
+                    <Banknote class='w-6 h-6' />
+                </div>
+            </div>
+            <h3 class='mb-2 text-lg font-bold'>Original Products</h3>
+            <p class='text-sm text-gray-500 text-balance'>We provide money back guarantee</p>
+        </div>
+        <div class='text-center lg:text-left'>
+            <div class='mb-4'>
+                <div class='w-12 h-12 mx-auto lg:mx-0 flex items-center justify-center bg-zinc-200 rounded-md'>
+                    <PersonStanding class='w-6 h-6' />
+                </div>
+            </div>
+            <h3 class='mb-2 text-lg font-bold'>Satisfaction Guarantee</h3>
+            <p class='text-sm text-gray-500 text-balance'>Exchange the product if it doesn&rsquo;t fit on you</p>
+        </div>
+        <div class='text-center lg:text-left'>
+            <div class='mb-4'>
+                <div class='w-12 h-12 mx-auto lg:mx-0 flex items-center justify-center bg-zinc-200 rounded-md'>
+                    <Package class='w-6 h-6' />
+                </div>
+            </div>
+            <h3 class='mb-2 text-lg font-bold'>New Arrival Everyday</h3>
+            <p class='text-sm text-gray-500 text-balance'>We update our collection almost everyday</p>
+        </div>
+        <div class='text-center lg:text-left'>
+            <div class='mb-4'>
+                <div class='w-12 h-12 mx-auto lg:mx-0 flex items-center justify-center bg-zinc-200 rounded-md'>
+                    <Truck class='w-6 h-6' />
+                </div>
+            </div>
+            <h3 class='mb-2 text-lg font-bold'>Fast & Free Shipping</h3>
+            <p class='text-sm text-gray-500 text-balance'>We offer fast and free shipping for our loyal customers</p>
+        </div>
+    </div>
+</section>
