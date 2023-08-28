@@ -34,9 +34,9 @@ const Products = () => {
 
     return (
         <section className='mb-24'>
-            <div className='max-w-[560px] mx-auto md:max-w-none flex items-center justify-between gap-8 mb-6'>
-                <h2 className='text-3xl font-bold text-center lg:text-left'>Featured products</h2>
-                <div className='flex'>
+            <div className='max-w-[560px] mx-auto md:max-w-none block sm:flex items-center justify-between gap-8 mb-2 sm:mb-6'>
+                <h2 className='mb-4 sm:mb-0 text-3xl font-bold text-center lg:text-left'>Featured products</h2>
+                <div className='flex w-fit ml-auto'>
                     <button
                         disabled={slideStart === 0 || slideEnd === productsVisible! - 1}
                         className='group p-2 border-2 border-r border-gray-200 rounded-md rounded-r-none transition enabled:hover:bg-black enabled:focus:bg-black enabled:hover:border-black enabled:focus:border-black'
@@ -52,12 +52,16 @@ const Products = () => {
                 </div>
             </div>
 
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-5'>
+            <div className='relative grid md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-5 mb-12 overflow-hidden'>
                 {slideEnd &&
-                    products.slice(slideStart, slideEnd).map((product, i) => (
-                        <div key={product.id}>
+                    products.map((product, i) => (
+                        <div
+                            key={product.id}
+                            className={`transition-opacity duration-300 ${
+                                !(i >= slideStart && i < slideEnd) ? 'absolute translate-x-[2500px] opacity-0 invisible duration-0' : 'opacity-100 visible'
+                            }`}>
                             <div className='relative rounded-lg overflow-hidden mb-3'>
-                                <img src={product.image} alt={product.title} className='w-full object-cover' />
+                                <img src={product.image} alt={product.title} className='w-[560px] aspect-[14/15] object-cover' />
                                 {product.isDiscounted && <div className='absolute top-4 left-4 bg-red-600 text-white py-1.5 px-2 uppercase text-xs font-bold tracking-widest rounded-md'>Sale</div>}
                             </div>
                             <div className='flex items-start justify-between gap-4 p-0.5'>
@@ -73,6 +77,15 @@ const Products = () => {
                                 </button>
                             </div>
                         </div>
+                    ))}
+            </div>
+            <div className='flex w-fit max-w-full mx-auto'>
+                {productsVisible &&
+                    Array.from(Array(products.length / productsVisible)).map((_, index) => (
+                        <div
+                            key={`indicator-${index}`}
+                            style={{ maxWidth: '100%', width: 300 / (products.length / productsVisible) + 'px' }}
+                            className={`h-2 first:rounded-l-lg last:rounded-r-lg transition-all duration-300 ${index * productsVisible === slideStart ? 'bg-black' : 'bg-gray-200'}`}></div>
                     ))}
             </div>
         </section>
