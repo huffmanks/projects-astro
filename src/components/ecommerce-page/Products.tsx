@@ -33,7 +33,7 @@ const Products = () => {
     }, [isMounted])
 
     return (
-        <section className='mb-24'>
+        <section className='mb-16'>
             <div className='max-w-[560px] mx-auto md:max-w-none block sm:flex items-center justify-between gap-8 mb-2 sm:mb-6'>
                 <h2 className='mb-4 sm:mb-0 text-3xl font-bold text-center lg:text-left'>Featured products</h2>
                 <div className='flex w-fit ml-auto'>

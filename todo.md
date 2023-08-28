@@ -5,7 +5,6 @@
 
 ## Not completed
 
--   Ecommerce page
 -   Slack clone
 
 ## Issues

@@ -7,6 +7,7 @@ module.exports = {
                 xs: '300px',
                 xms: '400px',
                 xws: '450px',
+                wmd: '896px',
             },
             colors: {
                 ['moderate-blue']: 'hsl(238, 40%, 52%)',
