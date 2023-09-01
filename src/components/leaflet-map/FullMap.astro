@@ -38,7 +38,7 @@ import './styles.css'
     const popupOptions: L.PopupOptions = {
         maxWidth: 500,
         className: 'marker-popup',
-        autoPanPaddingTopLeft: [59, 0],
+        autoPanPaddingTopLeft: [10, 80],
     }
 
     const circleMarkerOptions: L.CircleMarkerOptions = {
@@ -54,15 +54,15 @@ import './styles.css'
         const marker = L.circle([location.coordinates.lat, location.coordinates.lon], circleMarkerOptions).addTo(mymap)
 
         const popupContent = `
-            <div class="text-container">
-                <div class="popup-title">${location.title}</div>
-                <div class="popup-about">${location.description}</div>
+            <div class="px-5">
+                <h2 class="mb-4 text-xl md:text-2xl font-bold">${location.title}</h2>
+                <p class="mb-4">${location.description}</p>
             </div>
-            <div class="media-container">
+            <div class="aspect-video">
                 ${
                     location.mediaType === 'youtube'
-                        ? `<iframe src="https://www.youtube.com/embed/${location.mediaUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-                        : `<img src="${location.mediaUrl}" alt="${location.title}" />`
+                        ? `<iframe class="w-full h-full -mb-1 rounded-b-xl" src="https://www.youtube.com/embed/${location.mediaUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                        : `<img class="block max-w-full h-auto rounded-b-xl" src="${location.mediaUrl}" alt="${location.title}" />`
                 }
             </div>`
 
