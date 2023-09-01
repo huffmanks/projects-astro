@@ -19,9 +19,10 @@ interface Props {
     title: string
     bodyClass?: string
     isWoffordPage?: boolean
+    isLeafletMap?: boolean
 }
 
-const { title, bodyClass, isWoffordPage } = Astro.props
+const { title, bodyClass, isWoffordPage, isLeafletMap } = Astro.props
 
 const isProd = import.meta.env.PROD
 ---
@@ -39,6 +40,13 @@ const isProd = import.meta.env.PROD
                     <link rel='stylesheet' href='/wofford-homepage/bundle.css' />
                     <link rel='stylesheet' href='/wofford-homepage/base.css' />
                     <link rel='stylesheet' href='/wofford-homepage/styles.css' />
+                </>
+            )
+        }
+        {
+            isLeafletMap && (
+                <>
+                    <link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css' integrity='sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=' crossorigin='' />
                 </>
             )
         }

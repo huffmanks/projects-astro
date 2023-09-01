@@ -1,0 +1,83 @@
+<div
+    id='drawer'
+    class='fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-white w-64 dark:bg-gray-800 transform-none'
+    tabindex='-1'
+    aria-labelledby='drawer-label'
+    aria-modal='true'
+    role='dialog'>
+    <div class='flex items-center justify-between gap-2'>
+        <h5 id='drawer-label' class='text-base font-semibold text-gray-500 uppercase dark:text-gray-400'>Paris Mountain</h5>
+        <button
+            id='drawer-toggle'
+            type='button'
+            aria-controls='drawer'
+            class='text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white'>
+            <svg class='w-7 h-7 fill-gray-500 dark:fill-gray-400' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 -960 960 960'
+                ><path
+                    stroke='currentColor'
+                    d='M300-640v320l160-160-160-160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm440-80h120v-560H640v560Zm-80 0v-560H200v560h360Zm80 0h120-120Z'
+                ></path></svg
+            >
+            <span class='sr-only'>Close menu</span>
+        </button>
+    </div>
+    <div class='py-2 overflow-y-auto'>
+        <ul id='links' class='flex flex-col gap-1 font-medium'>
+            <li>
+                <a href='#' class='popup-link flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+                    ><span>C</span><span data-full-link>amp Buckhorn</span></a
+                >
+            </li>
+            <li>
+                <a href='#' class='popup-link flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+                    ><span>L</span><span data-full-link>ake Placid</span></a
+                >
+            </li>
+            <li>
+                <a href='#' class='popup-link flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+                    ><span>N</span><span data-full-link>orth Lake</span></a
+                >
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const map = document.querySelector('#map') as HTMLDivElement
+    const drawer = document.querySelector('#drawer') as HTMLDivElement
+    const drawerLabel = document.querySelector('#drawer-label') as HTMLHeadingElement
+    const drawerToggle = document.querySelector('#drawer-toggle') as HTMLButtonElement
+    const linksList = document.querySelector('#links') as HTMLUListElement
+    const navLinks = Array.from(document.querySelectorAll('#links [data-full-link]')) as HTMLAnchorElement[]
+
+    const handleToggle = () => {
+        if (drawer.classList.contains('w-64')) {
+            map.classList.remove('w-[calc(100%_-_256px)]')
+            map.classList.add('w-[calc(100%_-_64px)]')
+
+            drawer.classList.remove('w-64')
+            drawer.classList.add('w-16')
+
+            drawerLabel.classList.add('hidden')
+            linksList.classList.add('items-center')
+            navLinks.map((link) => link.classList.add('hidden'))
+        } else {
+            map.classList.remove('w-[calc(100%_-_64px)]')
+            map.classList.add('w-[calc(100%_-_256px)]')
+
+            drawer.classList.remove('w-16')
+            drawer.classList.add('w-64')
+
+            drawerLabel.classList.remove('hidden')
+            linksList.classList.remove('items-center')
+            navLinks.map((link) => link.classList.remove('hidden'))
+        }
+    }
+
+    drawerToggle.addEventListener('click', handleToggle)
+    window.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth < 800) {
+            handleToggle()
+        }
+    })
+</script>
