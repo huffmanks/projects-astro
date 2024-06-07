@@ -1,15 +1,15 @@
-## Migrate projects
+## Redo projects
 
--   Leaflet map
--   Podcast rss feed
+- Leaflet map
+- weather app
 
 ## Not completed
 
--   Slack clone
+- Slack clone
 
 ## Issues
 
 ### SAAS dashboard
 
--   On mobile, profile meatball menu (3 dots), sometimes moves on scroll
--   Change over to Typescript
+- On mobile, profile meatball menu (3 dots), sometimes moves on scroll
+- Change over to Typescript
