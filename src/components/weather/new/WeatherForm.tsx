@@ -41,10 +41,10 @@ export default function WeatherForm() {
       <WeeklyForecast weeklyData={weeklyData} />
 
       <div className="grid grid-cols-2 gap-4">
-        <DailyItem label="Wind" number={data.current.wind_speed_10m} unit="mph" note={windDirection} />
-        <DailyItem label="Humidity" number={data.current.relative_humidity_2m} unit="%" />
-        <DailyItem label="UV Index" number={uvIndex} note={uvIndex > 10 ? "High" : "Low"} />
-        <DailyItem label="Pressure" number={pressure} note="inHg" />
+        <DailyItem label="Wind" number={data.current.wind_speed_10m} unit="mph" note={windDirection} meter={data.current.wind_direction_10m} />
+        <DailyItem label="Humidity" number={data.current.relative_humidity_2m} unit="%" meter={data.current.relative_humidity_2m} />
+        <DailyItem label="UV Index" number={uvIndex} note={uvIndex > 10 ? "High" : "Low"} meter={0} />
+        <DailyItem label="Pressure" number={pressure} note="inHg" meter={0} />
       </div>
     </div>
   );
