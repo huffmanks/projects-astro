@@ -1,149 +1,125 @@
 import { useEffect, useState } from "react";
-import TodayCard from "./TodayCard";
-import ForecastCard from "./ForecastCard";
-import type { TodayInfo, ForecastInfo } from "../../types";
 
-// sample data
-// import { todayData, forecastData } from "./data";
+// import { data } from "./data";
 
-const WeatherForm = () => {
-  const [zipCode, setZipCode] = useState("10001");
-  const [error, setError] = useState("");
-  const [today, setToday] = useState<TodayInfo | null>(null);
-  const [forecast, setForecast] = useState<ForecastInfo[] | null>(null);
+import WeatherOutput from "./WeatherOutput";
 
-  const handleError = (err: string) => {
-    setZipCode("");
-    setError(err);
+export default function WeatherForm() {
+  const [isMounted, setIsMounted] = useState(false);
+  const [weatherSearch, setWeatherSearch] = useState("New York, NY");
+  const [data, setData] = useState(null);
 
-    setTimeout(() => {
-      setError("");
-    }, 5000);
-  };
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setWeatherSearch(e.target.value);
+  }
 
-  const getWeatherData = async () => {
+  function handleClear() {
+    setWeatherSearch("");
+  }
+
+  async function handleKeyPress(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") {
+      await fetchData();
+    }
+
+    if (e.key === "Escape") {
+      handleClear();
+    }
+  }
+
+  async function fetchData() {
     try {
-      const API_KEY = import.meta.env.PUBLIC_OPEN_WEATHER_API_KEY;
-      const todayUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=imperial&appid=${API_KEY}`;
-      const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode}&cnt=40&units=imperial&appid=${API_KEY}`;
+      const GEOCODE_API_KEY = import.meta.env.PUBLIC_GEOCODE_API_KEY;
+      const GEONAMES_USER = import.meta.env.PUBLIC_GEONAMES_USER;
 
-      const todayResponse = await fetch(todayUrl);
-      const todayData = await todayResponse.json();
-      if (!todayResponse.ok) {
-        handleError(todayData.message);
-      }
+      const encodedWeatherSearch = encodeURIComponent(weatherSearch);
+      const geocodeUrl = `https://geocode.maps.co/search?q=${encodedWeatherSearch}&api_key=${GEOCODE_API_KEY}`;
 
-      const forecastResponse = await fetch(forecastUrl);
-      const forecastData = await forecastResponse.json();
-      if (!forecastResponse.ok) {
-        handleError(forecastData.message);
-      }
+      const geoCodeResponse = await fetch(geocodeUrl);
+      if (!geoCodeResponse.ok) throw Error;
 
-      setToday(todayData);
-      setForecast(forecastData.list);
-      setZipCode("");
+      const geoCodeData = await geoCodeResponse.json();
+
+      const lat = geoCodeData[0].lat;
+      const lon = geoCodeData[0].lon;
+
+      // const timezoneUrl = `http://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lon}&username=${GEONAMES_USER}`;
+
+      // const timezoneResponse = await fetch(timezoneUrl);
+      // if (!timezoneResponse.ok) return null;
+      // const timezoneData = await timezoneResponse.json();
+      const timezoneData = null;
+
+      const encodedTimezone = timezoneData ? encodeURIComponent(timezoneData) : "auto";
+
+      const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=${encodedTimezone}&forecast_hours=24`;
+
+      const weatherResponse = await fetch(weatherUrl);
+      if (!weatherResponse.ok) throw Error;
+
+      const weatherData = await weatherResponse.json();
+
+      setData(weatherData);
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   useEffect(() => {
-    getWeatherData();
-
-    return () => {
-      setZipCode("");
-      setError("");
-      setToday(null);
-      setForecast(null);
-    };
-  }, []);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // if (today || forecast) {
-    //     setToday(null)
-    //     setForecast(null)
-    // }
-    setZipCode(e.target.value);
-  };
-
-  const handleCloseError = () => {
-    setError("");
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const zipCodePattern = /^\d{5}$/;
-    if (!zipCodePattern.test(zipCode)) {
-      handleError("Not a valid zip code.");
-
+    if (!isMounted) {
+      setIsMounted(true);
+      (async () => {
+        await fetchData();
+      })();
       return;
     }
 
-    getWeatherData();
-  };
+    return () => {
+      setIsMounted(false);
+      setWeatherSearch("");
+      setData(null);
+    };
+  }, []);
 
   return (
-    <>
-      <header className="bg-zinc-800 py-6 px-8">
-        <div className="sm:flex justify-between gap-4 items-center max-w-xl mx-auto">
-          <h1 className="text-lg xs:text-2xl font-medium text-center mb-4 sm:mb-0">
-            <span className="text-orange-600">Weather</span> App
-          </h1>
-          <form onSubmit={handleSubmit}>
-            <div className="max-w-[275px] mx-auto flex items-center bg-zinc-100 rounded-md">
-              <input className="w-full px-3 py-1 outline-none bg-transparent text-sm text-black" type="text" placeholder="Enter zip code" value={zipCode} onChange={handleChange} />
-              <button className="border-none outline-none bg-orange-600 text-white text-sm px-3 py-1 rounded-r-md" type="submit">
-                Search
-              </button>
-            </div>
-          </form>
-        </div>
-      </header>
+    <div className="mx-auto max-w-md py-10 px-4">
+      <h1 className="text-2xl font-bold mb-4">Weather app</h1>
 
-      <div className="max-w-4xl mx-auto p-5">
-        {today && forecast && (
-          <>
-            <h2 className="text-2xl text-center mb-8">{today.name}</h2>
-            <section className="grid xms:grid-cols-[repeat(auto-fill,_minmax(min(160px,_100%),_1fr))] gap-8">
-              <div className="xms:col-span-2">
-                <TodayCard today={today} />
-              </div>
-              {forecast.map((item) => (
-                <ForecastCard key={item.dt} item={item} />
-              ))}
-            </section>
-          </>
-        )}
+      <div className="mb-8 rounded-full bg-gray-800 pl-5 pr-4 py-3 focus-within:ring-2 focus-within:ring-offset-1 focus-within:ring-amber-800 focus-within:ring-offset-amber-600">
+        <div className="flex items-center gap-3">
+          <svg height="1em" width="1em" stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <input
+            className="w-full h-full bg-gray-800 outline-none border-none"
+            autoComplete="one-time-code"
+            type="text"
+            name="weatherSearch"
+            placeholder="New York, NY or 10001"
+            value={weatherSearch}
+            onFocus={(event) => event.target.select()}
+            onChange={handleChange}
+            onKeyUp={handleKeyPress}
+          />
+          <button className="group cursor-pointer outline-none border-none">
+            <svg
+              className="group-hover:stroke-amber-600 group-focus-within:stroke-amber-600"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              onClick={handleClear}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {error && (
-        <>
-          <div className="fixed bottom-6 right-6">
-            <div className="flex items-center gap-3 w-full max-w-xs p-4 text-red-500 bg-red-100 rounded-lg shadow" role="alert">
-              <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-200 rounded-lg">
-                <svg className="w-5 h-5" aria-hidden="true" xmlnsXlink="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z" />
-                </svg>
-                <span className="sr-only">Warning icon</span>
-              </div>
-              <div className="text-sm font-normal break-all">{error}</div>
-              <button
-                type="button"
-                className="bg-red-200 text-red-500 hover:text-white rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-red-500 inline-flex items-center justify-center h-8 w-8"
-                aria-label="Close"
-                onClick={handleCloseError}>
-                <span className="sr-only">Close</span>
-                <svg className="w-3 h-3" aria-hidden="true" xmlnsXlink="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </>
-      )}
-    </>
+      {data && <WeatherOutput data={data} />}
+    </div>
   );
-};
-
-export default WeatherForm;
+}

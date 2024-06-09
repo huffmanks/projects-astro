@@ -8,6 +8,71 @@ interface WeatherCodes {
   [key: number]: WeatherCode;
 }
 
+interface Units {
+  time: string;
+  temperature_2m: string;
+  relative_humidity_2m?: string;
+  apparent_temperature?: string;
+  weather_code: string;
+  surface_pressure?: string;
+  wind_speed_10m?: string;
+  wind_direction_10m?: string;
+  interval?: string;
+  precipitation_probability?: string;
+  temperature_2m_max?: string;
+  temperature_2m_min?: string;
+  sunrise?: string;
+  sunset?: string;
+  uv_index_max?: string;
+  precipitation_probability_max?: string;
+}
+
+interface CurrentWeather {
+  time: string;
+  interval: number;
+  temperature_2m: number;
+  relative_humidity_2m: number;
+  apparent_temperature: number;
+  weather_code: number;
+  surface_pressure: number;
+  wind_speed_10m: number;
+  wind_direction_10m: number;
+}
+
+interface HourlyWeather {
+  time: string[];
+  temperature_2m: number[];
+  precipitation_probability: number[];
+  weather_code: number[];
+}
+
+interface DailyWeather {
+  time: string[];
+  weather_code: number[];
+  temperature_2m_max: number[];
+  temperature_2m_min: number[];
+  sunrise: string[];
+  sunset: string[];
+  uv_index_max: number[];
+  precipitation_probability_max: number[];
+}
+
+export interface WeatherData {
+  latitude: number;
+  longitude: number;
+  generationtime_ms: number;
+  utc_offset_seconds: number;
+  timezone: string;
+  timezone_abbreviation: string;
+  elevation: number;
+  current_units: Units;
+  current: CurrentWeather;
+  hourly_units: Units;
+  hourly: HourlyWeather;
+  daily_units: Units;
+  daily: DailyWeather;
+}
+
 export const weatherCodes: WeatherCodes = {
   0: {
     label: "Clear sky",
