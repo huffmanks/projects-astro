@@ -37,7 +37,7 @@ export function formatPrecipitation(value: number) {
 }
 
 export function convertHpaToInHg(hpa: number) {
-  return (hpa * 0.02952998751).toFixed(2);
+  return parseFloat((hpa * 0.02952998751).toFixed(2));
 }
 
 export function degreesToDirection(degrees: number) {
@@ -58,4 +58,33 @@ export function degreesToDirection(degrees: number) {
   const direction = directions.find((dir) => degrees >= dir.range[0] && degrees < dir.range[1]);
 
   return direction ? direction.label : "Unknown";
+}
+
+export function calculateDewPoint({ temp, humidity }: { temp: number; humidity: number }) {
+  const celsius = ((temp - 32) * 5) / 9;
+
+  const dp = celsius - (100 - humidity) / 5;
+
+  return Math.round((dp * 9) / 5 + 32);
+}
+
+export function calculateUVFill({ uvIndex }: { uvIndex: number }) {
+  const totalHeight = 257;
+  const rectHeight = (uvIndex / 11) * totalHeight;
+  const yPos = totalHeight - rectHeight;
+
+  return { yPos, rectHeight };
+}
+
+export function fillArc({ currentPressure }: { currentPressure: number }) {
+  const pressureMin = 28.5;
+  const pressureMax = 30.7;
+  const arcMin = 0;
+  const arcMax = 198;
+
+  const normalizedValue = (currentPressure - pressureMin) / (pressureMax - pressureMin);
+
+  const mappedValue = arcMax - normalizedValue * (arcMax - arcMin);
+
+  return mappedValue > arcMax ? arcMax : mappedValue < 0 ? arcMin : mappedValue;
 }

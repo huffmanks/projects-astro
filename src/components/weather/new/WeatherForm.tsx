@@ -3,7 +3,7 @@ import CurrentForecast from "./CurrentForecast";
 import DailyItem from "./DailyItem";
 import HourlyForecast from "./HourlyForecast";
 import WeeklyForecast from "./WeeklyForecast";
-import { convertHpaToInHg, degreesToDirection } from "./utils";
+import { calculateDewPoint, convertHpaToInHg, degreesToDirection } from "./utils";
 
 export default function WeatherForm() {
   // https://api.open-meteo.com/v1/forecast?latitude=34.9204&longitude=-82.2962&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FNew_York&forecast_hours=24
@@ -33,6 +33,9 @@ export default function WeatherForm() {
   const windDirection = degreesToDirection(data.current.wind_direction_10m);
   const uvIndex = data.daily.uv_index_max[0];
   const pressure = convertHpaToInHg(data.current.surface_pressure);
+  const temp = Math.round(data.current.temperature_2m);
+  const humidity = data.current.relative_humidity_2m;
+  const dewPoint = calculateDewPoint({ temp, humidity });
 
   return (
     <div className="mx-auto max-w-md p-4">
@@ -42,9 +45,9 @@ export default function WeatherForm() {
 
       <div className="grid grid-cols-2 gap-4">
         <DailyItem label="Wind" number={data.current.wind_speed_10m} unit="mph" note={windDirection} meter={data.current.wind_direction_10m} />
-        <DailyItem label="Humidity" number={data.current.relative_humidity_2m} unit="%" meter={data.current.relative_humidity_2m} />
-        <DailyItem label="UV Index" number={uvIndex} note={uvIndex > 10 ? "High" : "Low"} meter={0} />
-        <DailyItem label="Pressure" number={pressure} note="inHg" meter={0} />
+        <DailyItem label="Humidity" number={humidity} unit="%" note={`Dew point ${dewPoint}°`} meter={humidity} />
+        <DailyItem label="UV Index" number={uvIndex} note={uvIndex >= 6 ? "High" : uvIndex > 2 && uvIndex < 6 ? "Moderate" : "Low"} meter={uvIndex} />
+        <DailyItem label="Pressure" number={pressure} note="inHg" meter={Number(pressure)} />
       </div>
     </div>
   );
