@@ -63,7 +63,7 @@ export function degreesToDirection(degrees: number) {
 export function calculateDewPoint({ temp, humidity }: { temp: number; humidity: number }) {
   const celsius = ((temp - 32) * 5) / 9;
 
-  const dp = (celsius - (100 - humidity) / 5);
+  const dp = celsius - ((100 - humidity) / 5);
 
   return Math.round((dp * 9) / 5 + 32);
 }
@@ -86,5 +86,5 @@ export function fillArc({ currentPressure }: { currentPressure: number }) {
 
   const mappedValue = arcMax - normalizedValue * (arcMax - arcMin);
 
-  return mappedValue > arcMax ? arcMax : mappedValue < 0 ? arcMin : mappedValue;
+  return mappedValue >= arcMax ? arcMax - 1 : mappedValue < 0 ? arcMin : mappedValue;
 }

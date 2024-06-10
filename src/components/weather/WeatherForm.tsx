@@ -29,32 +29,9 @@ export default function WeatherForm() {
 
   async function fetchData() {
     try {
-      const GEOCODE_API_KEY = import.meta.env.PUBLIC_GEOCODE_API_KEY;
-      const GEONAMES_USER = import.meta.env.PUBLIC_GEONAMES_USER;
-
-      const encodedWeatherSearch = encodeURIComponent(weatherSearch);
-      const geocodeUrl = `https://geocode.maps.co/search?q=${encodedWeatherSearch}&api_key=${GEOCODE_API_KEY}`;
-
-      const geoCodeResponse = await fetch(geocodeUrl);
-      if (!geoCodeResponse.ok) throw Error;
-
-      const geoCodeData = await geoCodeResponse.json();
-
-      const lat = geoCodeData[0].lat;
-      const lon = geoCodeData[0].lon;
-
-      // const timezoneUrl = `http://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lon}&username=${GEONAMES_USER}`;
-
-      // const timezoneResponse = await fetch(timezoneUrl);
-      // if (!timezoneResponse.ok) return null;
-      // const timezoneData = await timezoneResponse.json();
-      const timezoneData = null;
-
-      const encodedTimezone = timezoneData ? encodeURIComponent(timezoneData) : "auto";
-
-      const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=${encodedTimezone}&forecast_hours=24`;
-
+      const weatherUrl = `https://huffmanks-api.netlify.app/api/weather-data/${weatherSearch}`;
       const weatherResponse = await fetch(weatherUrl);
+
       if (!weatherResponse.ok) throw Error;
 
       const weatherData = await weatherResponse.json();
@@ -68,9 +45,13 @@ export default function WeatherForm() {
   useEffect(() => {
     if (!isMounted) {
       setIsMounted(true);
-      (async () => {
-        await fetchData();
-      })();
+      const isProd = import.meta.env.PROD;
+      if (isProd) {
+        (async () => {
+          await fetchData();
+        })();
+      }
+
       return;
     }
 
