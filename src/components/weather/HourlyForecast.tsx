@@ -14,7 +14,7 @@ export default function HourlyForecast({ hourlyData }: HourlyForecastProps) {
   return (
     <div className="mb-10">
       <div className="font-bold mb-3">Hourly forecast</div>
-      <div className="bg-gray-800 rounded-lg p-4 pb-6 overflow-x-scroll">
+      <div className="scrollbar bg-gray-800 rounded-lg p-4 pb-6 overflow-x-scroll">
         <div className="flex gap-6 w-full">
           {hourlyData.map((item, index) => (
             <HourlyItem key={item.time} item={item} index={index} />
