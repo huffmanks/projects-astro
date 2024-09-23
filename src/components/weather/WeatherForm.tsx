@@ -6,7 +6,7 @@ import WeatherOutput from "./WeatherOutput";
 
 export default function WeatherForm() {
   const [isMounted, setIsMounted] = useState(false);
-  const [weatherSearch, setWeatherSearch] = useState("New York, NY");
+  const [weatherSearch, setWeatherSearch] = useState("");
   const [data, setData] = useState(null);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
