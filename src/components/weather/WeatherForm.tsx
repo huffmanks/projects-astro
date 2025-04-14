@@ -1,16 +1,26 @@
-import { useEffect, useState } from "react";
-
-// import { data } from "./data";
+import { useState } from "react";
 
 import WeatherOutput from "./WeatherOutput";
+import { LocationData, WeatherData } from "./config";
+import { testData } from "./testData";
+// @ts-ignore
+const isProd = import.meta.env.PROD;
+const initialMessage = {
+  text: "Please add a location to see the weather.",
+  isError: false,
+};
 
 export default function WeatherForm() {
-  const [isMounted, setIsMounted] = useState(false);
   const [weatherSearch, setWeatherSearch] = useState("");
-  const [data, setData] = useState(null);
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(isProd ? null : testData.weatherData);
+  const [locationData, setLocationData] = useState<LocationData | null>(isProd ? null : testData.locationData);
+  const [message, setMessage] = useState(initialMessage);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setWeatherSearch(e.target.value);
+    if (message.isError) {
+      setMessage(initialMessage);
+    }
   }
 
   function handleClear() {
@@ -29,38 +39,32 @@ export default function WeatherForm() {
 
   async function fetchData() {
     try {
-      const weatherUrl = `https://huffmanks-api.netlify.app/api/weather-data/${weatherSearch}`;
-      const weatherResponse = await fetch(weatherUrl);
+      if (isProd) {
+        const weatherUrl = `https://huffmanks-api.netlify.app/api/weather-data/${weatherSearch}`;
+        const weatherResponse = await fetch(weatherUrl);
 
-      if (!weatherResponse.ok) throw Error;
+        if (!weatherResponse.ok) {
+          setWeatherData(null);
+          setLocationData(null);
+          setWeatherSearch("");
+          throw Error;
+        }
 
-      const weatherData = await weatherResponse.json();
+        const data = await weatherResponse.json();
 
-      setData(weatherData);
+        setWeatherData(data.weatherData);
+        if (data.locationData) {
+          setLocationData(data.locationData);
+        }
+      }
     } catch (error) {
       console.log(error);
+      setMessage({
+        text: typeof error === "string" ? error : "Something went wrong!",
+        isError: true,
+      });
     }
   }
-
-  useEffect(() => {
-    if (!isMounted) {
-      setIsMounted(true);
-      const isProd = import.meta.env.PROD;
-      if (isProd) {
-        (async () => {
-          await fetchData();
-        })();
-      }
-
-      return;
-    }
-
-    return () => {
-      setIsMounted(false);
-      setWeatherSearch("");
-      setData(null);
-    };
-  }, []);
 
   return (
     <div className="mx-auto max-w-md py-10 px-4">
@@ -100,7 +104,15 @@ export default function WeatherForm() {
         </div>
       </div>
 
-      {data && <WeatherOutput data={data} />}
+      {weatherData ? (
+        <>
+          <WeatherOutput weatherData={weatherData} locationData={locationData} />
+        </>
+      ) : (
+        <>
+          <div className={message.isError ? "text-red-500" : undefined}>{message.text}</div>
+        </>
+      )}
     </div>
   );
 }

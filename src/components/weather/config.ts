@@ -73,6 +73,16 @@ export interface WeatherData {
   daily: DailyWeather;
 }
 
+export interface LocationData {
+  town: string;
+  county: string;
+  state: string;
+  "ISO3166-2-lvl4": string;
+  postcode: string;
+  country: string;
+  country_code: string;
+}
+
 export const weatherCodes: WeatherCodes = {
   0: {
     label: "Clear sky",

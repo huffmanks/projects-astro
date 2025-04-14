@@ -1,4 +1,4 @@
-import { getIcon, formatTime } from "./utils";
+import { formatTime, getIcon } from "./utils";
 
 interface HourlyData {
   time: string;
@@ -17,7 +17,7 @@ export default function HourlyForecast({ hourlyData }: HourlyForecastProps) {
       <div className="scrollbar bg-gray-800 rounded-lg p-4 pb-6 overflow-x-scroll">
         <div className="flex gap-6 w-full">
           {hourlyData.map((item, index) => (
-            <HourlyItem key={item.time} item={item} index={index} />
+            <HourlyItem key={item.time} item={item} index={index} hourlyDataLength={hourlyData.length} />
           ))}
         </div>
       </div>
@@ -25,13 +25,13 @@ export default function HourlyForecast({ hourlyData }: HourlyForecastProps) {
   );
 }
 
-function HourlyItem({ item, index }: { item: HourlyData; index: number }) {
+function HourlyItem({ item, index, hourlyDataLength }: { item: HourlyData; index: number; hourlyDataLength: number }) {
   const IconComponent = getIcon({ time: item.time, weatherCode: item.weatherCode });
 
   const time = index === 0 ? "Now" : formatTime(item.time);
 
   return (
-    <div>
+    <div className={hourlyDataLength === index + 1 ? "pr-4" : undefined}>
       <div className="flex flex-col flex-1 gap-6 w-12 items-center">
         <div className="text-center pl-1.5">{item.temperature}&deg;</div>
         <div className="flex flex-col gap-1 items-center">
