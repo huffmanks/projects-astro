@@ -1,62 +1,60 @@
 ---
-import { Menu, Search, ShoppingCart, User } from 'lucide-astro'
-import MobileMenu from './MobileMenu.astro'
+import { Menu, Search, ShoppingCart, User } from "lucide-astro";
+import MobileMenu from "./MobileMenu.astro";
 ---
 
-<div class='px-6 lg:px-0 py-8'>
-    <header class='flex justify-between items-center gap-8 mb-8 xs:mb-0'>
-        <div class='flex xs:flex-1 md:flex-initial items-center gap-8'>
-            <button id='mobile-menu-open' class='group lg:hidden p-1 rounded-full outline-none transition-all hover:bg-black focus:bg-black'>
-                <Menu class='w-6 h-6 group-hover:stroke-white group-focus:stroke-white' />
-            </button>
-            <div class='hidden xs:block flex-1 md:flex-initial'>
-                <a
-                    class='flex items-center w-24 mx-auto md:mx-0 rounded-lg py-2 pl-2 pr-1.5 outline-none hover:invert focus:invert hover:bg-white focus:bg-white transition-all'
-                    href='/projects/design/ecommerce-page'>
-                    <img class='w-24' src='/ecommerce-page/nostra-logo.png' alt='Nostra logo' />
-                </a>
-            </div>
-        </div>
-        <nav class='hidden md:block'>
-            <ul class='flex items-center gap-8 text-sm'>
-                <li><a href='#' class='outline-none hover:underline focus:underline underline-offset-8 decoration-2 transition-all'>Shop</a></li>
-                <li><a href='#' class='outline-none hover:underline focus:underline underline-offset-8 decoration-2 transition-all'>Most wanted</a></li>
-                <li><a href='#' class='outline-none hover:underline focus:underline underline-offset-8 decoration-2 transition-all'>New arrival</a></li>
-                <li><a href='#' class='outline-none hover:underline focus:underline underline-offset-8 decoration-2 transition-all'>Brands</a></li>
-            </ul>
-        </nav>
-        <div class='flex items-center gap-4'>
-            <div class='group hidden lg:flex items-center gap-2 px-3 py-1.5 bg-gray-50 border-2 border-gray-100 rounded-md text-sm hover:border-zinc-900 focus-within:border-zinc-900 transition-all'>
-                <Search class='w-4 h-4 stroke-gray-400' />
-                <input class='w-full bg-transparent outline-none border-none' type='text' placeholder='Search' />
-            </div>
+<div class="px-6 lg:px-0 py-8">
+  <header class="flex justify-between items-center gap-8 mb-8 xs:mb-0">
+    <div class="flex xs:flex-1 md:flex-initial items-center gap-8">
+      <button id="mobile-menu-open" class="group lg:hidden p-1 rounded-full outline-none transition-all hover:bg-black focus:bg-black">
+        <Menu class="w-6 h-6 group-hover:stroke-white group-focus:stroke-white" />
+      </button>
+      <div class="hidden xs:block flex-1 md:flex-initial">
+        <a class="flex items-center w-24 mx-auto md:mx-0 rounded-lg py-2 pl-2 pr-1.5 outline-none hover:invert focus:invert hover:bg-white focus:bg-white transition-all" href="#">
+          <img class="w-24" src="/ecommerce-page/nostra-logo.png" alt="Nostra logo" />
+        </a>
+      </div>
+    </div>
+    <nav class="hidden md:block">
+      <ul class="flex items-center gap-8 text-sm">
+        <li><a href="#" class="outline-none hover:underline focus:underline underline-offset-8 decoration-2 transition-all">Shop</a></li>
+        <li><a href="#" class="outline-none hover:underline focus:underline underline-offset-8 decoration-2 transition-all">Most wanted</a></li>
+        <li><a href="#" class="outline-none hover:underline focus:underline underline-offset-8 decoration-2 transition-all">New arrival</a></li>
+        <li><a href="#" class="outline-none hover:underline focus:underline underline-offset-8 decoration-2 transition-all">Brands</a></li>
+      </ul>
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="group hidden lg:flex items-center gap-2 px-3 py-1.5 bg-gray-50 border-2 border-gray-100 rounded-md text-sm hover:border-zinc-900 focus-within:border-zinc-900 transition-all">
+        <Search class="w-4 h-4 stroke-gray-400" />
+        <input class="w-full bg-transparent outline-none border-none" type="text" placeholder="Search" />
+      </div>
 
-            <div class='flex items-center gap-0.5'>
-                <button class='group p-2 rounded-full outline-none transition-all hover:bg-black focus:bg-black'>
-                    <ShoppingCart class='w-4 h-4 group-hover:stroke-white group-focus:stroke-white' />
-                </button>
-                <button class='group p-2 rounded-full outline-none transition-all hover:bg-black focus:bg-black'>
-                    <User class='w-4 h-4 group-hover:stroke-white group-focus:stroke-white' />
-                </button>
-            </div>
-        </div>
-        <MobileMenu />
-    </header>
-    <a
-        class='block xs:hidden w-36 mx-auto md:mx-0 rounded-lg py-2 pl-2 pr-1.5 outline-none hover:invert focus:invert hover:bg-white focus:bg-white transition-all'
-        href='/projects/design/ecommerce-page'>
-        <img class='w-36' src='/ecommerce-page/nostra-logo.png' alt='Nostra logo' />
-    </a>
+      <div class="flex items-center gap-0.5">
+        <button class="group p-2 rounded-full outline-none transition-all hover:bg-black focus:bg-black">
+          <ShoppingCart class="w-4 h-4 group-hover:stroke-white group-focus:stroke-white" />
+        </button>
+        <button class="group p-2 rounded-full outline-none transition-all hover:bg-black focus:bg-black">
+          <User class="w-4 h-4 group-hover:stroke-white group-focus:stroke-white" />
+        </button>
+      </div>
+    </div>
+    <MobileMenu />
+  </header>
+  <a
+    class="block xs:hidden w-36 mx-auto md:mx-0 rounded-lg py-2 pl-2 pr-1.5 outline-none hover:invert focus:invert hover:bg-white focus:bg-white transition-all"
+    href="/projects/design/ecommerce-page">
+    <img class="w-36" src="/ecommerce-page/nostra-logo.png" alt="Nostra logo" />
+  </a>
 </div>
 
 <script>
-    import { menuIsOpen } from '../../store'
+  import { menuIsOpen } from "../../store";
 
-    const mobileMenuOpenBtn = document.querySelector('#mobile-menu-open') as HTMLButtonElement
+  const mobileMenuOpenBtn = document.querySelector("#mobile-menu-open") as HTMLButtonElement;
 
-    const openMenu = () => {
-        menuIsOpen.set(true)
-    }
+  const openMenu = () => {
+    menuIsOpen.set(true);
+  };
 
-    mobileMenuOpenBtn.addEventListener('click', openMenu)
+  mobileMenuOpenBtn.addEventListener("click", openMenu);
 </script>

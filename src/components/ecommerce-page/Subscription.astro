@@ -1,39 +1,37 @@
 ---
-import { ArrowRight, Mail } from 'lucide-astro'
+import { ArrowRight, Mail } from "lucide-astro";
 ---
 
-<section class='mb-20'>
-    <div class='grid lg:grid-cols-2 items-center mb-16'>
-        <img class='w-full max-h-[350px] object-top lg:object-center object-cover rounded-t-md lg:rounded-tr-none lg:rounded-bl-md' src='/ecommerce-page/limited-offer.jpg' alt='Limited offer' />
-        <div class='h-full flex flex-col justify-center p-8 bg-gray-900 text-white rounded-b-md lg:rounded-bl-none lg:rounded-tr-md'>
-            <div class='uppercase tracking-widest mb-2 text-xs'>Limited Offer</div>
-            <div class='text-balance text-xl xms:text-3xl font-bold mb-6'>35% off only this friday and get special gift</div>
-            <div>
-                <a
-                    href='#'
-                    class='group inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-transparent bg-white text-black transition-all hover:border-white focus:border-white hover:bg-transparent focus:bg-transparent'>
-                    <span class='text-sm group-hover:text-white'>Grab it now</span>
-                    <ArrowRight class='h-4 w-5 group-hover:stroke-white' />
-                </a>
-            </div>
-        </div>
+<section class="mb-20">
+  <div class="grid lg:grid-cols-2 items-center mb-16">
+    <img class="w-full max-h-[350px] object-top lg:object-center object-cover rounded-t-md lg:rounded-tr-none lg:rounded-bl-md" src="/ecommerce-page/limited-offer.jpg" alt="Limited offer" />
+    <div class="h-full flex flex-col justify-center p-8 bg-gray-900 text-white rounded-b-md lg:rounded-bl-none lg:rounded-tr-md">
+      <div class="uppercase tracking-widest mb-2 text-xs">Limited Offer</div>
+      <div class="text-balance text-xl xms:text-3xl font-bold mb-6">35% off only this friday and get special gift</div>
+      <div>
+        <button
+          class="group inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-transparent bg-white text-black transition-all hover:border-white focus:border-white hover:bg-transparent focus:bg-transparent">
+          <span class="text-sm group-hover:text-white">Grab it now</span>
+          <ArrowRight class="h-4 w-5 group-hover:stroke-white" />
+        </button>
+      </div>
     </div>
-    <div class='text-center max-w-lg mx-auto'>
-        <h2 class='text-xl xms:text-3xl font-bold mb-3 text-balance'>Subscribe to our newsletter to get updates to our latest collections</h2>
-        <p class='text-gray-500 text-sm mb-5 text-balance'>Get 20% off on your first order just by subscribing to our newsletter</p>
+  </div>
+  <div class="text-center max-w-lg mx-auto">
+    <h2 class="text-xl xms:text-3xl font-bold mb-3 text-balance">Subscribe to our newsletter to get updates to our latest collections</h2>
+    <p class="text-gray-500 text-sm mb-5 text-balance">Get 20% off on your first order just by subscribing to our newsletter</p>
 
-        <div class='mb-2 flex flex-col xs:flex-row items-center justify-center gap-1'>
-            <div
-                class='group w-full xs:w-auto flex items-center gap-2 px-3 py-1.5 bg-gray-50 border-2 border-gray-100 rounded-md text-sm hover:border-zinc-900 focus-within:border-zinc-900 transition-all'>
-                <Mail class='w-4 h-4 stroke-gray-400' />
-                <input class='w-full bg-transparent outline-none border-none' type='text' placeholder='Enter your email' />
-            </div>
-            <button
-                class='w-full xs:w-auto outline-none px-3 py-1.5 rounded-md text-sm bg-black text-white border border-transparent hover:bg-gray-100 focus:bg-gray-100 hover:border-black focus:border-black hover:text-black focus:text-black'
-                >Subscribe</button
-            >
-        </div>
-        <p class='text-gray-400 text-xs text-balance mb-2 xs:mb-0'>You will be able to unsubscribe at any time.</p>
-        <p class='text-gray-400 text-xs'>Read our <a href='#' class='text-gray-900 underline'>Privacy Policy</a>.</p>
+    <div class="mb-2 flex flex-col xs:flex-row items-center justify-center gap-1">
+      <div class="group w-full xs:w-auto flex items-center gap-2 px-3 py-1.5 bg-gray-50 border-2 border-gray-100 rounded-md text-sm hover:border-zinc-900 focus-within:border-zinc-900 transition-all">
+        <Mail class="w-4 h-4 stroke-gray-400" />
+        <input class="w-full bg-transparent outline-none border-none" type="text" placeholder="Enter your email" />
+      </div>
+      <button
+        class="w-full xs:w-auto outline-none px-3 py-1.5 rounded-md text-sm bg-black text-white border border-transparent hover:bg-gray-100 focus:bg-gray-100 hover:border-black focus:border-black hover:text-black focus:text-black"
+        >Subscribe</button
+      >
     </div>
+    <p class="text-gray-400 text-xs text-balance mb-2 xs:mb-0">You will be able to unsubscribe at any time.</p>
+    <p class="text-gray-400 text-xs">Read our <a href="#" class="text-gray-900 underline">Privacy Policy</a>.</p>
+  </div>
 </section>
