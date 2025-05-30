@@ -68,21 +68,21 @@ export const projects = [
     demoLink: "https://huffmanks.com/projects/apps/weather",
   },
   {
-    title: "mock-api",
+    title: "Diff Tool",
+    description: "Simple side-by-side text comparison tool for spotting changes quickly and clearly.",
+    // imgSrc: "",
+    repoLink: "https://github.com/huffmanks/diff-tool",
+    demoLink: "https://diff.huffmanks.com",
+  },
+  {
+    title: "Mock API",
     description: "Mock API for serving test data like users and products.",
     repoLink: "https://github.com/huffmanks/mock-api",
   },
   {
-    title: "multi-qr-code-generator",
+    title: "Multi-QR Code Generator",
     description: "A simple Node.js tool to quickly generate multiple QR codes in bulk.",
     repoLink: "https://github.com/huffmanks/multi-qr-code-generator",
-  },
-  {
-    title: "Diff tool",
-    description: "Simple side-by-side text comparison tool for spotting changes quickly and clearly.",
-    // imgSrc: "",
-    repoLink: "https://github.com/huffmanks/diff-tool",
-    // demoLink: "https://diff.huffmanks.com",
   },
   {
     title: "Palette Paste",
