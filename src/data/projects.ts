@@ -91,6 +91,11 @@ export const projects = [
     // demoLink: "", // VS Code Marketplace,
   },
   {
+    title: "Recipe Scrapy",
+    description: "Python scraper for collecting structured recipe data from websites.",
+    repoLink: "https://github.com/huffmanks/recipe-scrapy",
+  },
+  {
     title: "Multi-QR Code Generator",
     description: "A simple Node.js tool to quickly generate multiple QR codes in bulk.",
     repoLink: "https://github.com/huffmanks/multi-qr-code-generator",
