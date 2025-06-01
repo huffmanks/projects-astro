@@ -11,7 +11,7 @@ Android app to locally store and watch videos offline.
 - [Repo](https://github.com/huffmanks/pocket-player)
 - [APK](https://github.com/huffmanks/pocket-player/releases)
 
-### Web tools
+### Web Tools
 
 Web app with tools to help speed web development.
 
@@ -25,7 +25,7 @@ CodeShare is your go-to platform for clear, practical coding guides and reusable
 - [Repo](https://github.com/huffmanks/code-share)
 - [Demo](https://codeshare.huffmanks.com)
 
-### Email builder
+### Email Builder
 
 Internal tool for generating MJML-based emails and company-specific email signatures.
 
@@ -67,26 +67,33 @@ Quickly check current weather by entering a city name or ZIP code.
 
 - [Demo](https://huffmanks.com/projects/apps/weather)
 
-### mock-api
+### Diff Tool
+
+Simple side-by-side text comparison tool for spotting changes quickly and clearly.
+
+- [Repo](https://github.com/huffmanks/diff-tool)
+- [Demo](https://diff.huffmanks.com)
+
+### Mock API
 
 Mock API for serving test data like users and products.
 
 - [Repo](https://github.com/huffmanks/mock-api)
 
-### multi-qr-code-generator
+### Slack Tot Bot
 
-A simple Node.js tool to quickly generate multiple QR codes in bulk.
+A Slack bot that alerts when tater tots are on the menu.
 
-- [Repo](https://github.com/huffmanks/multi-qr-code-generator)
-
-### Diff tool
-
-Simple side-by-side text comparison tool for spotting changes quickly and clearly.
-
-- [Repo](https://github.com/huffmanks/diff-tool)
+- [Repo](https://github.com/huffmanks/slack-tot-bot)
 
 ### Palette Paste
 
 VS Code extension for inserting structured, repetitive text patterns using custom templates and sequences.
 
 - [Repo](https://github.com/huffmanks/palette-paste)
+
+### Multi-QR Code Generator
+
+A simple Node.js tool to quickly generate multiple QR codes in bulk.
+
+- [Repo](https://github.com/huffmanks/multi-qr-code-generator)

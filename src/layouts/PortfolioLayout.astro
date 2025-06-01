@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://huffmanks.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="description"
+      content="Web developer with 10 years of experience in the tech industry. Specializes in developing high quality and userfriendly websites from design to deployment. Adaptable and continually looking for opportunities to grow."
+    />
+    <meta name="twitter:site" content="@huffmanks2" />
+    <meta name="twitter:creator" content="@huffmanks2" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Portfolio | Kevin Huffman" />
+    <meta
+      name="twitter:description"
+      content="Web developer with 10 years of experience in the tech industry. Specializes in developing high quality and userfriendly websites from design to deployment. Adaptable and continually looking for opportunities to grow."
+    />
+    <meta name="twitter:image" content="/portfolio/images/og-image.png" />
+    <meta property="og:url" content="https://huffmanks.com" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Portfolio | Kevin Huffman" />
+    <meta property="og:title" content="Portfolio | Kevin Huffman" />
+    <meta
+      property="og:description"
+      content="Web developer with 10 years of experience in the tech industry. Specializes in developing high quality and userfriendly websites from design to deployment. Adaptable and continually looking for opportunities to grow."
+    />
+    <meta property="og:image" content="/portfolio/images/og-image.png" />
+    <title>Portfolio | Kevin Huffman</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <script is:inline>
+      const html = document.querySelector("html");
+
+      const isLight = localStorage.getItem("portfolio_theme") === "light" || !window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (isLight) {
+        html.classList.remove("dark");
+        html.classList.add("light");
+        localStorage.setItem("portfolio_theme", "light");
+      } else {
+        html.classList.remove("light");
+        html.classList.add("dark");
+        localStorage.setItem("portfolio_theme", "dark");
+      }
+    </script>
+    <link rel="stylesheet" href="/portfolio/css/main.min.css" />
+    <link rel="stylesheet" href="/portfolio/css/styles.css" />
+  </head>
+  <body id="home" class="bg-white dark:bg-neutral-900">
+    <slot />
+    <script is:inline src="/portfolio/js/index.js"></script>
+  </body>
+</html>
