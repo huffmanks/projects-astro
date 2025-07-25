@@ -13,7 +13,7 @@ Android app to locally store and watch videos offline.
 
 ### Web Tools
 
-Web app with tools to help speed web development.
+Development tools for the web, installable as a PWA.
 
 - [Repo](https://github.com/huffmanks/tools-nextjs)
 - [Demo](https://tools.huffmanks.com)
