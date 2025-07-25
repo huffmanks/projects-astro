@@ -7,8 +7,12 @@ import { projects } from "../../../data/projects";
   <div class="grid sm:grid-cols-2 gap-4">
     {
       projects.map((project) => (
-        <div class="overflow-hidden rounded-sm">
-          {project?.imgSrc && <img class="mb-2 w-full object-cover rounded-sm" src={project.imgSrc} alt={project.title} />}
+        <div>
+          {project?.imgSrc && (
+            <div class="project-image rounded-md">
+              <img class="mb-2 w-full object-cover overflow-hidden rounded-md" src={project.imgSrc} alt={project.title} />
+            </div>
+          )}
           <div class="pb-2">
             <h3 class="mb-1 text-gray-800 dark:text-neutral-200">{project.title}</h3>
             <p class="mb-4 text-xs text-gray-600 dark:text-neutral-400 line-clamp-2">{project.description}</p>

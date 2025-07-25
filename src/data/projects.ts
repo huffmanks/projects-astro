@@ -9,7 +9,7 @@ export const projects = [
   },
   {
     title: "Web Tools",
-    description: "Web app with tools to help speed web development.",
+    description: "Development tools for the web, installable as a PWA.",
     imgSrc: "/portfolio/images/projects/tools.jpg",
     repoLink: "https://github.com/huffmanks/tools-nextjs",
     demoLink: "https://tools.huffmanks.com",
@@ -58,13 +58,13 @@ export const projects = [
   {
     title: "Quiz App",
     description: "Take a quiz with various categories and difficulties to choose from.",
-    imgSrc: "/portfolio/images/projects/quiz-app.jpg",
+    imgSrc: "/portfolio/images/projects/quiz-app.png",
     demoLink: "https://huffmanks.com/projects/apps/quiz",
   },
   {
     title: "Weather App",
     description: "Quickly check current weather by entering a city name or ZIP code.",
-    imgSrc: "/portfolio/images/projects/weather-app.jpg",
+    imgSrc: "/portfolio/images/projects/weather-app.png",
     demoLink: "https://huffmanks.com/projects/apps/weather",
   },
   {

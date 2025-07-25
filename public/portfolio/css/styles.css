@@ -272,3 +272,12 @@ nav.rounded-full:has(#mobile-navbar.open) {
 .light .border-gray-200 {
   border-color: var(--color-gray-200) !important;
 }
+
+/* Project image bg */
+.dark .project-image {
+  background-color: #27272a;
+}
+
+.light .project-image {
+  background-color: #e4e4e7;
+}
