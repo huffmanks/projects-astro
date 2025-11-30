@@ -22,6 +22,21 @@ export const projects = [
     demoLink: "https://codeshare.huffmanks.com",
   },
   {
+    title: "pastebox",
+    description: "A lightweight, self-hosted tool for ephemeral rich text and file sharing on your local network.",
+    imgSrc: "/portfolio/images/projects/pastebox.png",
+    repoLink: "https://github.com/huffmanks/pastebox",
+    demoLink: "https://hub.docker.com/r/huffmanks/pastebox",
+    isDocker: true,
+  },
+  {
+    title: "Weekly Word",
+    description: "Personal collection of my sermon notes and thoughts from each week.",
+    imgSrc: "/portfolio/images/projects/word.png",
+    repoLink: "https://github.com/huffmanks/weekly-word",
+    demoLink: "https://word.huffmanks.com",
+  },
+  {
     title: "Email Builder",
     description: "Internal tool for generating MJML-based emails and company-specific email signatures.",
     imgSrc: "/portfolio/images/projects/email-builder.jpg",
@@ -56,6 +71,20 @@ export const projects = [
     isDesign: true,
   },
   {
+    title: "Diff Tool",
+    description: "Simple side-by-side text comparison tool for spotting changes quickly and clearly.",
+    imgSrc: "/portfolio/images/projects/diff.png",
+    repoLink: "https://github.com/huffmanks/diff-tool",
+    demoLink: "https://diff.huffmanks.com",
+  },
+  {
+    title: "Listography",
+    description: "The ultimate party game where your lists spark laughter, debate and unforgettable moments.",
+    imgSrc: "/portfolio/images/projects/listography.png",
+    repoLink: "https://github.com/huffmanks/listography",
+    demoLink: "https://listography.huffmanks.com",
+  },
+  {
     title: "Quiz App",
     description: "Take a quiz with various categories and difficulties to choose from.",
     imgSrc: "/portfolio/images/projects/quiz-app.png",
@@ -68,21 +97,14 @@ export const projects = [
     demoLink: "https://huffmanks.com/projects/apps/weather",
   },
   {
-    title: "Diff Tool",
-    description: "Simple side-by-side text comparison tool for spotting changes quickly and clearly.",
-    // imgSrc: "",
-    repoLink: "https://github.com/huffmanks/diff-tool",
-    demoLink: "https://diff.huffmanks.com",
-  },
-  {
     title: "Mock API",
     description: "Mock API for serving test data like users and products.",
     repoLink: "https://github.com/huffmanks/mock-api",
   },
   {
-    title: "Slack Tot Bot",
-    description: "A Slack bot that alerts when tater tots are on the menu.",
-    repoLink: "https://github.com/huffmanks/slack-tot-bot",
+    title: "Multi-QR Code Generator",
+    description: "A simple Node.js tool to quickly generate multiple QR codes in bulk.",
+    repoLink: "https://github.com/huffmanks/multi-qr-code-generator",
   },
   {
     title: "Palette Paste",
@@ -96,8 +118,8 @@ export const projects = [
     repoLink: "https://github.com/huffmanks/recipe-scrapy",
   },
   {
-    title: "Multi-QR Code Generator",
-    description: "A simple Node.js tool to quickly generate multiple QR codes in bulk.",
-    repoLink: "https://github.com/huffmanks/multi-qr-code-generator",
+    title: "Slack Tot Bot",
+    description: "A Slack bot that alerts when tater tots are on the menu.",
+    repoLink: "https://github.com/huffmanks/slack-tot-bot",
   },
 ];
