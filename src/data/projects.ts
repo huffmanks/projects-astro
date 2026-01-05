@@ -122,4 +122,9 @@ export const projects = [
     description: "A Slack bot that alerts when tater tots are on the menu.",
     repoLink: "https://github.com/huffmanks/slack-tot-bot",
   },
+  {
+    title: "stash",
+    description: "An interactive CLI tool to bootstrap system packages and dynamically build platform-specific zsh and git configurations.",
+    repoLink: "https://github.com/huffmanks/stash",
+  },
 ];
