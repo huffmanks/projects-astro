@@ -1,4 +1,4 @@
-export const projects = [
+export const featuredProjects = [
   {
     title: "Pocket Player",
     description: "Android app to locally store and watch videos offline.",
@@ -104,6 +104,9 @@ export const projects = [
     imgSrc: "/portfolio/images/projects/weather-app.png",
     demoLink: "https://huffmanks.com/projects/apps/weather",
   },
+];
+
+export const repoProjects = [
   {
     title: "Mock API",
     description: "Mock API for serving test data like users and products.",

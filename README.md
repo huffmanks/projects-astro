@@ -6,12 +6,16 @@
 
 ### Pocket Player
 
+![Screenshot of Pocket Player](https://huffmanks.com/portfolio/images/projects/pocket-player.jpg)
+
 Android app to locally store and watch videos offline.
 
 - [Repo](https://github.com/huffmanks/pocket-player)
 - [APK](https://github.com/huffmanks/pocket-player/releases)
 
 ### Web Tools
+
+![Screenshot of Web Tools](https://huffmanks.com/portfolio/images/projects/tools.jpg)
 
 Development tools for the web, installable as a PWA.
 
@@ -20,12 +24,16 @@ Development tools for the web, installable as a PWA.
 
 ### CodeShare
 
+![Screenshot of CodeShare](https://huffmanks.com/portfolio/images/projects/code-share.jpg)
+
 CodeShare is your go-to platform for clear, practical coding guides and reusable code snippets.
 
 - [Repo](https://github.com/huffmanks/code-share)
 - [Demo](https://codeshare.huffmanks.com)
 
 ### EchoLink
+
+![Screenshot of EchoLink](https://huffmanks.com/portfolio/images/projects/echo-link.png)
 
 Self-hosted client app for Linkding.
 
@@ -34,12 +42,16 @@ Self-hosted client app for Linkding.
 
 ### pastebox
 
+![Screenshot of pastebox](https://huffmanks.com/portfolio/images/projects/pastebox.png)
+
 A lightweight, self-hosted tool for ephemeral rich text and file sharing on your local network.
 
 - [Repo](https://github.com/huffmanks/pastebox)
 - [Image](https://hub.docker.com/r/huffmanks/pastebox)
 
 ### Weekly Word
+
+![Screenshot of Weekly Word](https://huffmanks.com/portfolio/images/projects/word.png)
 
 Personal collection of my sermon notes and thoughts from each week.
 
@@ -48,11 +60,15 @@ Personal collection of my sermon notes and thoughts from each week.
 
 ### Email Builder
 
+![Screenshot of Email Builder](https://huffmanks.com/portfolio/images/projects/email-builder.jpg)
+
 Internal tool for generating MJML-based emails and company-specific email signatures.
 
 - [Demo](https://email.huffmanks.com)
 
 ### Wofford Homepage
+
+![Screenshot of Wofford Homepage](https://huffmanks.com/portfolio/images/projects/wofford-homepage.jpg)
 
 Visual design concept for the Wofford College homepage.
 
@@ -60,11 +76,15 @@ Visual design concept for the Wofford College homepage.
 
 ### Nostra
 
+![Screenshot of Nostra](https://huffmanks.com/portfolio/images/projects/ecommerce-page.jpg)
+
 Static design mockup for an e-commerce landing page.
 
 - [Design](https://huffmanks.com/projects/design/ecommerce-page)
 
 ### Funflow
+
+![Screenshot of Funflow](https://huffmanks.com/portfolio/images/projects/landing-demo.jpg)
 
 Concept landing page for a fictional company or startup.
 
@@ -72,11 +92,15 @@ Concept landing page for a fictional company or startup.
 
 ### Protion
 
+![Screenshot of Protion](https://huffmanks.com/portfolio/images/projects/saas-dashboard.jpg)
+
 UI design for a SaaS dashboard with clean, modern layout.
 
 - [Design](https://huffmanks.com/projects/design/saas-dashboard)
 
 ### Diff Tool
+
+![Screenshot of Diff Tool](https://huffmanks.com/portfolio/images/projects/diff.png)
 
 Simple side-by-side text comparison tool for spotting changes quickly and clearly.
 
@@ -85,6 +109,8 @@ Simple side-by-side text comparison tool for spotting changes quickly and clearl
 
 ### Listography
 
+![Screenshot of Listography](https://huffmanks.com/portfolio/images/projects/listography.png)
+
 The ultimate party game where your lists spark laughter, debate and unforgettable moments.
 
 - [Repo](https://github.com/huffmanks/listography)
@@ -92,11 +118,15 @@ The ultimate party game where your lists spark laughter, debate and unforgettabl
 
 ### Quiz App
 
+![Screenshot of Quiz App](https://huffmanks.com/portfolio/images/projects/quiz-app.png)
+
 Take a quiz with various categories and difficulties to choose from.
 
 - [Demo](https://huffmanks.com/projects/apps/quiz)
 
 ### Weather App
+
+![Screenshot of Weather App](https://huffmanks.com/portfolio/images/projects/weather-app.png)
 
 Quickly check current weather by entering a city name or ZIP code.
 
