@@ -25,6 +25,27 @@ CodeShare is your go-to platform for clear, practical coding guides and reusable
 - [Repo](https://github.com/huffmanks/code-share)
 - [Demo](https://codeshare.huffmanks.com)
 
+### EchoLink
+
+Self-hosted client app for Linkding.
+
+- [Repo](https://github.com/huffmanks/echo-link)
+- [Image](https://hub.docker.com/r/huffmanks/echo-link)
+
+### pastebox
+
+A lightweight, self-hosted tool for ephemeral rich text and file sharing on your local network.
+
+- [Repo](https://github.com/huffmanks/pastebox)
+- [Image](https://hub.docker.com/r/huffmanks/pastebox)
+
+### Weekly Word
+
+Personal collection of my sermon notes and thoughts from each week.
+
+- [Repo](https://github.com/huffmanks/weekly-word)
+- [Demo](https://word.huffmanks.com)
+
 ### Email Builder
 
 Internal tool for generating MJML-based emails and company-specific email signatures.
@@ -55,6 +76,20 @@ UI design for a SaaS dashboard with clean, modern layout.
 
 - [Design](https://huffmanks.com/projects/design/saas-dashboard)
 
+### Diff Tool
+
+Simple side-by-side text comparison tool for spotting changes quickly and clearly.
+
+- [Repo](https://github.com/huffmanks/diff-tool)
+- [Demo](https://diff.huffmanks.com)
+
+### Listography
+
+The ultimate party game where your lists spark laughter, debate and unforgettable moments.
+
+- [Repo](https://github.com/huffmanks/listography)
+- [Demo](https://listography.huffmanks.com)
+
 ### Quiz App
 
 Take a quiz with various categories and difficulties to choose from.
@@ -67,24 +102,17 @@ Quickly check current weather by entering a city name or ZIP code.
 
 - [Demo](https://huffmanks.com/projects/apps/weather)
 
-### Diff Tool
-
-Simple side-by-side text comparison tool for spotting changes quickly and clearly.
-
-- [Repo](https://github.com/huffmanks/diff-tool)
-- [Demo](https://diff.huffmanks.com)
-
 ### Mock API
 
 Mock API for serving test data like users and products.
 
 - [Repo](https://github.com/huffmanks/mock-api)
 
-### Slack Tot Bot
+### Multi-QR Code Generator
 
-A Slack bot that alerts when tater tots are on the menu.
+A simple Node.js tool to quickly generate multiple QR codes in bulk.
 
-- [Repo](https://github.com/huffmanks/slack-tot-bot)
+- [Repo](https://github.com/huffmanks/multi-qr-code-generator)
 
 ### Palette Paste
 
@@ -92,8 +120,20 @@ VS Code extension for inserting structured, repetitive text patterns using custo
 
 - [Repo](https://github.com/huffmanks/palette-paste)
 
-### Multi-QR Code Generator
+### Recipe Scrapy
 
-A simple Node.js tool to quickly generate multiple QR codes in bulk.
+Python scraper for collecting structured recipe data from websites.
 
-- [Repo](https://github.com/huffmanks/multi-qr-code-generator)
+- [Repo](https://github.com/huffmanks/recipe-scrapy)
+
+### Slack Tot Bot
+
+A Slack bot that alerts when tater tots are on the menu.
+
+- [Repo](https://github.com/huffmanks/slack-tot-bot)
+
+### stash
+
+An interactive CLI tool to bootstrap system packages and dynamically build platform-specific zsh and git configurations.
+
+- [Repo](https://github.com/huffmanks/stash)

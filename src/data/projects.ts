@@ -22,6 +22,14 @@ export const projects = [
     demoLink: "https://codeshare.huffmanks.com",
   },
   {
+    title: "EchoLink",
+    description: "Self-hosted client app for Linkding.",
+    imgSrc: "/portfolio/images/projects/echo-link.png",
+    repoLink: "https://github.com/huffmanks/echo-link",
+    demoLink: "https://hub.docker.com/r/huffmanks/echo-link",
+    isDocker: true,
+  },
+  {
     title: "pastebox",
     description: "A lightweight, self-hosted tool for ephemeral rich text and file sharing on your local network.",
     imgSrc: "/portfolio/images/projects/pastebox.png",
