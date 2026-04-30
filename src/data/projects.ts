@@ -108,6 +108,11 @@ export const featuredProjects = [
 
 export const repoProjects = [
   {
+    title: "kokoro-tts-cli",
+    description: "Simple CLI for generating speech locally with Kokoro ONNX. Supports single, multiple and blended voices with optional MP3 output.",
+    repoLink: "https://github.com/huffmanks/kokoro-tts-cli",
+  },
+  {
     title: "Mock API",
     description: "Mock API for serving test data like users and products.",
     repoLink: "https://github.com/huffmanks/mock-api",
@@ -121,7 +126,8 @@ export const repoProjects = [
     title: "Palette Paste",
     description: "VS Code extension for inserting structured, repetitive text patterns using custom templates and sequences.",
     repoLink: "https://github.com/huffmanks/palette-paste",
-    // demoLink: "", // VS Code Marketplace,
+    demoLink: "https://marketplace.visualstudio.com/items?itemName=huffmanks.palette-paste-ext",
+    isVSCode: true,
   },
   {
     title: "Recipe Scrapy",
