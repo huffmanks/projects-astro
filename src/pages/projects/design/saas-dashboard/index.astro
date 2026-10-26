@@ -1,16 +1,16 @@
 ---
-import BaseLayout from '../../../../layouts/BaseLayout.astro'
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
 
-import SAASDashboard from '../../../../components/saas-dashboard/index.jsx'
+import SAASDashboard from "../../../../components/saas-dashboard/index.jsx";
 ---
 
-<BaseLayout title='Project Board' bodyClass='font-["Poppins",_sans-serif]'>
-    <SAASDashboard client:only />
+<BaseLayout title="Project Board" bodyClass='font-["Poppins",_sans-serif]'>
+  <SAASDashboard client:only="react" />
 </BaseLayout>
 
 <style>
-    body {
-        background-color: #020712;
-        color: #f9ffff;
-    }
+  body {
+    background-color: #020712;
+    color: #f9ffff;
+  }
 </style>

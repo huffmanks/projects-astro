@@ -1,12 +1,17 @@
-import type { LocationData, WeatherData } from "./config";
-import { calculateDewPoint, convertHpaToInHg, degreesToDirection } from "./utils";
-
 import CurrentForecast from "./CurrentForecast";
 import DailyItem from "./DailyItem";
 import HourlyForecast from "./HourlyForecast";
 import WeeklyForecast from "./WeeklyForecast";
+import type { LocationData, WeatherData } from "./config";
+import { calculateDewPoint, convertHpaToInHg, degreesToDirection } from "./utils";
 
-export default function WeatherOutput({ weatherData, locationData }: { weatherData: WeatherData; locationData: LocationData | null }) {
+export default function WeatherOutput({
+  weatherData,
+  locationData,
+}: {
+  weatherData: WeatherData;
+  locationData: LocationData | null;
+}) {
   const hourlyData = weatherData.hourly.time.map((time, index) => ({
     time,
     temperature: Math.round(weatherData.hourly.temperature_2m[index]),
@@ -40,7 +45,7 @@ export default function WeatherOutput({ weatherData, locationData }: { weatherDa
   return (
     <>
       {locationData && (
-        <h2 className="text-xl font-bold mb-4">
+        <h2 className="mb-4 text-xl font-bold">
           {locationData.town}, {locationData["ISO3166-2-lvl4"].split("-")[1]}
         </h2>
       )}
@@ -49,11 +54,28 @@ export default function WeatherOutput({ weatherData, locationData }: { weatherDa
       <WeeklyForecast weeklyData={weeklyData} />
 
       <section>
-        <div className="font-bold mb-3">Current conditions</div>
+        <div className="mb-3 font-bold">Current conditions</div>
         <div className="grid grid-cols-2 gap-4">
-          <DailyItem label="Wind" number={weatherData.current.wind_speed_10m} unit="mph" note={windDirection} meter={weatherData.current.wind_direction_10m} />
-          <DailyItem label="Humidity" number={humidity} unit="%" note={`Dew point ${dewPoint}°`} meter={humidity} />
-          <DailyItem label="UV Index" number={uvIndex} note={uvIndex >= 6 ? "High" : uvIndex > 2 && uvIndex < 6 ? "Moderate" : "Low"} meter={uvIndex} />
+          <DailyItem
+            label="Wind"
+            number={weatherData.current.wind_speed_10m}
+            unit="mph"
+            note={windDirection}
+            meter={weatherData.current.wind_direction_10m}
+          />
+          <DailyItem
+            label="Humidity"
+            number={humidity}
+            unit="%"
+            note={`Dew point ${dewPoint}°`}
+            meter={humidity}
+          />
+          <DailyItem
+            label="UV Index"
+            number={uvIndex}
+            note={uvIndex >= 6 ? "High" : uvIndex > 2 && uvIndex < 6 ? "Moderate" : "Low"}
+            meter={uvIndex}
+          />
           <DailyItem label="Pressure" number={pressure} note="inHg" meter={Number(pressure)} />
         </div>
       </section>

@@ -10,16 +10,16 @@ interface DailyItemProps {
 
 export default function DailyItem({ label, number, unit, note, meter }: DailyItemProps) {
   return (
-    <div className="bg-gray-800 p-4 pb-6 rounded-lg">
+    <div className="rounded-lg bg-gray-800 p-4 pb-6">
       <div className="mb-4">{label}</div>
 
-      <div className="flex gap-4 justify-between">
+      <div className="flex justify-between gap-4">
         <div>
-          <div className="flex gap-1 items-center">
+          <div className="flex items-center gap-1">
             <span className="text-lg">{number}</span>
             {unit && <span className="text-sm text-gray-500">{unit}</span>}
           </div>
-          {note && <div className="text-gray-500 text-sm">{note}</div>}
+          {note && <div className="text-sm text-gray-500">{note}</div>}
         </div>
 
         <DailyItemIcon label={label} meter={meter} />
@@ -40,7 +40,12 @@ function DailyItemIcon({ label, meter }: DailyItemIconProps) {
     return (
       <div className="flex flex-col items-center justify-center gap-2">
         <div>N</div>
-        <img className="h-10 w-10" style={{ transform: `rotate(${meter}deg)` }} src="/weather/compass.png" alt="Compass" />
+        <img
+          className="h-10 w-10"
+          style={{ transform: `rotate(${meter}deg)` }}
+          src="/weather/compass.png"
+          alt="Compass"
+        />
       </div>
     );
   }
@@ -51,9 +56,23 @@ function DailyItemIcon({ label, meter }: DailyItemIconProps) {
         <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-sm">100</div>
         <svg version="1.1" width="25" height="50" viewBox="3 1 2 4">
           <rect x="3" y="1" width="2" height="4" fill="#fcc932" ry="1" rx="1"></rect>
-          <rect x="3" y="1" width="2" height="4" fill="#fee293" ry="1" rx="1" style={{ clipPath: `inset(0 0 ${meter}% 0)` }}></rect>
+          <rect
+            x="3"
+            y="1"
+            width="2"
+            height="4"
+            fill="#fee293"
+            ry="1"
+            rx="1"
+            style={{ clipPath: `inset(0 0 ${meter}% 0)` }}></rect>
         </svg>
-        <div className="absolute -left-3 border-transparent w-1.5" style={{ borderWidth: "3.75px 0 3.75px 6px", borderLeftColor: "#fff", bottom: `${meter / 2 - 3.5}px` }}></div>
+        <div
+          className="absolute -left-3 w-1.5 border-transparent"
+          style={{
+            borderWidth: "3.75px 0 3.75px 6px",
+            borderLeftColor: "#fff",
+            bottom: `${meter / 2 - 3.5}px`,
+          }}></div>
         <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-sm">0</div>
       </div>
     );
@@ -65,11 +84,23 @@ function DailyItemIcon({ label, meter }: DailyItemIconProps) {
       <div className="relative">
         <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-sm">11+</div>
 
-        <svg width="40" height="40" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 257 257"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
           <defs>
             <mask id="fill-mask">
               <rect x="0" y="0" width="100%" height="100%" fill="white" />
-              <rect id="overlay-rect" x="0" y={yPos} width="100%" height={rectHeight} fill="black" />
+              <rect
+                id="overlay-rect"
+                x="0"
+                y={yPos}
+                width="100%"
+                height={rectHeight}
+                fill="black"
+              />
             </mask>
           </defs>
           <path
@@ -82,7 +113,7 @@ function DailyItemIcon({ label, meter }: DailyItemIconProps) {
             mask="url(#fill-mask)"
           />
         </svg>
-        <div className="text-sm text-center">0</div>
+        <div className="text-center text-sm">0</div>
       </div>
     );
   }
@@ -96,8 +127,22 @@ function DailyItemIcon({ label, meter }: DailyItemIconProps) {
             <stop offset="0%" stopColor="rgba(100, 0, 233, 0.76)" />
             <stop offset="100%" stopColor="rgba(100, 0, 233, 0.66)" />
           </linearGradient>
-          <path d="M30,90 A40,40 0 1,1 80,90" fill="none" stroke="#e7e7e8" strokeLinecap="round" strokeWidth="15" />
-          <path fill="none" d="M30,90 A40,40 0 1,1 80,90" stroke="url(#gradient)" strokeLinecap="round" strokeWidth="15" strokeDasharray="198" strokeDashoffset={strokeDashoffset} />
+          <path
+            d="M30,90 A40,40 0 1,1 80,90"
+            fill="none"
+            stroke="#e7e7e8"
+            strokeLinecap="round"
+            strokeWidth="15"
+          />
+          <path
+            fill="none"
+            d="M30,90 A40,40 0 1,1 80,90"
+            stroke="url(#gradient)"
+            strokeLinecap="round"
+            strokeWidth="15"
+            strokeDasharray="198"
+            strokeDashoffset={strokeDashoffset}
+          />
         </svg>
 
         <div className="flex items-center gap-1">

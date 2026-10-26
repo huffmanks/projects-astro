@@ -1,8 +1,10 @@
 ---
-import BaseLayout from '../../../../layouts/BaseLayout.astro'
-import QuizWrapper from '../../../../components/quiz/QuizWrapper'
+import QuizWrapper from "../../../../components/quiz/QuizWrapper";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title='Quiz App' bodyClass='bg-zinc-900 text-zinc-100 font-["Raleway_Variable",_sans-serif]'>
-    <QuizWrapper client:only />
+<BaseLayout
+  title="Quiz App"
+  bodyClass='bg-zinc-900 text-zinc-100 font-["Raleway_Variable",_sans-serif]'>
+  <QuizWrapper client:only="react" />
 </BaseLayout>

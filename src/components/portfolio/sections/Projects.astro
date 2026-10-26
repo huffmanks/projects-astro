@@ -7,10 +7,14 @@ import BaseProject from "./BaseProject.astro";
   <h2 class="mb-5 font-medium text-gray-800 dark:text-neutral-200">Projects</h2>
   <div class="space-y-4">
     <div class="grid sm:grid-cols-2 gap-4">
-      {featuredProjects.map((project) => <BaseProject project={project} />)}
+      {featuredProjects.map((project) => (
+        <BaseProject project={project} />
+      ))}
     </div>
     <div class="grid sm:grid-cols-2 gap-4">
-      {repoProjects.map((project) => <BaseProject project={project} />)}
+      {repoProjects.map((project) => (
+        <BaseProject project={project} />
+      ))}
     </div>
   </div>
 </section>

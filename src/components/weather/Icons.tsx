@@ -6,13 +6,25 @@ export interface IconsMap {
 
 export const Icons: IconsMap = {
   clear_day: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         d="M161.935 24.5565C146.551 19.5376 128.412 0.200073 128.412 0.200073C128.412 0.200073 110.272 19.5376 94.8879 24.5565C79.3905 29.6123 53.1461 24.5565 53.1461 24.5565C53.1461 24.5565 49.8384 51.0744 40.2471 64.2553C30.6991 77.3769 6.62939 88.68 6.62939 88.68C6.62939 88.68 19.4702 111.972 19.4702 128.2C19.4702 144.428 6.62939 167.72 6.62939 167.72C6.62939 167.72 30.6991 179.023 40.2471 192.145C49.8384 205.326 53.1461 231.844 53.1461 231.844C53.1461 231.844 79.3905 226.788 94.8879 231.844C110.272 236.863 128.412 256.2 128.412 256.2C128.412 256.2 146.551 236.863 161.935 231.844C177.433 226.788 203.677 231.844 203.677 231.844C203.677 231.844 206.985 205.326 216.576 192.145C226.124 179.023 250.194 167.72 250.194 167.72C250.194 167.72 237.353 144.428 237.353 128.2C237.353 111.972 250.194 88.68 250.194 88.68C250.194 88.68 226.124 77.3769 216.576 64.2553C206.985 51.0744 203.677 24.5565 203.677 24.5565C203.677 24.5565 177.433 29.6123 161.935 24.5565Z"
         fill="url(#paint0_linear_38_90)"
       />
       <defs>
-        <linearGradient id="paint0_linear_38_90" x1="0.400047" y1="0.20005" x2="256.4" y2="256.2" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_38_90"
+          x1="0.400047"
+          y1="0.20005"
+          x2="256.4"
+          y2="256.2"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#FFC400" />
           <stop offset="1" stopColor="#FF6F00" />
         </linearGradient>
@@ -20,23 +32,53 @@ export const Icons: IconsMap = {
     </svg>
   ),
   clear_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M215.497 122.965L230.101 117.205L235.861 102.6L241.62 117.205L256.224 122.965L241.62 128.725L235.861 143.329L230.101 128.725L215.497 122.965Z" fill="url(#paint0_linear_40_15)" />
-      <path d="M153.8 27.3529L173.272 19.6729L180.952 0.200012L188.632 19.6729L208.105 27.3529L188.632 35.0329L180.952 54.5059L173.272 35.0329L153.8 27.3529Z" fill="url(#paint1_linear_40_15)" />
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <path
+        d="M215.497 122.965L230.101 117.205L235.861 102.6L241.62 117.205L256.224 122.965L241.62 128.725L235.861 143.329L230.101 128.725L215.497 122.965Z"
+        fill="url(#paint0_linear_40_15)"
+      />
+      <path
+        d="M153.8 27.3529L173.272 19.6729L180.952 0.200012L188.632 19.6729L208.105 27.3529L188.632 35.0329L180.952 54.5059L173.272 35.0329L153.8 27.3529Z"
+        fill="url(#paint1_linear_40_15)"
+      />
       <path
         d="M243.803 183.301C234.319 183.372 224.679 182.384 215.026 180.243C146.009 164.943 102.463 96.5901 117.764 27.5733C119.904 17.9202 123.082 8.76528 127.154 0.200012C68.8321 0.636712 16.4221 41.1559 3.26148 100.52C-12.0392 169.536 31.5063 237.889 100.523 253.19C159.887 266.35 218.759 235.975 243.803 183.301Z"
         fill="url(#paint2_linear_40_15)"
       />
       <defs>
-        <linearGradient id="paint0_linear_40_15" x1="235.861" y1="102.6" x2="235.861" y2="143.329" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_40_15"
+          x1="235.861"
+          y1="102.6"
+          x2="235.861"
+          y2="143.329"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#EFF1F5" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint1_linear_40_15" x1="180.952" y1="0.200012" x2="180.952" y2="54.5059" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_40_15"
+          x1="180.952"
+          y1="0.200012"
+          x2="180.952"
+          y2="54.5059"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint2_linear_40_15" x1="0.200012" y1="0.200012" x2="256.2" y2="256.2" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint2_linear_40_15"
+          x1="0.200012"
+          y1="0.200012"
+          x2="256.2"
+          y2="256.2"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#B388FF" />
           <stop offset="1" stopColor="#7C4DFF" />
         </linearGradient>
@@ -44,13 +86,25 @@ export const Icons: IconsMap = {
     </svg>
   ),
   cloudy_day_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         d="M207.639 207.716C234.568 207.715 256.399 185.884 256.399 158.954C256.399 132.024 234.567 110.192 207.637 110.192C207.299 110.192 206.962 110.196 206.626 110.203C200.827 75.6046 170.739 49.2401 134.493 49.2401C107.125 49.2401 83.2678 64.2709 70.7262 86.5278C67.6706 86.0562 64.54 85.8115 61.3523 85.8115C27.6893 85.8115 0.399963 113.101 0.399963 146.764C0.399963 180.427 27.6893 207.716 61.3523 207.716C61.3526 207.716 61.3521 207.716 61.3523 207.716L207.639 207.716Z"
         fill="url(#paint0_linear_14_32)"
       />
       <defs>
-        <linearGradient id="paint0_linear_14_32" x1="0.400003" y1="51.8" x2="256.4" y2="205.4" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_14_32"
+          x1="0.400003"
+          y1="51.8"
+          x2="256.4"
+          y2="205.4"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
@@ -58,7 +112,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   drizzle_day_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         d="M184.422 210.554L192.6 200.331L200.778 210.554C202.383 212.432 203.352 214.87 203.352 217.535C203.352 223.473 198.538 228.287 192.6 228.287C186.662 228.287 181.848 223.473 181.848 217.535C181.848 214.87 182.817 212.432 184.422 210.554Z"
         fill="url(#paint0_linear_110_2)"
@@ -76,19 +136,43 @@ export const Icons: IconsMap = {
         fill="url(#paint3_linear_110_2)"
       />
       <defs>
-        <linearGradient id="paint0_linear_110_2" x1="192.6" y1="200.331" x2="192.6" y2="228.287" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_110_2"
+          x1="192.6"
+          y1="200.331"
+          x2="192.6"
+          y2="228.287"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint1_linear_110_2" x1="128.6" y1="200.331" x2="128.6" y2="228.287" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_110_2"
+          x1="128.6"
+          y1="200.331"
+          x2="128.6"
+          y2="228.287"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint2_linear_110_2" x1="64.6" y1="200.331" x2="64.6" y2="228.287" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint2_linear_110_2"
+          x1="64.6"
+          y1="200.331"
+          x2="64.6"
+          y2="228.287"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint3_linear_110_2" x1="0.600046" y1="30.296" x2="256.6" y2="183.896" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint3_linear_110_2"
+          x1="0.600046"
+          y1="30.296"
+          x2="256.6"
+          y2="183.896"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
@@ -96,7 +180,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   fog_day_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -108,11 +198,23 @@ export const Icons: IconsMap = {
         fill="url(#paint1_linear_41_9)"
       />
       <defs>
-        <linearGradient id="paint0_linear_41_9" x1="0.799988" y1="197.72" x2="256.8" y2="227.16" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_41_9"
+          x1="0.799988"
+          y1="197.72"
+          x2="256.8"
+          y2="227.16"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint1_linear_41_9" x1="0.800028" y1="31.576" x2="256.8" y2="185.176" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_41_9"
+          x1="0.800028"
+          y1="31.576"
+          x2="256.8"
+          y2="185.176"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
@@ -120,43 +222,117 @@ export const Icons: IconsMap = {
     </svg>
   ),
   hail_day_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 259" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M221.628 240.896L206.28 235.909V219.771L221.628 214.784L231.114 227.84L221.628 240.896Z" fill="url(#paint0_linear_26_29)" />
-      <path d="M107.053 229.136L117.534 216.864L132.444 223.04L131.178 239.128L115.486 242.896L107.053 229.136Z" fill="url(#paint1_linear_26_29)" />
-      <path d="M28.7661 208.86L44.8544 210.126L51.0302 195.216L38.7587 184.736L24.9987 193.168L28.7661 208.86Z" fill="url(#paint2_linear_26_29)" />
-      <path d="M179.025 188.672L159.432 235.975C159.432 235.975 168.341 224.872 188.312 226.831" stroke="url(#paint3_linear_26_29)" strokeWidth="7.68" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M138.184 188.672L130.836 206.41" stroke="url(#paint4_linear_26_29)" strokeWidth="7.68" strokeLinecap="round" />
-      <path d="M96.9808 188.672L77.3875 235.975C77.3875 235.975 78.9384 221.824 63.432 209.088" stroke="url(#paint5_linear_26_29)" strokeWidth="7.68" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 259"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <path
+        d="M221.628 240.896L206.28 235.909V219.771L221.628 214.784L231.114 227.84L221.628 240.896Z"
+        fill="url(#paint0_linear_26_29)"
+      />
+      <path
+        d="M107.053 229.136L117.534 216.864L132.444 223.04L131.178 239.128L115.486 242.896L107.053 229.136Z"
+        fill="url(#paint1_linear_26_29)"
+      />
+      <path
+        d="M28.7661 208.86L44.8544 210.126L51.0302 195.216L38.7587 184.736L24.9987 193.168L28.7661 208.86Z"
+        fill="url(#paint2_linear_26_29)"
+      />
+      <path
+        d="M179.025 188.672L159.432 235.975C159.432 235.975 168.341 224.872 188.312 226.831"
+        stroke="url(#paint3_linear_26_29)"
+        strokeWidth="7.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M138.184 188.672L130.836 206.41"
+        stroke="url(#paint4_linear_26_29)"
+        strokeWidth="7.68"
+        strokeLinecap="round"
+      />
+      <path
+        d="M96.9808 188.672L77.3875 235.975C77.3875 235.975 78.9384 221.824 63.432 209.088"
+        stroke="url(#paint5_linear_26_29)"
+        strokeWidth="7.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       <path
         d="M207.439 170.764C234.368 170.763 256.199 148.932 256.199 122.002C256.199 95.0718 234.367 73.2403 207.437 73.2403C207.099 73.2403 206.762 73.2438 206.426 73.2507C200.627 38.6525 170.539 12.288 134.293 12.288C106.925 12.288 83.0679 27.3189 70.5262 49.5758C67.4706 49.1041 64.3401 48.8594 61.1524 48.8594C27.4893 48.8594 0.199997 76.1488 0.199997 109.812C0.199997 143.475 27.4893 170.764 61.1524 170.764C61.1526 170.764 61.1521 170.764 61.1524 170.764L207.439 170.764Z"
         fill="url(#paint6_linear_26_29)"
       />
       <defs>
-        <linearGradient id="paint0_linear_26_29" x1="218.697" y1="214.784" x2="218.697" y2="240.896" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_26_29"
+          x1="218.697"
+          y1="214.784"
+          x2="218.697"
+          y2="240.896"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint1_linear_26_29" x1="124.989" y1="219.952" x2="115.486" y2="242.896" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_26_29"
+          x1="124.989"
+          y1="219.952"
+          x2="115.486"
+          y2="242.896"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint2_linear_26_29" x1="41.4668" y1="185.857" x2="31.4742" y2="209.982" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint2_linear_26_29"
+          x1="41.4668"
+          y1="185.857"
+          x2="31.4742"
+          y2="209.982"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint3_linear_26_29" x1="173.872" y1="188.672" x2="173.872" y2="235.975" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint3_linear_26_29"
+          x1="173.872"
+          y1="188.672"
+          x2="173.872"
+          y2="235.975"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint4_linear_26_29" x1="138.646" y1="188.863" x2="131.298" y2="206.602" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint4_linear_26_29"
+          x1="138.646"
+          y1="188.863"
+          x2="131.298"
+          y2="206.602"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint5_linear_26_29" x1="80.2064" y1="188.672" x2="80.2064" y2="235.975" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint5_linear_26_29"
+          x1="80.2064"
+          y1="188.672"
+          x2="80.2064"
+          y2="235.975"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint6_linear_26_29" x1="0.200037" y1="14.848" x2="256.2" y2="168.448" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint6_linear_26_29"
+          x1="0.200037"
+          y1="14.848"
+          x2="256.2"
+          y2="168.448"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#B0BEC5" />
           <stop offset="1" stopColor="#616161" />
         </linearGradient>
@@ -164,7 +340,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   haze_day: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -178,11 +360,23 @@ export const Icons: IconsMap = {
         fill="url(#paint1_linear_35_2)"
       />
       <defs>
-        <linearGradient id="paint0_linear_35_2" x1="0.400024" y1="172.688" x2="256.4" y2="202.128" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_35_2"
+          x1="0.400024"
+          y1="172.688"
+          x2="256.4"
+          y2="202.128"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint1_linear_35_2" x1="23.4684" y1="50.32" x2="223.754" y2="297.884" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_35_2"
+          x1="23.4684"
+          y1="50.32"
+          x2="223.754"
+          y2="297.884"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#FFC400" />
           <stop offset="1" stopColor="#FF6F00" />
         </linearGradient>
@@ -190,7 +384,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   haze_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -204,11 +404,23 @@ export const Icons: IconsMap = {
         fill="url(#paint1_linear_35_3)"
       />
       <defs>
-        <linearGradient id="paint0_linear_35_3" x1="0.799988" y1="185.488" x2="256.8" y2="214.928" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_35_3"
+          x1="0.799988"
+          y1="185.488"
+          x2="256.8"
+          y2="214.928"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint1_linear_35_3" x1="-223.478" y1="-106.67" x2="-136.832" y2="716.599" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_35_3"
+          x1="-223.478"
+          y1="-106.67"
+          x2="-136.832"
+          y2="716.599"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#B388FF" />
           <stop offset="1" stopColor="#7C4DFF" />
         </linearGradient>
@@ -216,7 +428,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   partly_cloudy_day: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -228,11 +446,23 @@ export const Icons: IconsMap = {
         fill="url(#paint1_linear_6_173)"
       />
       <defs>
-        <linearGradient id="paint0_linear_6_173" x1="77.6" y1="32.974" x2="326.888" y2="197.899" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_6_173"
+          x1="77.6"
+          y1="32.974"
+          x2="326.888"
+          y2="197.899"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#FFC400" />
           <stop offset="1" stopColor="#FF6F00" />
         </linearGradient>
-        <linearGradient id="paint1_linear_6_173" x1="1.82407" y1="114.248" x2="193.824" y2="229.448" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_6_173"
+          x1="1.82407"
+          y1="114.248"
+          x2="193.824"
+          y2="229.448"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
@@ -240,7 +470,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   partly_cloudy_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -252,11 +488,23 @@ export const Icons: IconsMap = {
         fill="url(#paint1_linear_6_145)"
       />
       <defs>
-        <linearGradient id="paint0_linear_6_145" x1="77.4" y1="32.8883" x2="306.576" y2="204.978" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_6_145"
+          x1="77.4"
+          y1="32.8883"
+          x2="306.576"
+          y2="204.978"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#B388FF" />
           <stop offset="1" stopColor="#7C4DFF" />
         </linearGradient>
-        <linearGradient id="paint1_linear_6_145" x1="0.600036" y1="114.248" x2="192.6" y2="229.448" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_6_145"
+          x1="0.600036"
+          y1="114.248"
+          x2="192.6"
+          y2="229.448"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
@@ -264,7 +512,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   rain_day_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         d="M215.766 195.706L223.944 185.483L232.122 195.706C233.727 197.584 234.696 200.022 234.696 202.687C234.696 208.625 229.882 213.439 223.944 213.439C218.006 213.439 213.192 208.625 213.192 202.687C213.192 200.022 214.161 197.584 215.766 195.706Z"
         fill="url(#paint0_linear_33_21)"
@@ -290,27 +544,63 @@ export const Icons: IconsMap = {
         fill="url(#paint5_linear_33_21)"
       />
       <defs>
-        <linearGradient id="paint0_linear_33_21" x1="223.944" y1="185.483" x2="223.944" y2="213.439" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_33_21"
+          x1="223.944"
+          y1="185.483"
+          x2="223.944"
+          y2="213.439"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint1_linear_33_21" x1="176.072" y1="205.912" x2="176.072" y2="243.186" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_33_21"
+          x1="176.072"
+          y1="205.912"
+          x2="176.072"
+          y2="243.186"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint2_linear_33_21" x1="128.2" y1="185.483" x2="128.2" y2="213.439" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint2_linear_33_21"
+          x1="128.2"
+          y1="185.483"
+          x2="128.2"
+          y2="213.439"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint3_linear_33_21" x1="80.3279" y1="205.912" x2="80.3279" y2="243.186" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint3_linear_33_21"
+          x1="80.3279"
+          y1="205.912"
+          x2="80.3279"
+          y2="243.186"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint4_linear_33_21" x1="32.4559" y1="185.483" x2="32.4559" y2="213.439" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint4_linear_33_21"
+          x1="32.4559"
+          y1="185.483"
+          x2="32.4559"
+          y2="213.439"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint5_linear_33_21" x1="0.200037" y1="15.448" x2="256.2" y2="169.048" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint5_linear_33_21"
+          x1="0.200037"
+          y1="15.448"
+          x2="256.2"
+          y2="169.048"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
@@ -318,7 +608,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   sleet_day_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 256" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 256"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         d="M165.768 218.942L176.672 205.312L187.576 218.942C189.716 221.447 191.008 224.697 191.008 228.25C191.008 236.167 184.589 242.586 176.672 242.586C168.754 242.586 162.336 236.167 162.336 228.25C162.336 224.697 163.628 221.447 165.768 218.942Z"
         fill="url(#paint0_linear_33_69)"
@@ -344,27 +640,63 @@ export const Icons: IconsMap = {
         fill="url(#paint5_linear_33_69)"
       />
       <defs>
-        <linearGradient id="paint0_linear_33_69" x1="176.672" y1="205.312" x2="176.672" y2="242.586" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_33_69"
+          x1="176.672"
+          y1="205.312"
+          x2="176.672"
+          y2="242.586"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint1_linear_33_69" x1="33.0559" y1="184.883" x2="33.0559" y2="212.839" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_33_69"
+          x1="33.0559"
+          y1="184.883"
+          x2="33.0559"
+          y2="212.839"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint2_linear_33_69" x1="224.605" y1="184.832" x2="224.605" y2="213.801" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint2_linear_33_69"
+          x1="224.605"
+          y1="184.832"
+          x2="224.605"
+          y2="213.801"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint3_linear_33_69" x1="128.861" y1="184.832" x2="128.861" y2="213.801" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint3_linear_33_69"
+          x1="128.861"
+          y1="184.832"
+          x2="128.861"
+          y2="213.801"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint4_linear_33_69" x1="80.9157" y1="205.312" x2="80.9157" y2="243.712" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint4_linear_33_69"
+          x1="80.9157"
+          y1="205.312"
+          x2="80.9157"
+          y2="243.712"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint5_linear_33_69" x1="0.800028" y1="14.848" x2="256.8" y2="168.448" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint5_linear_33_69"
+          x1="0.800028"
+          y1="14.848"
+          x2="256.8"
+          y2="168.448"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
@@ -372,7 +704,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   snow_day_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 256" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 256"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         d="M235.689 196.032L236.749 192.074L232.792 191.014L227.102 194.299V187.729L224.205 184.832L221.308 187.729V194.299L215.618 191.014L211.661 192.074L212.721 196.032L218.411 199.317L212.721 202.602L211.661 206.559L215.618 207.619L221.308 204.334V210.904L224.205 213.801L227.102 210.904V204.334L232.792 207.619L236.749 206.559L235.689 202.602L229.999 199.317L235.689 196.032Z"
         fill="url(#paint0_linear_33_48)"
@@ -398,27 +736,63 @@ export const Icons: IconsMap = {
         fill="url(#paint5_linear_33_48)"
       />
       <defs>
-        <linearGradient id="paint0_linear_33_48" x1="224.205" y1="184.832" x2="224.205" y2="213.801" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_33_48"
+          x1="224.205"
+          y1="184.832"
+          x2="224.205"
+          y2="213.801"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint1_linear_33_48" x1="176.26" y1="205.312" x2="176.26" y2="243.712" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_33_48"
+          x1="176.26"
+          y1="205.312"
+          x2="176.26"
+          y2="243.712"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint2_linear_33_48" x1="128.461" y1="184.832" x2="128.461" y2="213.801" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint2_linear_33_48"
+          x1="128.461"
+          y1="184.832"
+          x2="128.461"
+          y2="213.801"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint3_linear_33_48" x1="80.5157" y1="205.312" x2="80.5157" y2="243.712" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint3_linear_33_48"
+          x1="80.5157"
+          y1="205.312"
+          x2="80.5157"
+          y2="243.712"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint4_linear_33_48" x1="32.7169" y1="184.832" x2="32.7169" y2="213.801" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint4_linear_33_48"
+          x1="32.7169"
+          y1="184.832"
+          x2="32.7169"
+          y2="213.801"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#CFD8DC" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint5_linear_33_48" x1="0.400003" y1="14.848" x2="256.4" y2="168.448" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint5_linear_33_48"
+          x1="0.400003"
+          y1="14.848"
+          x2="256.4"
+          y2="168.448"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
@@ -426,25 +800,59 @@ export const Icons: IconsMap = {
     </svg>
   ),
   sunrise: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M19.6 218.912H237.2" stroke="url(#paint0_linear_129_2)" strokeWidth="10.24" strokeLinecap="round" />
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <path
+        d="M19.6 218.912H237.2"
+        stroke="url(#paint0_linear_129_2)"
+        strokeWidth="10.24"
+        strokeLinecap="round"
+      />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M128.412 107.552C128.412 107.552 142.016 122.055 153.554 125.819C165.177 129.611 184.861 125.819 184.861 125.819C184.861 125.819 187.341 145.708 194.535 155.594C201.696 165.435 219.748 173.912 219.748 173.912C219.748 173.912 210.118 191.381 210.118 203.552L46.7055 203.552C46.7055 191.381 37.0749 173.912 37.0749 173.912C37.0749 173.912 55.1271 165.435 62.2882 155.594C69.4816 145.708 71.9624 125.819 71.9624 125.819C71.9624 125.819 91.6457 129.611 103.269 125.819C114.807 122.055 128.412 107.552 128.412 107.552Z"
         fill="url(#paint1_linear_129_2)"
       />
-      <path d="M102.8 64.544L128.4 38.944M128.4 38.944L154 64.544M128.4 38.944V90.144" stroke="url(#paint2_linear_129_2)" strokeWidth="10.24" strokeLinecap="round" />
+      <path
+        d="M102.8 64.544L128.4 38.944M128.4 38.944L154 64.544M128.4 38.944V90.144"
+        stroke="url(#paint2_linear_129_2)"
+        strokeWidth="10.24"
+        strokeLinecap="round"
+      />
       <defs>
-        <linearGradient id="paint0_linear_129_2" x1="19.6" y1="219.412" x2="237.2" y2="219.412" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_129_2"
+          x1="19.6"
+          y1="219.412"
+          x2="237.2"
+          y2="219.412"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#EFF1F5" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint1_linear_129_2" x1="23.4684" y1="104.224" x2="223.754" y2="351.788" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_129_2"
+          x1="23.4684"
+          y1="104.224"
+          x2="223.754"
+          y2="351.788"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#FFC400" />
           <stop offset="1" stopColor="#FF6F00" />
         </linearGradient>
-        <linearGradient id="paint2_linear_129_2" x1="128.4" y1="38.944" x2="128.4" y2="90.144" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint2_linear_129_2"
+          x1="128.4"
+          y1="38.944"
+          x2="128.4"
+          y2="90.144"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#B0BEC5" />
           <stop offset="1" stopColor="#EFF1F5" />
         </linearGradient>
@@ -452,25 +860,59 @@ export const Icons: IconsMap = {
     </svg>
   ),
   sunset: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M20 218.912H237.6" stroke="url(#paint0_linear_129_40)" strokeWidth="10.24" strokeLinecap="round" />
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <path
+        d="M20 218.912H237.6"
+        stroke="url(#paint0_linear_129_40)"
+        strokeWidth="10.24"
+        strokeLinecap="round"
+      />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M128.812 107.552C128.812 107.552 142.416 122.055 153.954 125.819C165.577 129.611 185.261 125.819 185.261 125.819C185.261 125.819 187.741 145.708 194.935 155.594C202.096 165.435 220.148 173.912 220.148 173.912C220.148 173.912 210.518 191.381 210.518 203.552L47.1055 203.552C47.1055 191.381 37.4749 173.912 37.4749 173.912C37.4749 173.912 55.5272 165.435 62.6882 155.594C69.8817 145.708 72.3624 125.819 72.3624 125.819C72.3624 125.819 92.0457 129.611 103.669 125.819C115.207 122.055 128.812 107.552 128.812 107.552Z"
         fill="url(#paint1_linear_129_40)"
       />
-      <path d="M103.2 64.544L128.8 90.144M128.8 90.144L154.4 64.544M128.8 90.144V38.944" stroke="url(#paint2_linear_129_40)" strokeWidth="10.24" strokeLinecap="round" />
+      <path
+        d="M103.2 64.544L128.8 90.144M128.8 90.144L154.4 64.544M128.8 90.144V38.944"
+        stroke="url(#paint2_linear_129_40)"
+        strokeWidth="10.24"
+        strokeLinecap="round"
+      />
       <defs>
-        <linearGradient id="paint0_linear_129_40" x1="20" y1="219.412" x2="237.6" y2="219.412" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_129_40"
+          x1="20"
+          y1="219.412"
+          x2="237.6"
+          y2="219.412"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#EFF1F5" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint1_linear_129_40" x1="23.8685" y1="104.224" x2="224.154" y2="351.788" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_129_40"
+          x1="23.8685"
+          y1="104.224"
+          x2="224.154"
+          y2="351.788"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#FF6F00" />
           <stop offset="1" stopColor="#C51162" />
         </linearGradient>
-        <linearGradient id="paint2_linear_129_40" x1="128.8" y1="38.944" x2="128.8" y2="90.144" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint2_linear_129_40"
+          x1="128.8"
+          y1="38.944"
+          x2="128.8"
+          y2="90.144"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#EFF1F5" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
@@ -478,20 +920,41 @@ export const Icons: IconsMap = {
     </svg>
   ),
   thunder_day_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M256.599 127.778C256.599 154.708 234.768 176.539 207.839 176.54H148.368L157.734 139.076C158.916 134.347 156.602 129.441 152.201 127.346C147.8 125.251 142.532 126.549 139.608 130.448L105.039 176.54H61.5523C27.8893 176.54 0.599945 149.251 0.599945 115.588C0.599945 81.9247 27.8893 54.6354 61.5523 54.6354C64.74 54.6354 67.8705 54.8801 70.9262 55.3517C83.4678 33.0948 107.325 18.0639 134.693 18.0639C170.939 18.0639 201.027 44.4285 206.826 79.0266C207.162 79.0198 207.499 79.0163 207.837 79.0163C234.767 79.0163 256.599 100.848 256.599 127.778ZM117.839 176.54L131.967 157.702L147.8 136.592L141.4 162.192L137.813 176.54L117.839 176.54Z"
         fill="url(#paint0_linear_33_83)"
       />
-      <path d="M109.4 187.792L147.8 136.592L135 187.792H147.8L109.4 238.992L122.2 187.792H109.4Z" fill="url(#paint1_linear_33_83)" />
+      <path
+        d="M109.4 187.792L147.8 136.592L135 187.792H147.8L109.4 238.992L122.2 187.792H109.4Z"
+        fill="url(#paint1_linear_33_83)"
+      />
       <defs>
-        <linearGradient id="paint0_linear_33_83" x1="0.599945" y1="23.7566" x2="205.443" y2="195.097" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_33_83"
+          x1="0.599945"
+          y1="23.7566"
+          x2="205.443"
+          y2="195.097"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#B0BEC5" />
           <stop offset="1" stopColor="#616161" />
         </linearGradient>
-        <linearGradient id="paint1_linear_33_83" x1="128.6" y1="136.592" x2="128.6" y2="238.992" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_33_83"
+          x1="128.6"
+          y1="136.592"
+          x2="128.6"
+          y2="238.992"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#FFC400" />
           <stop offset="1" stopColor="#FF6F00" />
         </linearGradient>
@@ -499,7 +962,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   thunderstorm_day_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 256" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 256"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         d="M216.166 195.106L224.344 184.883L232.522 195.106C234.127 196.984 235.096 199.422 235.096 202.087C235.096 208.025 230.282 212.839 224.344 212.839C218.406 212.839 213.592 208.025 213.592 202.087C213.592 199.422 214.561 196.984 216.166 195.106Z"
         fill="url(#paint0_linear_6_185)"
@@ -522,29 +991,68 @@ export const Icons: IconsMap = {
         d="M256.599 122.002C256.599 148.932 234.768 170.763 207.839 170.764H166.405C164.811 169.668 162.913 169.026 160.914 168.965L170.534 130.484C171.716 125.755 169.402 120.849 165.001 118.754C160.6 116.659 155.332 117.957 152.408 121.856L115.727 170.764H61.5524C27.8893 170.764 0.600006 143.475 0.600006 109.812C0.600006 76.1487 27.8893 48.8594 61.5524 48.8594C64.7401 48.8594 67.8706 49.1041 70.9262 49.5757C83.4679 27.3189 107.325 12.288 134.693 12.288C170.939 12.288 201.027 38.6525 206.826 73.2506C207.162 73.2438 207.499 73.2403 207.837 73.2403C234.767 73.2403 256.599 95.0718 256.599 122.002ZM128.527 170.764L129.88 168.96L144.767 149.11L160.6 128L154.2 153.6L150.36 168.96L149.909 170.764L128.527 170.764Z"
         fill="url(#paint4_linear_6_185)"
       />
-      <path d="M122.2 179.2L160.6 128L147.8 179.2H160.6L122.2 230.4L135 179.2H122.2Z" fill="url(#paint5_linear_6_185)" />
+      <path
+        d="M122.2 179.2L160.6 128L147.8 179.2H160.6L122.2 230.4L135 179.2H122.2Z"
+        fill="url(#paint5_linear_6_185)"
+      />
       <defs>
-        <linearGradient id="paint0_linear_6_185" x1="224.344" y1="184.883" x2="224.344" y2="212.839" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_6_185"
+          x1="224.344"
+          y1="184.883"
+          x2="224.344"
+          y2="212.839"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint1_linear_6_185" x1="176.472" y1="205.312" x2="176.472" y2="242.586" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_6_185"
+          x1="176.472"
+          y1="205.312"
+          x2="176.472"
+          y2="242.586"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint2_linear_6_185" x1="80.7278" y1="205.312" x2="80.7278" y2="242.586" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint2_linear_6_185"
+          x1="80.7278"
+          y1="205.312"
+          x2="80.7278"
+          y2="242.586"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint3_linear_6_185" x1="32.8559" y1="184.883" x2="32.8559" y2="212.839" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint3_linear_6_185"
+          x1="32.8559"
+          y1="184.883"
+          x2="32.8559"
+          y2="212.839"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#1976D2" />
           <stop offset="1" stopColor="#0D47A1" />
         </linearGradient>
-        <linearGradient id="paint4_linear_6_185" x1="0.599998" y1="3.35974" x2="198.425" y2="193.947" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint4_linear_6_185"
+          x1="0.599998"
+          y1="3.35974"
+          x2="198.425"
+          y2="193.947"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#B0BEC5" />
           <stop offset="1" stopColor="#616161" />
         </linearGradient>
-        <linearGradient id="paint5_linear_6_185" x1="141.4" y1="128" x2="141.4" y2="230.4" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint5_linear_6_185"
+          x1="141.4"
+          y1="128"
+          x2="141.4"
+          y2="230.4"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#FFC400" />
           <stop offset="1" stopColor="#FF6F00" />
         </linearGradient>
@@ -552,7 +1060,13 @@ export const Icons: IconsMap = {
     </svg>
   ),
   wind_day_night: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 257 257" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 257 257"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -564,11 +1078,23 @@ export const Icons: IconsMap = {
         fill="url(#paint1_linear_45_29)"
       />
       <defs>
-        <linearGradient id="paint0_linear_45_29" x1="0.199993" y1="102.8" x2="256.2" y2="230.8" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint0_linear_45_29"
+          x1="0.199993"
+          y1="102.8"
+          x2="256.2"
+          y2="230.8"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>
-        <linearGradient id="paint1_linear_45_29" x1="0.200027" y1="24.848" x2="192.2" y2="140.048" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="paint1_linear_45_29"
+          x1="0.200027"
+          y1="24.848"
+          x2="192.2"
+          y2="140.048"
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#ECEFF1" />
           <stop offset="1" stopColor="#B0BEC5" />
         </linearGradient>

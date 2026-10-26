@@ -1,16 +1,16 @@
 ---
-import BaseLayout from '../../../../layouts/BaseLayout.astro'
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
 
-import LandingDemo from '../../../../components/landing-demo'
+import LandingDemo from "../../../../components/landing-demo";
 ---
 
-<BaseLayout title='Funflow' bodyClass='font-["Poppins",_sans-serif]'>
-    <LandingDemo client:only />
+<BaseLayout title="Funflow" bodyClass='font-["Poppins",_sans-serif]'>
+  <LandingDemo client:only="react" />
 </BaseLayout>
 
 <style>
-    body {
-        background-color: #222;
-        color: #fefefe;
-    }
+  body {
+    background-color: #222;
+    color: #fefefe;
+  }
 </style>

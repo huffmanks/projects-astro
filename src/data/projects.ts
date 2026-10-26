@@ -16,7 +16,8 @@ export const featuredProjects = [
   },
   {
     title: "CodeShare",
-    description: "CodeShare is your go-to platform for clear, practical coding guides and reusable code snippets.",
+    description:
+      "CodeShare is your go-to platform for clear, practical coding guides and reusable code snippets.",
     imgSrc: "/portfolio/images/projects/code-share.jpg",
     repoLink: "https://github.com/huffmanks/code-share",
     demoLink: "https://codeshare.huffmanks.com",
@@ -31,7 +32,8 @@ export const featuredProjects = [
   },
   {
     title: "pastebox",
-    description: "A lightweight, self-hosted tool for ephemeral rich text and file sharing on your local network.",
+    description:
+      "A lightweight, self-hosted tool for ephemeral rich text and file sharing on your local network.",
     imgSrc: "/portfolio/images/projects/pastebox.png",
     repoLink: "https://github.com/huffmanks/pastebox",
     demoLink: "https://hub.docker.com/r/huffmanks/pastebox",
@@ -46,7 +48,8 @@ export const featuredProjects = [
   },
   {
     title: "Email Builder",
-    description: "Internal tool for generating MJML-based emails and company-specific email signatures.",
+    description:
+      "Internal tool for generating MJML-based emails and company-specific email signatures.",
     imgSrc: "/portfolio/images/projects/email-builder.jpg",
     demoLink: "https://email.huffmanks.com",
   },
@@ -80,14 +83,16 @@ export const featuredProjects = [
   },
   {
     title: "Diff Tool",
-    description: "Simple side-by-side text comparison tool for spotting changes quickly and clearly.",
+    description:
+      "Simple side-by-side text comparison tool for spotting changes quickly and clearly.",
     imgSrc: "/portfolio/images/projects/diff.png",
     repoLink: "https://github.com/huffmanks/diff-tool",
     demoLink: "https://diff.huffmanks.com",
   },
   {
     title: "Listography",
-    description: "The ultimate party game where your lists spark laughter, debate and unforgettable moments.",
+    description:
+      "The ultimate party game where your lists spark laughter, debate and unforgettable moments.",
     imgSrc: "/portfolio/images/projects/listography.png",
     repoLink: "https://github.com/huffmanks/listography",
     demoLink: "https://listography.huffmanks.com",
@@ -109,7 +114,8 @@ export const featuredProjects = [
 export const repoProjects = [
   {
     title: "kokoro-tts-cli",
-    description: "Simple CLI for generating speech locally with Kokoro ONNX. Supports single, multiple and blended voices with optional MP3 output.",
+    description:
+      "Simple CLI for generating speech locally with Kokoro ONNX. Supports single, multiple and blended voices with optional MP3 output.",
     repoLink: "https://github.com/huffmanks/kokoro-tts-cli",
   },
   {
@@ -124,7 +130,8 @@ export const repoProjects = [
   },
   {
     title: "Palette Paste",
-    description: "VS Code extension for inserting structured, repetitive text patterns using custom templates and sequences.",
+    description:
+      "VS Code extension for inserting structured, repetitive text patterns using custom templates and sequences.",
     repoLink: "https://github.com/huffmanks/palette-paste",
     demoLink: "https://marketplace.visualstudio.com/items?itemName=huffmanks.palette-paste-ext",
     isVSCode: true,
@@ -141,7 +148,8 @@ export const repoProjects = [
   },
   {
     title: "stash",
-    description: "An interactive CLI tool to bootstrap system packages and dynamically build platform-specific zsh and git configurations.",
+    description:
+      "An interactive CLI tool to bootstrap system packages and dynamically build platform-specific zsh and git configurations.",
     repoLink: "https://github.com/huffmanks/stash",
   },
 ];

@@ -33,7 +33,9 @@
     <script is:inline>
       const html = document.querySelector("html");
 
-      const isLight = localStorage.getItem("portfolio_theme") === "light" || !window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const isLight =
+        localStorage.getItem("portfolio_theme") === "light" ||
+        !window.matchMedia("(prefers-color-scheme: dark)").matches;
 
       if (isLight) {
         html.classList.remove("dark");

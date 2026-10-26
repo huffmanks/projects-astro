@@ -31,7 +31,7 @@ const QuizWrapper = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -57,16 +57,20 @@ const QuizWrapper = () => {
     }
   };
 
-  const handleNext = (selectedAnswer: string, e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleNext = (selectedAnswer: string, _e: React.MouseEvent<HTMLButtonElement>) => {
     if (buttonLocked) return;
     setButtonLocked(true);
     setReadyForNext(true);
 
     const updatedQuestions = [...questions];
 
-    updatedQuestions[currentQuestion].selectedAnswer = updatedQuestions[currentQuestion].answers.indexOf(selectedAnswer);
+    updatedQuestions[currentQuestion].selectedAnswer =
+      updatedQuestions[currentQuestion].answers.indexOf(selectedAnswer);
 
-    if (selectedAnswer === questions[currentQuestion].answers[questions[currentQuestion].correctAnswer]) {
+    if (
+      selectedAnswer ===
+      questions[currentQuestion].answers[questions[currentQuestion].correctAnswer]
+    ) {
       setScore((prev) => prev + 1);
       updatedQuestions[currentQuestion].isCorrect = true;
     } else {
@@ -87,7 +91,7 @@ const QuizWrapper = () => {
     }, 1000);
   };
 
-  const handleRetry = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleRetry = (_e: React.MouseEvent<HTMLButtonElement>) => {
     setCurrentQuestion(0);
     setScore(0);
     setReadyForNext(false);
@@ -95,7 +99,7 @@ const QuizWrapper = () => {
     setIsQuizOver(false);
   };
 
-  const handleNewQuiz = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleNewQuiz = (_e: React.MouseEvent<HTMLButtonElement>) => {
     setQuizOptions(initialOptions);
     setQuestions([]);
     setCurrentQuestion(0);
@@ -108,19 +112,44 @@ const QuizWrapper = () => {
 
   return (
     <>
-      <main className="grid place-items-center min-h-screen py-16 sm:py-10" style={{ minHeight: "100dvh" }}>
-        <div className="max-w-xl w-full">
-          <h1 className="text-3xl font-bold mb-8 text-center underline-offset-4 underline decoration-purple-600">Quiz App</h1>
+      <main
+        className="grid min-h-screen place-items-center py-16 sm:py-10"
+        style={{ minHeight: "100dvh" }}>
+        <div className="w-full max-w-xl">
+          <h1 className="mb-8 text-center text-3xl font-bold underline decoration-purple-600 underline-offset-4">
+            Quiz App
+          </h1>
           {!questions.length && <Form handleChange={handleChange} handleSubmit={handleSubmit} />}
           {questions.length > 0 && !isQuizOver && (
-            <QuestionCard questions={questions} currentQuestion={currentQuestion} readyForNext={readyForNext} buttonLocked={buttonLocked} handleNext={handleNext} />
+            <QuestionCard
+              questions={questions}
+              currentQuestion={currentQuestion}
+              readyForNext={readyForNext}
+              buttonLocked={buttonLocked}
+              handleNext={handleNext}
+            />
           )}
-          {isQuizOver && <Score questions={questions} score={score} handleRetry={handleRetry} handleNewQuiz={handleNewQuiz} />}
+          {isQuizOver && (
+            <Score
+              questions={questions}
+              score={score}
+              handleRetry={handleRetry}
+              handleNewQuiz={handleNewQuiz}
+            />
+          )}
           {isError && (
-            <div className="text-center px-2 text-balance max-w-xs mx-auto">
+            <div className="mx-auto max-w-xs px-2 text-center text-balance">
               <span className="text-red-600">There are no </span>
-              {quizOptions?.difficulty && <span className="text-black dark:text-white capitalize">{quizOptions.difficulty} </span>}
-              {quizOptions?.category && <span className="text-black dark:text-white">{getLabelByValue(quizOptions.category)} </span>}
+              {quizOptions?.difficulty && (
+                <span className="text-black capitalize dark:text-white">
+                  {quizOptions.difficulty}{" "}
+                </span>
+              )}
+              {quizOptions?.category && (
+                <span className="text-black dark:text-white">
+                  {getLabelByValue(quizOptions.category)}{" "}
+                </span>
+              )}
               <span className="text-red-600">quizzes yet! Please try another configuration.</span>
             </div>
           )}

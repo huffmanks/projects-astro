@@ -1,30 +1,32 @@
 ---
-import BaseLayout from '../../../../layouts/BaseLayout.astro'
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
 
-import Navbar from '../../../../components/ecommerce-page/NavBar.astro'
-import Alert from '../../../../components/ecommerce-page/Alert.astro'
-import Hero from '../../../../components/ecommerce-page/Hero.astro'
-import Brand from '../../../../components/ecommerce-page/Brand.astro'
-import CustomerExperiences from '../../../../components/ecommerce-page/CustomerExperiences.astro'
-import Categories from '../../../../components/ecommerce-page/Categories.astro'
-import Products from '../../../../components/ecommerce-page/Products'
-import Subscription from '../../../../components/ecommerce-page/Subscription.astro'
-import Footer from '../../../../components/ecommerce-page/Footer.astro'
+import Alert from "../../../../components/ecommerce-page/Alert.astro";
+import Brand from "../../../../components/ecommerce-page/Brand.astro";
+import Categories from "../../../../components/ecommerce-page/Categories.astro";
+import CustomerExperiences from "../../../../components/ecommerce-page/CustomerExperiences.astro";
+import Footer from "../../../../components/ecommerce-page/Footer.astro";
+import Hero from "../../../../components/ecommerce-page/Hero.astro";
+import Navbar from "../../../../components/ecommerce-page/NavBar.astro";
+import Products from "../../../../components/ecommerce-page/Products";
+import Subscription from "../../../../components/ecommerce-page/Subscription.astro";
 ---
 
-<BaseLayout title='E-commerce page' bodyClass='bg-white text-black font-["Space_Grotesk_Variable",_sans-serif]'>
-    <Alert />
-    <div class='max-w-5xl mx-auto'>
-        <Navbar />
+<BaseLayout
+  title="E-commerce page"
+  bodyClass='bg-white text-black font-["Space_Grotesk_Variable",_sans-serif]'>
+  <Alert />
+  <div class="max-w-5xl mx-auto">
+    <Navbar />
 
-        <Hero />
-        <main class='px-6 lg:px-2'>
-            <Brand />
-            <CustomerExperiences />
-            <Categories />
-            <Products client:only />
-            <Subscription />
-        </main>
-    </div>
-    <Footer />
+    <Hero />
+    <main class="px-6 lg:px-2">
+      <Brand />
+      <CustomerExperiences />
+      <Categories />
+      <Products client:only="react" />
+      <Subscription />
+    </main>
+  </div>
+  <Footer />
 </BaseLayout>

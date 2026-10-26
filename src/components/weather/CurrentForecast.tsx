@@ -21,7 +21,7 @@ export default function CurrentForecast({ currentData }: CurrentForecastProps) {
       <div className="mb-3">Now</div>
       <div className="flex justify-between gap-4">
         <div>
-          <div className="flex gap-2 items-end mb-3">
+          <div className="mb-3 flex items-end gap-2">
             <span className="text-4xl">{currentData.temp}&deg;</span>
             <IconComponent className="size-12" />
           </div>

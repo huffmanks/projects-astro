@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import type { SanitizedQuestion } from "../../types";
 import { domPurify } from "../../utils";
 
@@ -10,7 +11,13 @@ interface Props {
   handleNext: (selectedAnswer: string, e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const QuestionCard = ({ questions, currentQuestion, readyForNext, buttonLocked, handleNext }: Props) => {
+const QuestionCard = ({
+  questions,
+  currentQuestion,
+  readyForNext,
+  buttonLocked,
+  handleNext,
+}: Props) => {
   const [answers, setAnswers] = useState<string[] | []>([]);
   const [selectedAnswer, setSelectedAnswer] = useState("");
 
@@ -33,20 +40,27 @@ const QuestionCard = ({ questions, currentQuestion, readyForNext, buttonLocked, 
 
   return (
     <div className="px-3">
-      <div id="radio-group-label" className="text-balance px-3 mb-4">
-        <span className="text-purple-600 text-lg font-bold mr-2">#{currentQuestion + 1}</span>
+      <div id="radio-group-label" className="mb-4 px-3 text-balance">
+        <span className="mr-2 text-lg font-bold text-purple-600">#{currentQuestion + 1}</span>
         <span dangerouslySetInnerHTML={{ __html: parsedQuestion }} />
       </div>
-      <div className="grid md:grid-cols-2 gap-6 mb-4 px-3" role="radiogroup" aria-labelledby="radio-group-label">
+      <div
+        className="mb-4 grid gap-6 px-3 md:grid-cols-2"
+        role="radiogroup"
+        aria-labelledby="radio-group-label">
         {answers.map((answer, i) => (
           <div
             key={answer}
             role="radio"
             aria-checked={false}
-            className={`flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700 cursor-pointer ${
-              selectedAnswer === answer ? "bg-gray-700 border-transparent accent-purple-600" : ""
-            } ${readyForNext && questions[currentQuestion].correctAnswer === i ? "accent-green-400 bg-green-800" : ""} ${
-              readyForNext && questions[currentQuestion].correctAnswer !== i && selectedAnswer === answer ? "accent-red-400 bg-red-800" : ""
+            className={`flex cursor-pointer items-center rounded border border-gray-200 pl-4 dark:border-gray-700 ${
+              selectedAnswer === answer ? "border-transparent bg-gray-700 accent-purple-600" : ""
+            } ${readyForNext && questions[currentQuestion].correctAnswer === i ? "bg-green-800 accent-green-400" : ""} ${
+              readyForNext &&
+              questions[currentQuestion].correctAnswer !== i &&
+              selectedAnswer === answer
+                ? "bg-red-800 accent-red-400"
+                : ""
             }`}>
             <input
               id={answer}
@@ -55,17 +69,21 @@ const QuestionCard = ({ questions, currentQuestion, readyForNext, buttonLocked, 
               checked={selectedAnswer === answer}
               disabled={buttonLocked && selectedAnswer !== answer}
               onChange={handleChange}
-              className="w-4 h-4 outline-none cursor-pointer"
+              className="h-4 w-4 cursor-pointer outline-none"
             />
-            <label htmlFor={answer} className="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer" dangerouslySetInnerHTML={{ __html: domPurify.sanitize(answer) }} />
+            <label
+              htmlFor={answer}
+              className="ml-2 w-full cursor-pointer py-4 text-sm font-medium text-gray-900 dark:text-gray-300"
+              dangerouslySetInnerHTML={{ __html: domPurify.sanitize(answer) }}
+            />
           </div>
         ))}
       </div>
-      <div className="w-full flex items-end justify-between gap-6 px-3">
+      <div className="flex w-full items-end justify-between gap-6 px-3">
         <button
           type="button"
           disabled={!selectedAnswer || buttonLocked}
-          className="ml-auto focus:outline-none text-white bg-purple-700 enabled:hover:bg-purple-800 focus:ring-4 enabled:focus:ring-purple-300 font-bold rounded-lg tracking-wider px-5 py-2.5 dark:bg-purple-600 dark:enabled:hover:bg-purple-700 dark:enabled:focus:ring-purple-900 disabled:opacity-60 enabled:cursor-pointer"
+          className="ml-auto rounded-lg bg-purple-700 px-5 py-2.5 font-bold tracking-wider text-white focus:ring-4 focus:outline-none enabled:cursor-pointer enabled:hover:bg-purple-800 enabled:focus:ring-purple-300 disabled:opacity-60 dark:bg-purple-600 dark:enabled:hover:bg-purple-700 dark:enabled:focus:ring-purple-900"
           onClick={(e) => handleNext(selectedAnswer, e)}>
           {isLastQuestion ? "FINISH" : "NEXT"}
         </button>

@@ -1,5 +1,5 @@
-import { weatherCodes } from "./config";
 import { Icons, type IconsMap } from "./Icons";
+import { weatherCodes } from "./config";
 
 function isDayTime(time: string): boolean {
   const hour = new Date(time).getHours();
@@ -63,7 +63,7 @@ export function degreesToDirection(degrees: number) {
 export function calculateDewPoint({ temp, humidity }: { temp: number; humidity: number }) {
   const celsius = ((temp - 32) * 5) / 9;
 
-  const dp = celsius - ((100 - humidity) / 5);
+  const dp = celsius - (100 - humidity) / 5;
 
   return Math.round((dp * 9) / 5 + 32);
 }

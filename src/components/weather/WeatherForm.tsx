@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import WeatherOutput from "./WeatherOutput";
-import { LocationData, WeatherData } from "./config";
+import type { LocationData, WeatherData } from "./config";
 import { testData } from "./testData";
-// @ts-ignore
+
 const isProd = import.meta.env.PROD;
 const initialMessage = {
   text: "Please add a location to see the weather.",
@@ -12,8 +12,12 @@ const initialMessage = {
 
 export default function WeatherForm() {
   const [weatherSearch, setWeatherSearch] = useState("");
-  const [weatherData, setWeatherData] = useState<WeatherData | null>(isProd ? null : testData.weatherData);
-  const [locationData, setLocationData] = useState<LocationData | null>(isProd ? null : testData.locationData);
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(
+    isProd ? null : testData.weatherData
+  );
+  const [locationData, setLocationData] = useState<LocationData | null>(
+    isProd ? null : testData.locationData
+  );
   const [message, setMessage] = useState(initialMessage);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -67,17 +71,28 @@ export default function WeatherForm() {
   }
 
   return (
-    <div className="mx-auto max-w-md py-10 px-4">
-      <h1 className="text-2xl font-bold mb-8 underline-offset-4 underline decoration-purple-600">Weather app</h1>
+    <div className="mx-auto max-w-md px-4 py-10">
+      <h1 className="mb-8 text-2xl font-bold underline decoration-purple-600 underline-offset-4">
+        Weather app
+      </h1>
 
-      <div className="mb-8 rounded-full bg-gray-800 pl-5 pr-4 py-3 focus-within:ring-2 focus-within:ring-offset-1 focus-within:ring-purple-800 focus-within:ring-offset-purple-600">
+      <div className="mb-8 rounded-full bg-gray-800 py-3 pr-4 pl-5 focus-within:ring-2 focus-within:ring-purple-800 focus-within:ring-offset-1 focus-within:ring-offset-purple-600">
         <div className="flex items-center gap-3">
-          <svg height="1em" width="1em" stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            height="1em"
+            width="1em"
+            stroke="currentColor"
+            fill="none"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            xmlns="http://www.w3.org/2000/svg">
             <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
           <input
-            className="w-full h-full bg-gray-800 outline-none border-none"
+            className="h-full w-full border-none bg-gray-800 outline-none"
             autoComplete="one-time-code"
             type="text"
             name="weatherSearch"
@@ -87,9 +102,9 @@ export default function WeatherForm() {
             onChange={handleChange}
             onKeyUp={handleKeyPress}
           />
-          <button className="group cursor-pointer outline-none border-none">
+          <button className="group cursor-pointer border-none outline-none">
             <svg
-              className="group-hover:stroke-purple-600 group-focus-within:stroke-purple-600"
+              className="group-focus-within:stroke-purple-600 group-hover:stroke-purple-600"
               height="1em"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
