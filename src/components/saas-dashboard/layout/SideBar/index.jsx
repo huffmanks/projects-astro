@@ -11,9 +11,7 @@ const SideBar = () => {
   const { sideBarExpanded } = useSAAS();
 
   const styles = {
-    sidebar: sideBarExpanded
-      ? "w-11/12 xws:w-72 bg-gradient-to-br"
-      : "w-16 sm:w-20 bg-gradient-to-b",
+    sidebar: sideBarExpanded ? "w-11/12 xws:w-72 bg-linear-to-br" : "w-16 sm:w-20 bg-linear-to-b",
   };
 
   useEffect(() => {

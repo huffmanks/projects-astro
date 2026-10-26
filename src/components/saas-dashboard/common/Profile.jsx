@@ -1,12 +1,12 @@
 const Profile = ({ profile, direction }) => {
   const styles = {
     tooltip: {
-      top: "left-[calc(50%_+_4px)] bottom-14 -translate-x-1/2",
+      top: "left-[calc(50%+4px)] bottom-14 -translate-x-1/2",
       right: "top-1/2 left-14 -translate-y-1/2",
     },
     toolArrow: {
       top: "left-1/2 -bottom-1 -translate-x-1/2",
-      right: "top-1/2 -left-[3px] -translate-y-1/2",
+      right: "top-1/2 left-[-3px] -translate-y-1/2",
     },
   };
 

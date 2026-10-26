@@ -4,7 +4,7 @@ import { Search, X } from "@lucide/astro";
 
 <div
   id="mobile-menu"
-  class="fixed lg:hidden inset-0 bg-black/40 -translate-x-[1024px] opacity-0 transition-opacity ease-in z-10">
+  class="fixed lg:hidden inset-0 bg-black/40 -translate-x-256 opacity-0 transition-opacity ease-in z-10">
   <div class="absolute inset-y-0 w-full max-w-sm px-4 py-8 bg-white z-20">
     <div class="flex items-center justify-between gap-4 mb-4 md:mb-6 px-1">
       <a
@@ -70,9 +70,9 @@ import { Search, X } from "@lucide/astro";
     if (open) {
       mobileMenu.classList.add("left-0");
       mobileMenu.classList.remove("opacity-0");
-      mobileMenu.classList.remove("-translate-x-[1024px]");
+      mobileMenu.classList.remove("translate-x-[-1024px]");
     } else {
-      mobileMenu.classList.add("-translate-x-[1024px]");
+      mobileMenu.classList.add("translate-x-[-1024px]");
       mobileMenu.classList.add("opacity-0");
       mobileMenu.classList.remove("left-0");
     }

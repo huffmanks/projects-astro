@@ -35,7 +35,7 @@ const Products = () => {
 
   return (
     <section className="mb-16">
-      <div className="mx-auto mb-2 block max-w-[560px] items-center justify-between gap-8 sm:mb-6 sm:flex md:max-w-none">
+      <div className="mx-auto mb-2 block max-w-140 items-center justify-between gap-8 sm:mb-6 sm:flex md:max-w-none">
         <h2 className="mb-4 text-center text-3xl font-bold sm:mb-0 lg:text-left">
           Featured products
         </h2>
@@ -71,7 +71,7 @@ const Products = () => {
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="aspect-[14/15] w-[560px] object-cover"
+                  className="aspect-14/15 w-140 object-cover"
                 />
                 {product.isDiscounted && (
                   <div className="absolute top-4 left-4 rounded-md bg-red-600 px-2 py-1.5 text-xs font-bold tracking-widest text-white uppercase">
