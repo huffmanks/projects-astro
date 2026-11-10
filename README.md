@@ -6,7 +6,7 @@
 
 ### Pocket Player
 
-![Screenshot of Pocket Player](https://huffmanks.com/portfolio/images/projects/pocket-player.jpg)
+![Screenshot of Pocket Player](./public/portfolio/images/projects/pocket-player.jpg)
 
 Android app to locally store and watch videos offline.
 
@@ -15,7 +15,7 @@ Android app to locally store and watch videos offline.
 
 ### Web Tools
 
-![Screenshot of Web Tools](https://huffmanks.com/portfolio/images/projects/tools.jpg)
+![Screenshot of Web Tools](./public/portfolio/images/projects/tools.jpg)
 
 Development tools for the web, installable as a PWA.
 
@@ -24,7 +24,7 @@ Development tools for the web, installable as a PWA.
 
 ### CodeShare
 
-![Screenshot of CodeShare](https://huffmanks.com/portfolio/images/projects/code-share.jpg)
+![Screenshot of CodeShare](./public/portfolio/images/projects/code-share.jpg)
 
 CodeShare is your go-to platform for clear, practical coding guides and reusable code snippets.
 
@@ -33,7 +33,7 @@ CodeShare is your go-to platform for clear, practical coding guides and reusable
 
 ### EchoLink
 
-![Screenshot of EchoLink](https://huffmanks.com/portfolio/images/projects/echo-link.png)
+![Screenshot of EchoLink](./public/portfolio/images/projects/echo-link.png)
 
 Self-hosted client app for Linkding.
 
@@ -42,7 +42,7 @@ Self-hosted client app for Linkding.
 
 ### pastebox
 
-![Screenshot of pastebox](https://huffmanks.com/portfolio/images/projects/pastebox.png)
+![Screenshot of pastebox](./public/portfolio/images/projects/pastebox.png)
 
 A lightweight, self-hosted tool for ephemeral rich text and file sharing on your local network.
 
@@ -51,7 +51,7 @@ A lightweight, self-hosted tool for ephemeral rich text and file sharing on your
 
 ### Weekly Word
 
-![Screenshot of Weekly Word](https://huffmanks.com/portfolio/images/projects/word.png)
+![Screenshot of Weekly Word](./public/portfolio/images/projects/word.png)
 
 Personal collection of my sermon notes and thoughts from each week.
 
@@ -60,7 +60,7 @@ Personal collection of my sermon notes and thoughts from each week.
 
 ### Email Builder
 
-![Screenshot of Email Builder](https://huffmanks.com/portfolio/images/projects/email-builder.jpg)
+![Screenshot of Email Builder](./public/portfolio/images/projects/email-builder.jpg)
 
 Internal tool for generating MJML-based emails and company-specific email signatures.
 
@@ -68,7 +68,7 @@ Internal tool for generating MJML-based emails and company-specific email signat
 
 ### Wofford Homepage
 
-![Screenshot of Wofford Homepage](https://huffmanks.com/portfolio/images/projects/wofford-homepage.jpg)
+![Screenshot of Wofford Homepage](./public/portfolio/images/projects/wofford-homepage.jpg)
 
 Visual design concept for the Wofford College homepage.
 
@@ -76,7 +76,7 @@ Visual design concept for the Wofford College homepage.
 
 ### Nostra
 
-![Screenshot of Nostra](https://huffmanks.com/portfolio/images/projects/ecommerce-page.jpg)
+![Screenshot of Nostra](./public/portfolio/images/projects/ecommerce-page.jpg)
 
 Static design mockup for an e-commerce landing page.
 
@@ -84,7 +84,7 @@ Static design mockup for an e-commerce landing page.
 
 ### Funflow
 
-![Screenshot of Funflow](https://huffmanks.com/portfolio/images/projects/landing-demo.jpg)
+![Screenshot of Funflow](./public/portfolio/images/projects/landing-demo.jpg)
 
 Concept landing page for a fictional company or startup.
 
@@ -92,7 +92,7 @@ Concept landing page for a fictional company or startup.
 
 ### Protion
 
-![Screenshot of Protion](https://huffmanks.com/portfolio/images/projects/saas-dashboard.jpg)
+![Screenshot of Protion](./public/portfolio/images/projects/saas-dashboard.jpg)
 
 UI design for a SaaS dashboard with clean, modern layout.
 
@@ -100,7 +100,7 @@ UI design for a SaaS dashboard with clean, modern layout.
 
 ### Diff Tool
 
-![Screenshot of Diff Tool](https://huffmanks.com/portfolio/images/projects/diff.png)
+![Screenshot of Diff Tool](./public/portfolio/images/projects/diff.png)
 
 Simple side-by-side text comparison tool for spotting changes quickly and clearly.
 
@@ -109,7 +109,7 @@ Simple side-by-side text comparison tool for spotting changes quickly and clearl
 
 ### Listography
 
-![Screenshot of Listography](https://huffmanks.com/portfolio/images/projects/listography.png)
+![Screenshot of Listography](./public/portfolio/images/projects/listography.png)
 
 The ultimate party game where your lists spark laughter, debate and unforgettable moments.
 
@@ -118,7 +118,7 @@ The ultimate party game where your lists spark laughter, debate and unforgettabl
 
 ### Quiz App
 
-![Screenshot of Quiz App](https://huffmanks.com/portfolio/images/projects/quiz-app.png)
+![Screenshot of Quiz App](./public/portfolio/images/projects/quiz-app.png)
 
 Take a quiz with various categories and difficulties to choose from.
 
@@ -126,11 +126,36 @@ Take a quiz with various categories and difficulties to choose from.
 
 ### Weather App
 
-![Screenshot of Weather App](https://huffmanks.com/portfolio/images/projects/weather-app.png)
+![Screenshot of Weather App](./public/portfolio/images/projects/weather-app.png)
 
 Quickly check current weather by entering a city name or ZIP code.
 
 - [Demo](https://huffmanks.com/projects/apps/weather)
+
+### Palette Paste
+
+VS Code extension for inserting structured, repetitive text patterns using custom templates and sequences.
+
+- [Repo](https://github.com/huffmanks/palette-paste)
+- [Extension](https://marketplace.visualstudio.com/items?itemName=huffmanks.palette-paste-ext)
+
+### stash
+
+An interactive CLI tool to bootstrap system packages and dynamically build platform-specific zsh and git configurations.
+
+- [Repo](https://github.com/huffmanks/stash)
+
+### Ingeniux CMS Companion Extension
+
+Browser extension that adds a “View Live” link inside Ingeniux CMS, dynamically resolving the current asset or page and opening it on the correct publishing target.
+
+- [Repo](https://github.com/huffmanks/ingeniux-cms-companion-extension)
+
+### kokoro-tts-cli
+
+Simple CLI for generating speech locally with Kokoro ONNX. Supports single, multiple and blended voices with optional MP3 output.
+
+- [Repo](https://github.com/huffmanks/kokoro-tts-cli)
 
 ### Mock API
 
@@ -138,17 +163,23 @@ Mock API for serving test data like users and products.
 
 - [Repo](https://github.com/huffmanks/mock-api)
 
-### Multi-QR Code Generator
+### mlx-portrait-gen
 
-A simple Node.js tool to quickly generate multiple QR codes in bulk.
+Build and operate a local, automated AI headshot generation pipeline using structured person data.
 
-- [Repo](https://github.com/huffmanks/multi-qr-code-generator)
+- [Repo](https://github.com/huffmanks/mlx-portrait-gen)
 
-### Palette Paste
+### Obsidian Copy Note Plugin
 
-VS Code extension for inserting structured, repetitive text patterns using custom templates and sequences.
+Adds a button to the file header to copy the entire file content to the clipboard.
 
-- [Repo](https://github.com/huffmanks/palette-paste)
+- [Repo](https://github.com/huffmanks/obsidian-copy-note)
+
+### Photoshop Plugin: Auto-fit layer
+
+Instantly resizes the selected layer to match the artboard.
+
+- [Repo](https://github.com/huffmanks/photoshop-plugin-auto-fit-layer)
 
 ### Recipe Scrapy
 
@@ -161,9 +192,3 @@ Python scraper for collecting structured recipe data from websites.
 A Slack bot that alerts when tater tots are on the menu.
 
 - [Repo](https://github.com/huffmanks/slack-tot-bot)
-
-### stash
-
-An interactive CLI tool to bootstrap system packages and dynamically build platform-specific zsh and git configurations.
-
-- [Repo](https://github.com/huffmanks/stash)

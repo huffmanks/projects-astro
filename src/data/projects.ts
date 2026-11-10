@@ -1,4 +1,16 @@
-export const featuredProjects = [
+export type Project = {
+  title: string;
+  description: string;
+  imgSrc?: string;
+  repoLink?: string;
+  demoLink?: string;
+  supportsAndroid?: boolean;
+  isDocker?: boolean;
+  isDesign?: boolean;
+  isVSCode?: boolean;
+};
+
+export const featuredProjects: Array<Project> = [
   {
     title: "Pocket Player",
     description: "Android app to locally store and watch videos offline.",
@@ -7,6 +19,14 @@ export const featuredProjects = [
     demoLink: "https://github.com/huffmanks/pocket-player/releases",
     supportsAndroid: true,
   },
+  // {
+  //   title: "CastMesh",
+  //   description: "A universal casting app for sharing media between devices, regardless of platform.",
+  //   imgSrc: "/portfolio/images/projects/castmesh.jpg",
+  //   repoLink: "https://github.com/huffmanks/castmesh",
+  //   demoLink: "https://cast.huffmanks.com",
+  //   supportsAndroid: true,
+  // },
   {
     title: "Web Tools",
     description: "Development tools for the web, installable as a PWA.",
@@ -39,6 +59,39 @@ export const featuredProjects = [
     demoLink: "https://hub.docker.com/r/huffmanks/pastebox",
     isDocker: true,
   },
+  // {
+  //   title: "pivotal",
+  //   description:
+  //     "The turning point for your traffic. Adaptable routing for dynamic campaigns.",
+  //   imgSrc: "/portfolio/images/projects/pivotal.png",
+  //   repoLink: "https://github.com/huffmanks/pivotal",
+  //   demoLink: "https://hub.docker.com/r/huffmanks/pivotal",
+  //   isDocker: true,
+  // },
+  // {
+  //   title: "Solitaire Associations",
+  //   description: "A mobile puzzle game that combines classic solitaire mechanics with word and category association puzzles.",
+  //   imgSrc: "/portfolio/images/projects/solitaire-associations.jpg",
+  //   repoLink: "https://github.com/huffmanks/solitaire-associations",
+  //   demoLink: "https://github.com/huffmanks/solitaire-associations/releases",
+  //   supportsAndroid: true,
+  // },
+  // {
+  //   title: "story-workouts",
+  //   description:
+  //     "A new way to explore and follow workouts through a story-style interface.",
+  //   imgSrc: "/portfolio/images/projects/story-workouts.png",
+  //   repoLink: "https://github.com/huffmanks/story-workouts",
+  //   demoLink: "",
+  // },
+  // {
+  //   title: "macos-web",
+  //   description:
+  //     "A fun, interactive website inspired by the macOS desktop experience.",
+  //   imgSrc: "/portfolio/images/projects/macos-web.png",
+  //   repoLink: "https://github.com/huffmanks/macos-web",
+  //   demoLink: "",
+  // },
   {
     title: "Weekly Word",
     description: "Personal collection of my sermon notes and thoughts from each week.",
@@ -53,6 +106,14 @@ export const featuredProjects = [
     imgSrc: "/portfolio/images/projects/email-builder.jpg",
     demoLink: "https://email.huffmanks.com",
   },
+  // {
+  //   title: "weather-trends",
+  //   description:
+  //     "A data visualization project exploring weather patterns over time.",
+  //   imgSrc: "/portfolio/images/projects/weather-trends.jpg",
+  //   repoLink: "https://github.com/huffmanks/weather-trends",
+  //   demoLink: ""
+  // },
   {
     title: "Wofford Homepage",
     description: "Visual design concept for the Wofford College homepage.",
@@ -111,7 +172,38 @@ export const featuredProjects = [
   },
 ];
 
-export const repoProjects = [
+export const repoProjects: Array<Project> = [
+  // {
+  //   title: "Zela UI",
+  //   description:
+  //     "A modern, accessible Web Component library built on native HTML, CSS and browser APIs.",
+  //   repoLink: "https://github.com/huffmanks/zela-ui",
+  // },
+  {
+    title: "Palette Paste",
+    description:
+      "VS Code extension for inserting structured, repetitive text patterns using custom templates and sequences.",
+    repoLink: "https://github.com/huffmanks/palette-paste",
+    demoLink: "https://marketplace.visualstudio.com/items?itemName=huffmanks.palette-paste-ext",
+    isVSCode: true,
+  },
+  {
+    title: "stash",
+    description:
+      "An interactive CLI tool to bootstrap system packages and dynamically build platform-specific zsh and git configurations.",
+    repoLink: "https://github.com/huffmanks/stash",
+  },
+  {
+    title: "Ingeniux CMS Companion Extension",
+    description:
+      "Browser extension that adds a “View Live” link inside Ingeniux CMS, dynamically resolving the current asset or page and opening it on the correct publishing target.",
+    repoLink: "https://github.com/huffmanks/ingeniux-cms-companion-extension",
+  },
+  // {
+  //   title: "dynamic-site-cloudflare",
+  //   description: "A web app that serves different responses for browsers and the terminal.",
+  //   repoLink: "https://github.com/huffmanks/dynamic-site-cloudflare",
+  // },
   {
     title: "kokoro-tts-cli",
     description:
@@ -124,17 +216,21 @@ export const repoProjects = [
     repoLink: "https://github.com/huffmanks/mock-api",
   },
   {
-    title: "Multi-QR Code Generator",
-    description: "A simple Node.js tool to quickly generate multiple QR codes in bulk.",
-    repoLink: "https://github.com/huffmanks/multi-qr-code-generator",
+    title: "mlx-portrait-gen",
+    description:
+      "Build and operate a local, automated AI headshot generation pipeline using structured person data.",
+    repoLink: "https://github.com/huffmanks/mlx-portrait-gen",
   },
   {
-    title: "Palette Paste",
+    title: "Obsidian Copy Note Plugin",
     description:
-      "VS Code extension for inserting structured, repetitive text patterns using custom templates and sequences.",
-    repoLink: "https://github.com/huffmanks/palette-paste",
-    demoLink: "https://marketplace.visualstudio.com/items?itemName=huffmanks.palette-paste-ext",
-    isVSCode: true,
+      "Adds a button to the file header to copy the entire file content to the clipboard.",
+    repoLink: "https://github.com/huffmanks/obsidian-copy-note",
+  },
+  {
+    title: "Photoshop Plugin: Auto-fit layer",
+    description: "Instantly resizes the selected layer to match the artboard.",
+    repoLink: "https://github.com/huffmanks/photoshop-plugin-auto-fit-layer",
   },
   {
     title: "Recipe Scrapy",
@@ -145,11 +241,5 @@ export const repoProjects = [
     title: "Slack Tot Bot",
     description: "A Slack bot that alerts when tater tots are on the menu.",
     repoLink: "https://github.com/huffmanks/slack-tot-bot",
-  },
-  {
-    title: "stash",
-    description:
-      "An interactive CLI tool to bootstrap system packages and dynamically build platform-specific zsh and git configurations.",
-    repoLink: "https://github.com/huffmanks/stash",
   },
 ];
